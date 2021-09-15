@@ -1,0 +1,213 @@
+---
+paths:
+  "/admin/v2/products":
+    get:
+      tags:
+      - admin/v2/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+    post:
+      tags:
+      - admin/v2/product
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '200':
+          description: responses description
+          content:
+            application/json: {}
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.v2.Product"
+  "/admin/v2/products/new":
+    get:
+      tags:
+      - admin/v2/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+  "/admin/v2/products/{id}":
+    get:
+      tags:
+      - admin/v2/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/v2/product
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/v2/product description
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '200':
+          description: responses description
+          content:
+            application/json: {}
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.v2.Product"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/v2/product
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/v2/product description
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '200':
+          description: responses description
+          content:
+            application/json: {}
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.v2.Product"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/v2/product
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/v2/products/{id}/edit":
+    get:
+      tags:
+      - admin/v2/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer

@@ -1,0 +1,2 @@
+class AdminAccount < ApplicationRecord
+end

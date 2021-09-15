@@ -1,0 +1,22 @@
+---
+paths:
+  "/v2/docs":
+    get:
+      tags:
+      - grape_swagger_rails/engine
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: grape_swagger_rails/engine description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/grapeswaggerrails.Engine"
+        '422':
+          description: grape_swagger_rails/engine description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/grapeswaggerrails.Engine"
+      deprecated: false

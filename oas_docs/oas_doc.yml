@@ -1,0 +1,3039 @@
+---
+externalDocs:
+  description: ''
+  url: ''
+info:
+  title: OAS API Document Title
+  description: |-
+    This is a sample server Petstore server.  You can find out more about
+                Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net,
+                #swagger](http://swagger.io/irc/).  For this sample, you can use the api key
+                `special-key` to test the authorization filters.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: ''
+    url: ''
+  license:
+    name: ''
+    url: ''
+  version: 1.0.0
+openapi: 3.0.0
+servers:
+- url: http://localhost:3000
+  description: localhost
+tags:
+- name: admin/product
+  description: admin/product description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/payment
+  description: admin/payment description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/payment_method
+  description: admin/payment_method description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/order
+  description: admin/order description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/user
+  description: admin/user description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/user_profile
+  description: admin/user_profile description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/user_credit_card
+  description: admin/user_credit_card description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/payment_customer
+  description: admin/payment_customer description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/firebase_session
+  description: admin/firebase_session description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/session
+  description: admin/session description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/v1/graphql
+  description: admin/v1/graphql description
+  externalDocs:
+    description: description
+    url: url
+- name: admin/v2/product
+  description: admin/v2/product description
+  externalDocs:
+    description: description
+    url: url
+- name: grape_swagger_rails/engine
+  description: grape_swagger_rails/engine description
+  externalDocs:
+    description: description
+    url: url
+- name: action_mailbox/ingresses/postmark/inbound_email
+  description: action_mailbox/ingresses/postmark/inbound_email description
+  externalDocs:
+    description: description
+    url: url
+- name: action_mailbox/ingresses/relay/inbound_email
+  description: action_mailbox/ingresses/relay/inbound_email description
+  externalDocs:
+    description: description
+    url: url
+- name: action_mailbox/ingresses/sendgrid/inbound_email
+  description: action_mailbox/ingresses/sendgrid/inbound_email description
+  externalDocs:
+    description: description
+    url: url
+- name: action_mailbox/ingresses/mandrill/inbound_email
+  description: action_mailbox/ingresses/mandrill/inbound_email description
+  externalDocs:
+    description: description
+    url: url
+- name: action_mailbox/ingresses/mailgun/inbound_email
+  description: action_mailbox/ingresses/mailgun/inbound_email description
+  externalDocs:
+    description: description
+    url: url
+- name: rails/conductor/action_mailbox/inbound_email
+  description: rails/conductor/action_mailbox/inbound_email description
+  externalDocs:
+    description: description
+    url: url
+- name: rails/conductor/action_mailbox/inbound_emails/source
+  description: rails/conductor/action_mailbox/inbound_emails/source description
+  externalDocs:
+    description: description
+    url: url
+- name: rails/conductor/action_mailbox/reroute
+  description: rails/conductor/action_mailbox/reroute description
+  externalDocs:
+    description: description
+    url: url
+- name: active_storage/blobs/redirect
+  description: active_storage/blobs/redirect description
+  externalDocs:
+    description: description
+    url: url
+- name: active_storage/blobs/proxy
+  description: active_storage/blobs/proxy description
+  externalDocs:
+    description: description
+    url: url
+- name: active_storage/representations/redirect
+  description: active_storage/representations/redirect description
+  externalDocs:
+    description: description
+    url: url
+- name: active_storage/representations/proxy
+  description: active_storage/representations/proxy description
+  externalDocs:
+    description: description
+    url: url
+- name: active_storage/disk
+  description: active_storage/disk description
+  externalDocs:
+    description: description
+    url: url
+- name: active_storage/direct_upload
+  description: active_storage/direct_upload description
+  externalDocs:
+    description: description
+    url: url
+- name: grape_swagger_rails/application
+  description: grape_swagger_rails/application description
+  externalDocs:
+    description: description
+    url: url
+paths:
+  "/rails/action_mailbox/mailgun/inbound_emails/mime":
+    post:
+      tags:
+      - action_mailbox/ingresses/mailgun/inbound_email
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: action_mailbox/ingresses/mailgun/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.mailgun.InboundEmail"
+        '422':
+          description: action_mailbox/ingresses/mailgun/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.mailgun.InboundEmail"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/actionmailbox.ingresses.mailgun.InboundEmail"
+  "/rails/action_mailbox/mandrill/inbound_emails":
+    get:
+      tags:
+      - action_mailbox/ingresses/mandrill/inbound_email
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: action_mailbox/ingresses/mandrill/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.mandrill.InboundEmail"
+        '422':
+          description: action_mailbox/ingresses/mandrill/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.mandrill.InboundEmail"
+      deprecated: false
+    post:
+      tags:
+      - action_mailbox/ingresses/mandrill/inbound_email
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: action_mailbox/ingresses/mandrill/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.mandrill.InboundEmail"
+        '422':
+          description: action_mailbox/ingresses/mandrill/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.mandrill.InboundEmail"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/actionmailbox.ingresses.mandrill.InboundEmail"
+  "/rails/action_mailbox/postmark/inbound_emails":
+    post:
+      tags:
+      - action_mailbox/ingresses/postmark/inbound_email
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: action_mailbox/ingresses/postmark/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.postmark.InboundEmail"
+        '422':
+          description: action_mailbox/ingresses/postmark/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.postmark.InboundEmail"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/actionmailbox.ingresses.postmark.InboundEmail"
+  "/rails/action_mailbox/relay/inbound_emails":
+    post:
+      tags:
+      - action_mailbox/ingresses/relay/inbound_email
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: action_mailbox/ingresses/relay/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.relay.InboundEmail"
+        '422':
+          description: action_mailbox/ingresses/relay/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.relay.InboundEmail"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/actionmailbox.ingresses.relay.InboundEmail"
+  "/rails/action_mailbox/sendgrid/inbound_emails":
+    post:
+      tags:
+      - action_mailbox/ingresses/sendgrid/inbound_email
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: action_mailbox/ingresses/sendgrid/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.sendgrid.InboundEmail"
+        '422':
+          description: action_mailbox/ingresses/sendgrid/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/actionmailbox.ingresses.sendgrid.InboundEmail"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/actionmailbox.ingresses.sendgrid.InboundEmail"
+  "/rails/active_storage/blobs/proxy/{signed_id}/*filename":
+    get:
+      tags:
+      - active_storage/blobs/proxy
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: active_storage/blobs/proxy description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.blobs.Proxy"
+        '404':
+          description: active_storage/blobs/proxy description
+        '422':
+          description: active_storage/blobs/proxy description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.blobs.Proxy"
+      deprecated: false
+      parameters:
+      - name: signed_id
+        in: path
+        description: signed_id
+        required: true
+        schema:
+          type: integer
+  "/rails/active_storage/blobs/redirect/{signed_id}/*filename":
+    get:
+      tags:
+      - active_storage/blobs/redirect
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: active_storage/blobs/redirect description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.blobs.Redirect"
+        '404':
+          description: active_storage/blobs/redirect description
+        '422':
+          description: active_storage/blobs/redirect description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.blobs.Redirect"
+      deprecated: false
+      parameters:
+      - name: signed_id
+        in: path
+        description: signed_id
+        required: true
+        schema:
+          type: integer
+  "/rails/active_storage/blobs/{signed_id}/*filename":
+    get:
+      tags:
+      - active_storage/blobs/redirect
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: active_storage/blobs/redirect description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.blobs.Redirect"
+        '404':
+          description: active_storage/blobs/redirect description
+        '422':
+          description: active_storage/blobs/redirect description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.blobs.Redirect"
+      deprecated: false
+      parameters:
+      - name: signed_id
+        in: path
+        description: signed_id
+        required: true
+        schema:
+          type: integer
+  "/rails/active_storage/direct_uploads":
+    post:
+      tags:
+      - active_storage/direct_upload
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: active_storage/direct_upload description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.DirectUpload"
+        '422':
+          description: active_storage/direct_upload description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.DirectUpload"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/activestorage.DirectUpload"
+  "/rails/active_storage/disk/{encoded_key}/*filename":
+    get:
+      tags:
+      - active_storage/disk
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: active_storage/disk description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.Disk"
+        '404':
+          description: active_storage/disk description
+        '422':
+          description: active_storage/disk description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.Disk"
+      deprecated: false
+      parameters:
+      - name: encoded_key
+        in: path
+        description: encoded_key
+        required: true
+        schema:
+          type: string
+  "/rails/active_storage/disk/{encoded_token}":
+    put:
+      tags:
+      - active_storage/disk
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: active_storage/disk description
+        '404':
+          description: active_storage/disk description
+        '422':
+          description: active_storage/disk description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.Disk"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/activestorage.Disk"
+      parameters:
+      - name: encoded_token
+        in: path
+        description: encoded_token
+        required: true
+        schema:
+          type: string
+  "/rails/active_storage/representations/proxy/{signed_blob_id}/{variation_key}/*filename":
+    get:
+      tags:
+      - active_storage/representations/proxy
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: active_storage/representations/proxy description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.representations.Proxy"
+        '404':
+          description: active_storage/representations/proxy description
+        '422':
+          description: active_storage/representations/proxy description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.representations.Proxy"
+      deprecated: false
+      parameters:
+      - name: signed_blob_id
+        in: path
+        description: signed_blob_id
+        required: true
+        schema:
+          type: integer
+      - name: variation_key
+        in: path
+        description: variation_key
+        required: true
+        schema:
+          type: string
+  "/rails/active_storage/representations/redirect/{signed_blob_id}/{variation_key}/*filename":
+    get:
+      tags:
+      - active_storage/representations/redirect
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: active_storage/representations/redirect description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.representations.Redirect"
+        '404':
+          description: active_storage/representations/redirect description
+        '422':
+          description: active_storage/representations/redirect description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.representations.Redirect"
+      deprecated: false
+      parameters:
+      - name: signed_blob_id
+        in: path
+        description: signed_blob_id
+        required: true
+        schema:
+          type: integer
+      - name: variation_key
+        in: path
+        description: variation_key
+        required: true
+        schema:
+          type: string
+  "/rails/active_storage/representations/{signed_blob_id}/{variation_key}/*filename":
+    get:
+      tags:
+      - active_storage/representations/redirect
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: active_storage/representations/redirect description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.representations.Redirect"
+        '404':
+          description: active_storage/representations/redirect description
+        '422':
+          description: active_storage/representations/redirect description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/activestorage.representations.Redirect"
+      deprecated: false
+      parameters:
+      - name: signed_blob_id
+        in: path
+        description: signed_blob_id
+        required: true
+        schema:
+          type: integer
+      - name: variation_key
+        in: path
+        description: variation_key
+        required: true
+        schema:
+          type: string
+  "/admin":
+    get:
+      tags:
+      - admin/firebase_session
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/firebase_session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.FirebaseSession"
+        '422':
+          description: admin/firebase_session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.FirebaseSession"
+      deprecated: false
+  "/admin/orders":
+    get:
+      tags:
+      - admin/order
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+        '422':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+      deprecated: false
+    post:
+      tags:
+      - admin/order
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+        '422':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Order"
+  "/admin/orders/new":
+    get:
+      tags:
+      - admin/order
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+        '422':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+      deprecated: false
+  "/admin/orders/{id}":
+    get:
+      tags:
+      - admin/order
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+        '404':
+          description: admin/order description
+        '422':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/order
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/order description
+        '404':
+          description: admin/order description
+        '422':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Order"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/order
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/order description
+        '404':
+          description: admin/order description
+        '422':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Order"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/order
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+        '404':
+          description: admin/order description
+        '422':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/orders/{id}/edit":
+    get:
+      tags:
+      - admin/order
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+        '404':
+          description: admin/order description
+        '422':
+          description: admin/order description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Order"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payments":
+    get:
+      tags:
+      - admin/payment
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+    post:
+      tags:
+      - admin/payment
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Payment"
+  "/admin/payments/new":
+    get:
+      tags:
+      - admin/payment
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+  "/admin/payments/{id}":
+    get:
+      tags:
+      - admin/payment
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/payment
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/payment description
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Payment"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/payment
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/payment description
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Payment"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/payment
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payments/{id}/edit":
+    get:
+      tags:
+      - admin/payment
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payment_customers":
+    get:
+      tags:
+      - admin/payment_customer
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+    post:
+      tags:
+      - admin/payment_customer
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentCustomer"
+  "/admin/payment_customers/new":
+    get:
+      tags:
+      - admin/payment_customer
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+  "/admin/payment_customers/{id}":
+    get:
+      tags:
+      - admin/payment_customer
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/payment_customer
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/payment_customer description
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentCustomer"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/payment_customer
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/payment_customer description
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentCustomer"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/payment_customer
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payment_customers/{id}/edit":
+    get:
+      tags:
+      - admin/payment_customer
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payment_methods":
+    get:
+      tags:
+      - admin/payment_method
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+    post:
+      tags:
+      - admin/payment_method
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentMethod"
+  "/admin/payment_methods/new":
+    get:
+      tags:
+      - admin/payment_method
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+  "/admin/payment_methods/{id}":
+    get:
+      tags:
+      - admin/payment_method
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/payment_method
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/payment_method description
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentMethod"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/payment_method
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/payment_method description
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentMethod"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/payment_method
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payment_methods/{id}/edit":
+    get:
+      tags:
+      - admin/payment_method
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/products":
+    get:
+      tags:
+      - admin/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+        '422':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+      deprecated: false
+    post:
+      tags:
+      - admin/product
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+        '422':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Product"
+  "/admin/products/new":
+    get:
+      tags:
+      - admin/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+        '422':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+      deprecated: false
+  "/admin/products/{id}":
+    get:
+      tags:
+      - admin/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+        '404':
+          description: admin/product description
+        '422':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/product
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/product description
+        '404':
+          description: admin/product description
+        '422':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Product"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/product
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/product description
+        '404':
+          description: admin/product description
+        '422':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Product"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/product
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+        '404':
+          description: admin/product description
+        '422':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/products/{id}/edit":
+    get:
+      tags:
+      - admin/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+        '404':
+          description: admin/product description
+        '422':
+          description: admin/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/login":
+    post:
+      tags:
+      - admin/session
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Session"
+        '422':
+          description: admin/session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Session"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Session"
+  "/admin/logout":
+    delete:
+      tags:
+      - admin/session
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Session"
+        '422':
+          description: admin/session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Session"
+      deprecated: false
+  "/admin/users":
+    get:
+      tags:
+      - admin/user
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+    post:
+      tags:
+      - admin/user
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.User"
+  "/admin/users/new":
+    get:
+      tags:
+      - admin/user
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+  "/admin/users/{id}":
+    get:
+      tags:
+      - admin/user
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/user
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/user description
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.User"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/user
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/user description
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.User"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/user
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/users/{id}/edit":
+    get:
+      tags:
+      - admin/user
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/user_credit_cards":
+    get:
+      tags:
+      - admin/user_credit_card
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+    post:
+      tags:
+      - admin/user_credit_card
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserCreditCard"
+  "/admin/user_credit_cards/new":
+    get:
+      tags:
+      - admin/user_credit_card
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+  "/admin/user_credit_cards/{id}":
+    get:
+      tags:
+      - admin/user_credit_card
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/user_credit_card
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/user_credit_card description
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserCreditCard"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/user_credit_card
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/user_credit_card description
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserCreditCard"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/user_credit_card
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/user_credit_cards/{id}/edit":
+    get:
+      tags:
+      - admin/user_credit_card
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/user_profiles":
+    get:
+      tags:
+      - admin/user_profile
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+    post:
+      tags:
+      - admin/user_profile
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserProfile"
+  "/admin/user_profiles/new":
+    get:
+      tags:
+      - admin/user_profile
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+  "/admin/user_profiles/{id}":
+    get:
+      tags:
+      - admin/user_profile
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/user_profile
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/user_profile description
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserProfile"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/user_profile
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/user_profile description
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserProfile"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/user_profile
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/user_profiles/{id}/edit":
+    get:
+      tags:
+      - admin/user_profile
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/v1/graphql":
+    post:
+      tags:
+      - admin/v1/graphql
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/v1/graphql description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v1.Graphql"
+        '422':
+          description: admin/v1/graphql description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v1.Graphql"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.v1.Graphql"
+  "/admin/v2/products":
+    get:
+      tags:
+      - admin/v2/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+    post:
+      tags:
+      - admin/v2/product
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '200':
+          description: responses description
+          content:
+            application/json: {}
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.v2.Product"
+  "/admin/v2/products/new":
+    get:
+      tags:
+      - admin/v2/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+  "/admin/v2/products/{id}":
+    get:
+      tags:
+      - admin/v2/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/v2/product
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/v2/product description
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '200':
+          description: responses description
+          content:
+            application/json: {}
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.v2.Product"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/v2/product
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/v2/product description
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '200':
+          description: responses description
+          content:
+            application/json: {}
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.v2.Product"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/v2/product
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/v2/products/{id}/edit":
+    get:
+      tags:
+      - admin/v2/product
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: responses description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+        '404':
+          description: admin/v2/product description
+        '422':
+          description: admin/v2/product description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v2.Product"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/":
+    get:
+      tags:
+      - grape_swagger_rails/application
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: grape_swagger_rails/application description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/grapeswaggerrails.Application"
+        '422':
+          description: grape_swagger_rails/application description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/grapeswaggerrails.Application"
+      deprecated: false
+  "/v2/docs":
+    get:
+      tags:
+      - grape_swagger_rails/engine
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: grape_swagger_rails/engine description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/grapeswaggerrails.Engine"
+        '422':
+          description: grape_swagger_rails/engine description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/grapeswaggerrails.Engine"
+      deprecated: false
+  "/rails/conductor/action_mailbox/inbound_emails":
+    get:
+      tags:
+      - rails/conductor/action_mailbox/inbound_email
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+        '422':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+      deprecated: false
+    post:
+      tags:
+      - rails/conductor/action_mailbox/inbound_email
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+        '422':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/rails.conductor.actionmailbox.InboundEmail"
+  "/rails/conductor/action_mailbox/inbound_emails/new":
+    get:
+      tags:
+      - rails/conductor/action_mailbox/inbound_email
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+        '422':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+      deprecated: false
+  "/rails/conductor/action_mailbox/inbound_emails/{id}":
+    get:
+      tags:
+      - rails/conductor/action_mailbox/inbound_email
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+        '404':
+          description: rails/conductor/action_mailbox/inbound_email description
+        '422':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - rails/conductor/action_mailbox/inbound_email
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: rails/conductor/action_mailbox/inbound_email description
+        '404':
+          description: rails/conductor/action_mailbox/inbound_email description
+        '422':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/rails.conductor.actionmailbox.InboundEmail"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - rails/conductor/action_mailbox/inbound_email
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: rails/conductor/action_mailbox/inbound_email description
+        '404':
+          description: rails/conductor/action_mailbox/inbound_email description
+        '422':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/rails.conductor.actionmailbox.InboundEmail"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - rails/conductor/action_mailbox/inbound_email
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+        '404':
+          description: rails/conductor/action_mailbox/inbound_email description
+        '422':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/rails/conductor/action_mailbox/inbound_emails/{id}/edit":
+    get:
+      tags:
+      - rails/conductor/action_mailbox/inbound_email
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+        '404':
+          description: rails/conductor/action_mailbox/inbound_email description
+        '422':
+          description: rails/conductor/action_mailbox/inbound_email description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/rails/conductor/action_mailbox/inbound_emails/sources":
+    post:
+      tags:
+      - rails/conductor/action_mailbox/inbound_emails/source
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: rails/conductor/action_mailbox/inbound_emails/source description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.inboundemails.Source"
+        '422':
+          description: rails/conductor/action_mailbox/inbound_emails/source description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.inboundemails.Source"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/rails.conductor.actionmailbox.inboundemails.Source"
+  "/rails/conductor/action_mailbox/inbound_emails/sources/new":
+    get:
+      tags:
+      - rails/conductor/action_mailbox/inbound_emails/source
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: rails/conductor/action_mailbox/inbound_emails/source description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.inboundemails.Source"
+        '422':
+          description: rails/conductor/action_mailbox/inbound_emails/source description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.inboundemails.Source"
+      deprecated: false
+  "/rails/conductor/action_mailbox/{inbound_email_id}/reroute":
+    post:
+      tags:
+      - rails/conductor/action_mailbox/reroute
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: rails/conductor/action_mailbox/reroute description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.Reroute"
+        '404':
+          description: rails/conductor/action_mailbox/reroute description
+        '422':
+          description: rails/conductor/action_mailbox/reroute description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/rails.conductor.actionmailbox.Reroute"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/rails.conductor.actionmailbox.Reroute"
+      parameters:
+      - name: inbound_email_id
+        in: path
+        description: inbound_email_id
+        required: true
+        schema:
+          type: integer
+components:
+  schemas:
+    actionmailbox.ingresses.mailgun.InboundEmail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    actionmailbox.ingresses.mandrill.InboundEmail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    actionmailbox.ingresses.postmark.InboundEmail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    actionmailbox.ingresses.relay.InboundEmail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    actionmailbox.ingresses.sendgrid.InboundEmail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    activestorage.blobs.Proxy:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    activestorage.blobs.Redirect:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    activestorage.DirectUpload:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    activestorage.Disk:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    activestorage.representations.Proxy:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    activestorage.representations.Redirect:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.FirebaseSession:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.Payment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.PaymentCustomer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.PaymentMethod:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.Session:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.UserCreditCard:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.UserProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.v1.Graphql:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    admin.v2.Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    grapeswaggerrails.Application:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    grapeswaggerrails.Engine:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    rails.conductor.actionmailbox.InboundEmail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    rails.conductor.actionmailbox.inboundemails.Source:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    rails.conductor.actionmailbox.Reroute:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+  requestBodies:
+    actionmailbox.ingresses.mailgun.InboundEmail:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/actionmailbox.ingresses.mailgun.InboundEmail"
+    actionmailbox.ingresses.mandrill.InboundEmail:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/actionmailbox.ingresses.mandrill.InboundEmail"
+    actionmailbox.ingresses.postmark.InboundEmail:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/actionmailbox.ingresses.postmark.InboundEmail"
+    actionmailbox.ingresses.relay.InboundEmail:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/actionmailbox.ingresses.relay.InboundEmail"
+    actionmailbox.ingresses.sendgrid.InboundEmail:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/actionmailbox.ingresses.sendgrid.InboundEmail"
+    activestorage.DirectUpload:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/activestorage.DirectUpload"
+    activestorage.Disk:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/activestorage.Disk"
+    admin.Order:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.Order"
+    admin.Payment:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.Payment"
+    admin.PaymentCustomer:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.PaymentCustomer"
+    admin.PaymentMethod:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.PaymentMethod"
+    admin.Product:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.Product"
+    admin.Session:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.Session"
+    admin.User:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.User"
+    admin.UserCreditCard:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.UserCreditCard"
+    admin.UserProfile:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.UserProfile"
+    admin.v1.Graphql:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.v1.Graphql"
+    admin.v2.Product:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.v2.Product"
+    rails.conductor.actionmailbox.InboundEmail:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/rails.conductor.actionmailbox.InboundEmail"
+    rails.conductor.actionmailbox.inboundemails.Source:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/rails.conductor.actionmailbox.inboundemails.Source"
+    rails.conductor.actionmailbox.Reroute:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/rails.conductor.actionmailbox.Reroute"

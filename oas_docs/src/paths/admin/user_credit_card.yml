@@ -1,0 +1,201 @@
+---
+paths:
+  "/admin/user_credit_cards":
+    get:
+      tags:
+      - admin/user_credit_card
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+    post:
+      tags:
+      - admin/user_credit_card
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserCreditCard"
+  "/admin/user_credit_cards/new":
+    get:
+      tags:
+      - admin/user_credit_card
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+  "/admin/user_credit_cards/{id}":
+    get:
+      tags:
+      - admin/user_credit_card
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/user_credit_card
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/user_credit_card description
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserCreditCard"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/user_credit_card
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/user_credit_card description
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserCreditCard"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/user_credit_card
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/user_credit_cards/{id}/edit":
+    get:
+      tags:
+      - admin/user_credit_card
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+        '404':
+          description: admin/user_credit_card description
+        '422':
+          description: admin/user_credit_card description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserCreditCard"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer

@@ -1,0 +1,201 @@
+---
+paths:
+  "/admin/payment_customers":
+    get:
+      tags:
+      - admin/payment_customer
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+    post:
+      tags:
+      - admin/payment_customer
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentCustomer"
+  "/admin/payment_customers/new":
+    get:
+      tags:
+      - admin/payment_customer
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+  "/admin/payment_customers/{id}":
+    get:
+      tags:
+      - admin/payment_customer
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/payment_customer
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/payment_customer description
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentCustomer"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/payment_customer
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/payment_customer description
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentCustomer"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/payment_customer
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payment_customers/{id}/edit":
+    get:
+      tags:
+      - admin/payment_customer
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+        '404':
+          description: admin/payment_customer description
+        '422':
+          description: admin/payment_customer description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentCustomer"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer

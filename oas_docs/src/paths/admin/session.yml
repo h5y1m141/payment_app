@@ -1,0 +1,44 @@
+---
+paths:
+  "/admin/login":
+    post:
+      tags:
+      - admin/session
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Session"
+        '422':
+          description: admin/session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Session"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Session"
+  "/admin/logout":
+    delete:
+      tags:
+      - admin/session
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Session"
+        '422':
+          description: admin/session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Session"
+      deprecated: false

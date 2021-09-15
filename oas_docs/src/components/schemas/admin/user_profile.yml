@@ -1,0 +1,9 @@
+---
+components:
+  schemas:
+    admin.UserProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64

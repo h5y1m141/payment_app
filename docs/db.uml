@@ -1,0 +1,63 @@
+entity destinations {
+  * id : bigint
+  --
+  * zipcode : character varying
+  * address : character varying
+  * order_id : bigint
+  * created_at : timestamp without time zone
+  * updated_at : timestamp without time zone
+  --
+  index_destinations_on_order_id (order_id)
+}
+
+entity orders {
+  * id : bigint
+  --
+  * product_id : bigint
+  * quantity : integer
+  * amount : integer
+  * created_at : timestamp without time zone
+  * updated_at : timestamp without time zone
+  --
+  index_orders_on_product_id (product_id)
+}
+
+entity payment_methods {
+  * id : bigint
+  --
+  * name : character varying
+  * created_at : timestamp without time zone
+  * updated_at : timestamp without time zone
+}
+
+entity payments {
+  * id : bigint
+  --
+  * order_id : bigint
+  * payment_method_id : bigint
+  * amount : integer
+  * payment_type : integer
+  * code : character varying
+  * created_at : timestamp without time zone
+  * updated_at : timestamp without time zone
+  --
+  index_payments_on_order_id (order_id)
+  index_payments_on_payment_method_id (payment_method_id)
+}
+
+entity products {
+  * id : bigint
+  --
+  * name : character varying
+  * price : integer
+  * created_at : timestamp without time zone
+  * updated_at : timestamp without time zone
+}
+
+destinations }-- orders
+
+orders }-- products
+
+payments }-- orders
+
+payments }-- payment_methods

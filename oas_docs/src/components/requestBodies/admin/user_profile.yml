@@ -1,0 +1,8 @@
+---
+components:
+  requestBodies:
+    admin.UserProfile:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.UserProfile"

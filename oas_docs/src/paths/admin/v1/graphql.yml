@@ -1,0 +1,24 @@
+---
+paths:
+  "/admin/v1/graphql":
+    post:
+      tags:
+      - admin/v1/graphql
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/v1/graphql description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v1.Graphql"
+        '422':
+          description: admin/v1/graphql description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.v1.Graphql"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.v1.Graphql"
