@@ -3,14 +3,14 @@ import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBuvv2DVTNCfNMUdWSusqL4cA2VQm8GmD8",
-  authDomain: "finalchainproto.firebaseapp.com",
-  databaseURL: "https://finalchainproto.firebaseio.com",
-  projectId: "finalchainproto",
-  storageBucket: "finalchainproto.appspot.com",
-  messagingSenderId: "1095795722258",
-  appId: "1:1095795722258:web:91f25723862bf5370530cb",
-  measurementId: "G-6PGLLTGH8S"
+  apiKey: config.apiKey, 
+  authDomain: config.authDomain, 
+  databaseURL: config.databaseURL, 
+  projectId: config.projectId, 
+  storageBucket: config.storageBucket, 
+  messagingSenderId: config.messagingSenderId, 
+  appId: config.appId, 
+  measurementId: config.measurementId, 
 }
 
 firebase.initializeApp(firebaseConfig)
