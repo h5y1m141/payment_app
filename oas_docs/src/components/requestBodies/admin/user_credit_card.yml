@@ -1,0 +1,8 @@
+---
+components:
+  requestBodies:
+    admin.UserCreditCard:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.UserCreditCard"

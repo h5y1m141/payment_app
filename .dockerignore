@@ -1,0 +1,15 @@
+.dockerdev
+.env
+.bundle
+.git
+coverage
+log
+node_modules
+ops
+public/assets
+public/packs
+public/uploads
+spec
+storage
+tmp
+Makefile

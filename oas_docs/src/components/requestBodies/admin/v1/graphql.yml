@@ -1,0 +1,8 @@
+---
+components:
+  requestBodies:
+    admin.v1.Graphql:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.v1.Graphql"

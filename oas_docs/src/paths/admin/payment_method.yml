@@ -1,0 +1,201 @@
+---
+paths:
+  "/admin/payment_methods":
+    get:
+      tags:
+      - admin/payment_method
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+    post:
+      tags:
+      - admin/payment_method
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentMethod"
+  "/admin/payment_methods/new":
+    get:
+      tags:
+      - admin/payment_method
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+  "/admin/payment_methods/{id}":
+    get:
+      tags:
+      - admin/payment_method
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/payment_method
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/payment_method description
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentMethod"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/payment_method
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/payment_method description
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.PaymentMethod"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/payment_method
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payment_methods/{id}/edit":
+    get:
+      tags:
+      - admin/payment_method
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+        '404':
+          description: admin/payment_method description
+        '422':
+          description: admin/payment_method description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.PaymentMethod"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer

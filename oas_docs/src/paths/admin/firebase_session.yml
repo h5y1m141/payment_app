@@ -1,0 +1,22 @@
+---
+paths:
+  "/admin":
+    get:
+      tags:
+      - admin/firebase_session
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/firebase_session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.FirebaseSession"
+        '422':
+          description: admin/firebase_session description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.FirebaseSession"
+      deprecated: false

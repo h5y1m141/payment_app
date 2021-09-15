@@ -1,0 +1,201 @@
+---
+paths:
+  "/admin/users":
+    get:
+      tags:
+      - admin/user
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+    post:
+      tags:
+      - admin/user
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.User"
+  "/admin/users/new":
+    get:
+      tags:
+      - admin/user
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+  "/admin/users/{id}":
+    get:
+      tags:
+      - admin/user
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/user
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/user description
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.User"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/user
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/user description
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.User"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/user
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/users/{id}/edit":
+    get:
+      tags:
+      - admin/user
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+        '404':
+          description: admin/user description
+        '422':
+          description: admin/user description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.User"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer

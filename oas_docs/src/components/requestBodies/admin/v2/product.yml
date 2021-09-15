@@ -1,0 +1,8 @@
+---
+components:
+  requestBodies:
+    admin.v2.Product:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.v2.Product"
