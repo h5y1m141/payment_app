@@ -1,0 +1,81 @@
+version: '3.4'
+
+x-app: &app
+  image: payment-app-dev:1.0.0
+  build:
+    context: .
+    args:
+      RUBY_VERSION: 2.7.2
+      BUNDLER_VERSION: 2.2.6
+      POSTGRES_MAJOR: 11
+      NODE_MAJOR: 12
+      YARN_VERSION: 1.21.1
+
+services:
+  app:
+    <<: *app
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app:cached
+      - rails_cache:/app/tmp/cache
+      - bundle:/usr/local/bundle
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
+    environment:
+      DATABASE_URL: postgis://postgres:password@postgres:5432
+      REDIS_URL: redis://redis:6379/
+      BOOTSNAP_CACHE_DIR: /usr/local/bundle/_bootsnap
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      WEB_CONCURRENCY: 1
+      HISTFILE: /app/log/.bash_history
+      WEB_HOST: 'https://example.com'
+      STRIPE_SECRET_KEY: ''
+      FIREBASE_API_KEY: ''
+      COLUMNS: 200
+      LINES: 50
+      # https://github.com/DatabaseCleaner/database_cleaner#safeguards
+      DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: 'true'
+    depends_on:
+      - postgres
+      - redis
+    command: ./bin/rails server -b 0.0.0.0
+    ports:
+      - 3000:3000
+
+  webpacker:
+    <<: *app
+    command: ./bin/webpack-dev-server
+    ports:
+      - 3035:3035
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+
+  postgres:
+    image: mdillon/postgis:11-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - 15432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+
+  redis:
+    image: redis:5.0.6-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 16379:6379
+
+volumes:
+  rails_cache:
+  bundle:
+  node_modules:
+  packs:
+  postgres:
+  redis:

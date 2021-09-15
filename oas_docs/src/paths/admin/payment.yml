@@ -1,0 +1,201 @@
+---
+paths:
+  "/admin/payments":
+    get:
+      tags:
+      - admin/payment
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+    post:
+      tags:
+      - admin/payment
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Payment"
+  "/admin/payments/new":
+    get:
+      tags:
+      - admin/payment
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+  "/admin/payments/{id}":
+    get:
+      tags:
+      - admin/payment
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/payment
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/payment description
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Payment"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/payment
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/payment description
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.Payment"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/payment
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/payments/{id}/edit":
+    get:
+      tags:
+      - admin/payment
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+        '404':
+          description: admin/payment description
+        '422':
+          description: admin/payment description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.Payment"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer

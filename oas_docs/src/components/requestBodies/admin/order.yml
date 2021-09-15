@@ -1,0 +1,8 @@
+---
+components:
+  requestBodies:
+    admin.Order:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.Order"

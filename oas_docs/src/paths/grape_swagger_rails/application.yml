@@ -1,0 +1,22 @@
+---
+paths:
+  "/":
+    get:
+      tags:
+      - grape_swagger_rails/application
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: grape_swagger_rails/application description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/grapeswaggerrails.Application"
+        '422':
+          description: grape_swagger_rails/application description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/grapeswaggerrails.Application"
+      deprecated: false

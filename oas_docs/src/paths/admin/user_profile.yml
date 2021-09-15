@@ -1,0 +1,201 @@
+---
+paths:
+  "/admin/user_profiles":
+    get:
+      tags:
+      - admin/user_profile
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+    post:
+      tags:
+      - admin/user_profile
+      summary: post summary
+      description: post description
+      responses:
+        '201':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserProfile"
+  "/admin/user_profiles/new":
+    get:
+      tags:
+      - admin/user_profile
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+  "/admin/user_profiles/{id}":
+    get:
+      tags:
+      - admin/user_profile
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    patch:
+      tags:
+      - admin/user_profile
+      summary: patch summary
+      description: patch description
+      responses:
+        '204':
+          description: admin/user_profile description
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserProfile"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    put:
+      tags:
+      - admin/user_profile
+      summary: put summary
+      description: put description
+      responses:
+        '204':
+          description: admin/user_profile description
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      requestBody:
+        "$ref": "#/components/requestBodies/admin.UserProfile"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - admin/user_profile
+      summary: delete summary
+      description: delete description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+  "/admin/user_profiles/{id}/edit":
+    get:
+      tags:
+      - admin/user_profile
+      summary: get summary
+      description: get description
+      responses:
+        '200':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+        '404':
+          description: admin/user_profile description
+        '422':
+          description: admin/user_profile description
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/admin.UserProfile"
+      deprecated: false
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer

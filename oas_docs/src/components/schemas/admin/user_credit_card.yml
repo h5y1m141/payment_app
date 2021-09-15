@@ -1,0 +1,9 @@
+---
+components:
+  schemas:
+    admin.UserCreditCard:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64

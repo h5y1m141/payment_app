@@ -1,0 +1,8 @@
+---
+components:
+  requestBodies:
+    admin.Session:
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/admin.Session"

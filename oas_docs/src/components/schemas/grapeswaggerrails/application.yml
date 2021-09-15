@@ -1,0 +1,9 @@
+---
+components:
+  schemas:
+    grapeswaggerrails.Application:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
