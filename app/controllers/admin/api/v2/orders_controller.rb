@@ -11,7 +11,7 @@ module Admin
         end
 
         def create
-          @order = Operations::CreateOrder.execute(order_params)
+          @order = Operations::CreateOrder.execute(params)
 
           render :show
         end

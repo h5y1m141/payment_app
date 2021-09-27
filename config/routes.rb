@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     delete '/logout',   to: 'sessions#destroy'
   end
 
-  resources :products
+  resources :products, only: [:index]
 
   mount Api => '/'
   mount GrapeSwaggerRails::Engine => '/v2/docs'
