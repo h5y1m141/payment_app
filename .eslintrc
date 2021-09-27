@@ -1,0 +1,54 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "warnOnUnsupportedTypeScriptVersion": true
+  },
+  "extends": [
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "prettier",
+    "simple-import-sort"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts", ".jsx", ".tsx", ".json"]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "globals": {
+    "window": true
+  },
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "args": "none",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-underscore-dangle": [2, { "allow": ["__typename"] }],
+    "no-use-before-define": [0],
+    "import/prefer-default-export": [0],
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".jsx", ".tsx"]
+      }
+    ],
+    "react/jsx-props-no-spreading": [0],
+    "react/prop-types": [0]
+  }
+}
