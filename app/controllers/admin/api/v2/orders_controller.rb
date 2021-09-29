@@ -11,7 +11,7 @@ module Admin
         end
 
         def create
-          @order = Operations::CreateOrder.execute(params)
+          @order = Operations::CreateOrder.execute(order_params)
 
           render :show
         end
@@ -19,7 +19,7 @@ module Admin
         private
 
         def order_params
-          params.require(:order).permit(:user_id, :product_id, :quantity, :amount)
+          params.permit(:total_price, payment_method: [:id], cart_items: [:subTotal, :quantity, product: [:id, :name, :price]])
         end
       end
     end

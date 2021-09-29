@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import { Product } from '../../domains/product/models'
 import { ProductItem } from './ProductItem'
 
@@ -10,7 +10,6 @@ type Props = {
 export const ProductListTemplate: React.VFC<Props> = ({ products, onSelectProduct }) => {
   return (
     <>
-      <Typography variant="h2">商品を購入</Typography>
       <Grid container>
         {products.map((product) => {
           return (

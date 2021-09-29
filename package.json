@@ -35,6 +35,9 @@
     ]
   },
   "version": "0.1.0",
+  "scripts": {
+    "lint": "eslint './app/javascript/packs/**/*.{ts,tsx}' && tsc"
+  },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7",
     "eslint-config-prettier": "^8.2.0",

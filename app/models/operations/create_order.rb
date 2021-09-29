@@ -1,9 +1,30 @@
 module Operations
   class CreateOrder
     class << self
+      # NOTE：サンプルのアプリのため在庫の調整処理と決済プロバイダーの処理を同一のトランザクションで処理
+      # ただ実際の案件の場合には想定要件を踏まえてトランザクションの単位をしっかり検討する必要ある
+      # 以下の記事が参考になる
+      # https://logmi.jp/tech/articles/324990
       def execute(params)
-        payment_method_id = params[:payment_method][:id]
-        cart_items = params[:cart_items]
+        binding.pry
+        payment_intent = Stripe::PaymentIntent.create({
+          amount: params[:total_price],
+          currency: 'jpy',
+          payment_method: params[:payment_method][:id],
+          confirm: true
+        })
+        order = Order.create!({
+          user_id: User.first.id,
+          payment_intent_id: payment_intent.id,
+          total_price: params[:total_price]
+        })
+        adjust_product_stock_and_create_order_item(params[:cart_items])
+        order
+      end
+
+      private
+
+      def adjust_product_stock_and_create_order_item(cart_items)
         cart_items.each do |cart_item|
           product = Product.find(cart_item[:product][:id])
           quantity = cart_item[:quantity].to_i
@@ -18,20 +39,15 @@ module Operations
               product: product,
               stock: quantity * -1
             )
-            order = Order.create!({
-              product_id: product.id,
-              user_id: User.first.id,
+            OrderItem.create!({
+              order: order,
+              product_name: product.name,
+              product_unit_price: product.price,
               quantity: quantity,
-              amount: cart_item[:subTotal].to_i
+              sub_total: cart_item[:subTotal].to_i
             })
           end
         end
-        order = Stripe::PaymentIntent.create({
-          amount: params[:total_price],
-          currency: 'jpy',
-          payment_method: payment_method_id
-        })
-        order
       end
     end
   end

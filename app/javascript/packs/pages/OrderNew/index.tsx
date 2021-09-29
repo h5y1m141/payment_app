@@ -17,10 +17,7 @@ export const OrderNew: React.VFC = () => {
     configStripe()
   }, [])
   const onSubmit = useCallback(async (paymentMethod) => {
-    const currentSubTotals = cartItems.map((item)=> {
-      return item.subTotal
-    })    
-    const totalPrice = calcurateTotalPrice(currentSubTotals)
+    const totalPrice = calcurateTotalPrice()
     const createdOrder = await createOrder({
       totalPrice,
       cartItems,
