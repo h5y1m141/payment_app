@@ -6,7 +6,6 @@ import { OrderNew } from './pages/OrderNew'
 import { Products } from './pages/products'
 import { CartProvider } from './pages/CartProvider'
 
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -35,7 +34,9 @@ export const App: React.VFC = () => {
               justifyContent="flex-start"
               alignItems="flex-start"
             >
-              <Grid item xs={6}><Link to="/">Home</Link></Grid>
+              <Grid item xs={6}>
+                <Link to="/">Home</Link>
+              </Grid>
               <Grid item xs={6}>
                 <Link to="/sign_in">SignIn</Link>
               </Grid>

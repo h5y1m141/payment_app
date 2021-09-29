@@ -7,14 +7,20 @@ type Props = {
   products: Product[]
   onSelectProduct: (product: Product) => void
 }
-export const ProductListTemplate: React.VFC<Props> = ({ products, onSelectProduct }) => {
+export const ProductListTemplate: React.VFC<Props> = ({
+  products,
+  onSelectProduct,
+}) => {
   return (
     <>
       <Grid container>
         {products.map((product) => {
           return (
             <Grid key={product.id} item xs={4}>
-              <ProductItem product={product} onSelectProduct={onSelectProduct} />
+              <ProductItem
+                product={product}
+                onSelectProduct={onSelectProduct}
+              />
             </Grid>
           )
         })}

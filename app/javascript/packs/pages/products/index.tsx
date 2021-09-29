@@ -5,7 +5,7 @@ import { ProductTemplate } from '../../templates/ProductTemplate'
 import { CartItemsComponent } from '../../components/CartItemsComponent'
 import { LinkToOrderNew } from '../../components/CartItemsComponent/LinkToOrderNew'
 import { Typography } from '@material-ui/core'
-import { CartStateContext } from "../../pages/CartProvider"
+import { CartStateContext } from '../../pages/CartProvider'
 
 const initialProducts: Product[] = []
 const initialProduct: Product = null
@@ -35,16 +35,23 @@ export const Products: React.VFC = () => {
     fetchData()
   }, [])
 
-  if (selectedProduct !== null)  return <ProductTemplate product={selectedProduct} resetSelectedProduct={resetSelectedProduct}/>
+  if (selectedProduct !== null)
+    return (
+      <ProductTemplate
+        product={selectedProduct}
+        resetSelectedProduct={resetSelectedProduct}
+      />
+    )
 
   return (
     <>
-      <Typography variant="h3">
-        商品一覧
-      </Typography>
-      <ProductListTemplate products={products} onSelectProduct={onSelectProduct} />
+      <Typography variant="h3">商品一覧</Typography>
+      <ProductListTemplate
+        products={products}
+        onSelectProduct={onSelectProduct}
+      />
       <CartItemsComponent />
-      { isCartItems() && <LinkToOrderNew /> }
+      {isCartItems() && <LinkToOrderNew />}
     </>
   )
 }

@@ -1,8 +1,7 @@
-import React, { useContext } from "react"
-import { Box, Grid, Typography } from "@material-ui/core"
-import { CartStateContext } from "../../pages/CartProvider"
+import React, { useContext } from 'react'
+import { Box, Grid, Typography } from '@material-ui/core'
+import { CartStateContext } from '../../pages/CartProvider'
 import { calcurateTotalPrice } from '../../domains/cart/models'
-
 
 export const CartItemsComponent: React.VFC = () => {
   const [cartItems] = useContext(CartStateContext)
@@ -16,9 +15,7 @@ export const CartItemsComponent: React.VFC = () => {
       {isCartItems() && (
         <Grid container>
           <Grid item xs={12}>
-            <Typography variant="h5">
-              カートの詳細:
-            </Typography>
+            <Typography variant="h5">カートの詳細:</Typography>
             {cartItems.map((cartItem) => {
               return (
                 <div key={cartItem.product.id}>
@@ -29,9 +26,10 @@ export const CartItemsComponent: React.VFC = () => {
                     個数：{cartItem.quantity}
                   </Typography>
                   <Typography variant="h6">
-                    小計：{new Intl.NumberFormat("ja-JP", {
-                      style: "currency",
-                      currency: "JPY",
+                    小計：
+                    {new Intl.NumberFormat('ja-JP', {
+                      style: 'currency',
+                      currency: 'JPY',
                     }).format(cartItem.subTotal)}
                   </Typography>
                   <hr />
@@ -44,15 +42,15 @@ export const CartItemsComponent: React.VFC = () => {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h5">
-              合計金額: { new Intl.NumberFormat("ja-JP",
-              {
-                style: "currency",
-                currency: "JPY",
-              }).format(calcurateTotalPrice()) }
+              合計金額:{' '}
+              {new Intl.NumberFormat('ja-JP', {
+                style: 'currency',
+                currency: 'JPY',
+              }).format(calcurateTotalPrice())}
             </Typography>
           </Grid>
         </Grid>
       )}
     </>
-  );
-};
+  )
+}

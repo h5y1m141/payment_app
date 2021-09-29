@@ -1,27 +1,27 @@
-import { CartState } from "../../../pages/CartProvider";
+import { CartState } from '../../../pages/CartProvider'
 
 type CreateOrderInput = {
-  totalPrice: number;
-  cartItems: CartState[];
-  paymentMethod: any;
-};
+  totalPrice: number
+  cartItems: CartState[]
+  paymentMethod: any
+}
 export const createOrder = async ({
   totalPrice,
   cartItems,
   paymentMethod,
 }: CreateOrderInput) => {
-  const url = "http://localhost:3000/admin/api/v2/orders";
+  const url = 'http://localhost:3000/admin/api/v2/orders'
   const data = {
     total_price: totalPrice,
     cart_items: cartItems,
     payment_method: paymentMethod,
-  };
+  }
   const params = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
-  };
-  return await fetch(url, params);
-};
+  }
+  return await fetch(url, params)
+}

@@ -5,14 +5,20 @@ import { ProductItem } from './ProductItem'
 
 type Props = {
   product: Product
-  resetSelectedProduct: () => void 
+  resetSelectedProduct: () => void
 }
-export const ProductTemplate: React.VFC<Props> = ({ product, resetSelectedProduct }) => {
+export const ProductTemplate: React.VFC<Props> = ({
+  product,
+  resetSelectedProduct,
+}) => {
   return (
     <>
       <Grid container>
         <Grid key={product.name} item xs={12}>
-          <ProductItem product={product} resetSelectedProduct={resetSelectedProduct} />
+          <ProductItem
+            product={product}
+            resetSelectedProduct={resetSelectedProduct}
+          />
         </Grid>
       </Grid>
     </>
