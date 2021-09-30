@@ -1,0 +1,25 @@
+{
+  "name": "React",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/app",
+  "extensions": [
+    "graphql.vscode-graphql",
+    "dsznajder.es7-react-js-snippets",
+    "xabikos.javascriptsnippets",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "MS-CEINTL.vscode-language-pack-ja"
+  ],
+  "settings": {
+    "prettier.requireConfig": true,
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "editor.formatOnSave": true
+},
+  "shutdownAction": "stopCompose"
+}
