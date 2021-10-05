@@ -27,10 +27,10 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 
 export const OrderNew: React.VFC = () => {
+  const auth = getAuth()
   const [stripePromise, setStripePromise] = useState<Stripe | null>()
   const [cartItems] = useContext(CartStateContext)
   const [currentUID, setCurrentUID] = useState('')
-  const auth = getAuth()
 
   useEffect(() => {
     async function configStripe() {
@@ -42,7 +42,11 @@ export const OrderNew: React.VFC = () => {
     configStripe()
   }, [])
 
+  console.log(auth.currentUser?.uid)
+
   useEffect(() => {
+    console.log('auth.currentUser')
+    console.log(auth.currentUser)
     if (auth.currentUser?.uid) {
       setCurrentUID(auth.currentUser?.uid)
     }

@@ -2,14 +2,13 @@ import React, { createContext, useState } from 'react'
 import { Product } from '../domains/product/models/index'
 
 export type CartState = {
-  product: Product
+  product?: Product
   subTotal: number
   quantity: number
 }
 
-export const initialCartState = [
+export const initialCartState: CartState[] = [
   {
-    product: null,
     subTotal: 0,
     quantity: 0,
   },

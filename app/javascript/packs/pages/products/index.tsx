@@ -8,19 +8,20 @@ import { Typography } from '@material-ui/core'
 import { CartStateContext } from '../../pages/CartProvider'
 
 const initialProducts: Product[] = []
-const initialProduct: Product = null
 
 export const Products: React.VFC = () => {
   const [products, setProducts] = useState(initialProducts)
-  const [selectedProduct, setSelectedProduct] = useState(initialProduct)
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [cartItems] = useContext(CartStateContext)
 
   const onSelectProduct = (product: Product) => {
-    setSelectedProduct(product)
+    if (product) {
+      setSelectedProduct(product)
+    }
   }
 
   const resetSelectedProduct = () => {
-    setSelectedProduct(initialProduct)
+    setSelectedProduct(null)
   }
 
   const isCartItems = () => {
