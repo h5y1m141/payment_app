@@ -24,7 +24,6 @@ export const ProductItem: React.VFC<Props> = ({
         subTotal,
         quantity,
       }
-      console.log(newCartItem)
       if (!cartItems[0].product) {
         const newCartItems = [newCartItem]
         setCartItems(newCartItems)

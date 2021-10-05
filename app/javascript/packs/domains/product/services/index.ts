@@ -1,3 +1,3 @@
 export const fetchResources = async () => {
-  return await fetch('http://localhost:3000/admin/api/v2/products')
+  return await fetch(`${process.env.REACT_APP_ORIGIN}/admin/api/v2/products`)
 }
