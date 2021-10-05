@@ -6,7 +6,6 @@ module Operations
       # 以下の記事が参考になる
       # https://logmi.jp/tech/articles/324990
       def execute(params)
-        binding.pry
         payment_intent = Stripe::PaymentIntent.create({
           amount: params[:total_price],
           currency: 'jpy',

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
         post "/graphql", to: "graphql#execute"
       end
       namespace :v2, defaults: { format: :json } do
-        resources :products
-        resources :orders
+        resources :products, only: %i[index show]
+        resources :orders, only: %i[index show create]
+        resources :customers, only: %i[show create]
       end
     end
 
