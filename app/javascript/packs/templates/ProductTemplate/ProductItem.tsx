@@ -4,7 +4,7 @@ import AddIcon from '@material-ui/icons/Add'
 import MinimizeIcon from '@material-ui/icons/Minimize'
 import { Product } from '../../domains/product/models'
 import { calcurateCartItem } from '../../domains/cart/models/index'
-import { CartStateContext } from '../../pages/CartProvider'
+import { CartStateContext } from '../../components/providers/CartProvider'
 
 type Props = {
   product: Product
@@ -24,7 +24,6 @@ export const ProductItem: React.VFC<Props> = ({
         subTotal,
         quantity,
       }
-      console.log(newCartItem)
       if (!cartItems[0].product) {
         const newCartItems = [newCartItem]
         setCartItems(newCartItems)

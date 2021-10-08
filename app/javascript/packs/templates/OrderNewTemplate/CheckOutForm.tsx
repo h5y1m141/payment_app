@@ -10,8 +10,7 @@ export const CheckOutForm: React.VFC<Props> = ({ onSubmit }) => {
   const { handleSubmit } = useForm()
   const stripe = useStripe()
   const elements = useElements()
-  const onStripeFormSubmit = async (event: any) => {
-    event.preventDefault()
+  const onStripeFormSubmit = async () => {
     if (!stripe || !elements) {
       return
     }
@@ -25,7 +24,6 @@ export const CheckOutForm: React.VFC<Props> = ({ onSubmit }) => {
       if (error) {
         console.log('[error]', error)
       } else {
-        console.log('[PaymentMethod]', paymentMethod)
         onSubmit(paymentMethod)
       }
     }

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Product } from '../../product/models'
-import { CartStateContext } from '../../../pages/CartProvider'
+import { CartStateContext } from '../../../components/providers/CartProvider'
 export type CartItem = {
   product: Product
   subTotal: number

@@ -1,4 +1,4 @@
-import { CartState } from '../../../pages/CartProvider'
+import { CartState } from '../../../components/providers/CartProvider'
 
 type CreateOrderInput = {
   totalPrice: number
@@ -10,7 +10,7 @@ export const createOrder = async ({
   cartItems,
   paymentMethod,
 }: CreateOrderInput) => {
-  const url = 'http://localhost:3000/admin/api/v2/orders'
+  const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/orders`
   const data = {
     total_price: totalPrice,
     cart_items: cartItems,
@@ -23,5 +23,7 @@ export const createOrder = async ({
     },
     body: JSON.stringify(data),
   }
+  console.log('params')
+  console.log(params)
   return await fetch(url, params)
 }
