@@ -2,16 +2,15 @@ import React, { useCallback, useEffect, useState, useContext } from 'react'
 import { OrderNewTemplate } from '../../templates/OrderNewTemplate'
 import { SignInRequiredTemplate } from '../../templates/OrderNewTemplate/SignInRequiredTemplate'
 
-import { CartStateContext } from '../../pages/CartProvider'
+import { CartStateContext } from '../../components/providers/CartProvider'
+import { AuthStateContext } from '../../components/providers/AuthProvider'
 import { createOrder } from '../../domains/cart/services'
 import { calcurateTotalPrice } from '../../domains/cart/models'
 import { createCustomer, signInCustomer } from '../../domains/customer/services'
 import { CustomerSignUp } from '../../domains/customer/models'
 
-import { Stripe } from '@stripe/stripe-js'
-import { loadStripe } from '@stripe/stripe-js/pure'
-import { getAuth } from 'firebase/auth'
 import { initializeApp } from 'firebase/app'
+import { Redirect } from 'react-router-dom'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -27,46 +26,30 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 
 export const OrderNew: React.VFC = () => {
-  const auth = getAuth()
-  const [stripePromise, setStripePromise] = useState<Stripe | null>()
-  const [cartItems] = useContext(CartStateContext)
-  const [currentUID, setCurrentUID] = useState('')
-
-  useEffect(() => {
-    async function configStripe() {
-      if (process.env.REACT_APP_STRIPE_PUBLIC_KEY) {
-        const stripe = await loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
-        setStripePromise(stripe)
-      }
-    }
-    configStripe()
-  }, [])
-
-  console.log(auth.currentUser?.uid)
-
-  useEffect(() => {
-    console.log('auth.currentUser')
-    console.log(auth.currentUser)
-    if (auth.currentUser?.uid) {
-      setCurrentUID(auth.currentUser?.uid)
-    }
-  }, [auth])
+  const [cartItems, setCartItems] = useContext(CartStateContext)
+  const [currentCustomer, setCurrentCustomer] = useContext(AuthStateContext)
+  const [isOrderComplated, setIsOrderComplated] = useState(false)
+  const totalPrice = calcurateTotalPrice()
 
   const onSubmit = useCallback(async (paymentMethod) => {
-    const totalPrice = calcurateTotalPrice()
     const createdOrder = await createOrder({
       totalPrice,
       cartItems,
       paymentMethod,
     })
-    console.log(createdOrder)
+    if (createdOrder) {
+      setIsOrderComplated(true)
+      setCartItems([])
+    }
   }, [])
 
   const onCreateCustomer = async (customer: CustomerSignUp) => {
     const result = await createCustomer(customer)
 
     if (result.uid) {
-      setCurrentUID(result.uid)
+      setCurrentCustomer({
+        uid: result.uid,
+      })
     }
   }
 
@@ -74,13 +57,16 @@ export const OrderNew: React.VFC = () => {
     const result = await signInCustomer(customer)
 
     if (result.uid) {
-      setCurrentUID(result.uid)
+      setCurrentCustomer({
+        uid: result.uid,
+      })
+      console.log(currentCustomer.uid)
     }
   }
 
-  if (stripePromise === null) return <div>Loading...</div>
+  if (isOrderComplated) return <Redirect to={'/products'} />
 
-  if (!currentUID)
+  if (!currentCustomer.uid)
     return (
       <>
         <SignInRequiredTemplate
@@ -92,7 +78,7 @@ export const OrderNew: React.VFC = () => {
 
   return (
     <>
-      <OrderNewTemplate onSubmit={onSubmit} stripePromise={stripePromise} />
+      <OrderNewTemplate onSubmit={onSubmit} />
     </>
   )
 }

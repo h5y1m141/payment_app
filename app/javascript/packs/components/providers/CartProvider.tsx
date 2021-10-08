@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { Product } from '../domains/product/models/index'
+import { Product } from '../../domains/product/models/index'
 
 export type CartState = {
   product?: Product

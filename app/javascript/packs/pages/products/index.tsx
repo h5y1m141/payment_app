@@ -3,9 +3,9 @@ import { fetchProducts, Product } from '../../domains/product/models'
 import { ProductListTemplate } from '../../templates/ProductListTemplate'
 import { ProductTemplate } from '../../templates/ProductTemplate'
 import { CartItemsComponent } from '../../components/CartItemsComponent'
+import { CartStateContext } from '../../components/providers/CartProvider'
 import { LinkToOrderNew } from '../../components/CartItemsComponent/LinkToOrderNew'
 import { Typography } from '@material-ui/core'
-import { CartStateContext } from '../../pages/CartProvider'
 
 const initialProducts: Product[] = []
 
@@ -13,6 +13,12 @@ export const Products: React.VFC = () => {
   const [products, setProducts] = useState(initialProducts)
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [cartItems] = useContext(CartStateContext)
+
+  const isCartItems = () => {
+    if (cartItems.length === 0) return false
+
+    return cartItems[0].quantity !== 0
+  }
 
   const onSelectProduct = (product: Product) => {
     if (product) {
@@ -22,10 +28,6 @@ export const Products: React.VFC = () => {
 
   const resetSelectedProduct = () => {
     setSelectedProduct(null)
-  }
-
-  const isCartItems = () => {
-    return cartItems[0].product
   }
 
   useEffect(() => {
@@ -51,7 +53,7 @@ export const Products: React.VFC = () => {
         products={products}
         onSelectProduct={onSelectProduct}
       />
-      <CartItemsComponent />
+      {isCartItems() && <CartItemsComponent />}
       {isCartItems() && <LinkToOrderNew />}
     </>
   )

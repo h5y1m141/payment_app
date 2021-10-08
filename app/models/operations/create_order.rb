@@ -17,13 +17,16 @@ module Operations
           payment_intent_id: payment_intent.id,
           total_price: params[:total_price]
         })
-        adjust_product_stock_and_create_order_item(params[:cart_items])
+        adjust_product_stock_and_create_order_item(
+          cart_items: params[:cart_items], 
+          order: order
+        )
         order
       end
 
       private
 
-      def adjust_product_stock_and_create_order_item(cart_items)
+      def adjust_product_stock_and_create_order_item(cart_items:, order:)
         cart_items.each do |cart_item|
           product = Product.find(cart_item[:product][:id])
           quantity = cart_item[:quantity].to_i

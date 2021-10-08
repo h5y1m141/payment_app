@@ -24,7 +24,6 @@ export const CheckOutForm: React.VFC<Props> = ({ onSubmit }) => {
       if (error) {
         console.log('[error]', error)
       } else {
-        console.log('[PaymentMethod]', paymentMethod)
         onSubmit(paymentMethod)
       }
     }

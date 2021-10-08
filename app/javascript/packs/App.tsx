@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import green from '@material-ui/core/colors/green'
 import { OrderNew } from './pages/OrderNew'
 import { Products } from './pages/products'
-import { CartProvider } from './pages/CartProvider'
+import { CartProvider } from './components/providers/CartProvider'
+import { AuthProvider } from './components/providers/AuthProvider'
 
 const theme = createTheme({
   palette: {
@@ -48,19 +49,21 @@ export const App: React.VFC = () => {
               alignItems="flex-start"
             >
               <Grid item xs={12}>
-                <Switch>
-                  <Route path="/sign_in">
-                    <OrderNew />
-                  </Route>
-                  <CartProvider>
-                    <Route path="/products">
-                      <Products />
-                    </Route>
-                    <Route path="/orders/new">
+                <AuthProvider>
+                  <Switch>
+                    <Route path="/sign_in">
                       <OrderNew />
                     </Route>
-                  </CartProvider>
-                </Switch>
+                    <CartProvider>
+                      <Route path="/products">
+                        <Products />
+                      </Route>
+                      <Route path="/orders/new">
+                        <OrderNew />
+                      </Route>
+                    </CartProvider>
+                  </Switch>
+                </AuthProvider>
               </Grid>
             </Grid>
           </Router>
