@@ -33,6 +33,7 @@ export const OrderNew: React.VFC = () => {
 
   const onSubmit = useCallback(async (paymentMethod) => {
     const createdOrder = await createOrder({
+      uid: currentCustomer.uid,
       totalPrice,
       cartItems,
       paymentMethod,

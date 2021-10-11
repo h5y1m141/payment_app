@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  belongs_to :user
+  belongs_to :customer
 
   has_many :payments
-  scope :with_parent, -> { includes(:product, :user) }
+  scope :with_parent, -> { includes(:product, :customer) }
 end

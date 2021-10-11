@@ -12,8 +12,9 @@ module Operations
           payment_method: params[:payment_method][:id],
           confirm: true
         })
+        customer = find_or_create_customer(params[:uid])
         order = Order.create!({
-          user_id: User.first.id,
+          customer_id: customer.id,
           payment_intent_id: payment_intent.id,
           total_price: params[:total_price]
         })
@@ -25,6 +26,21 @@ module Operations
       end
 
       private
+
+      def find_or_create_customer(uid)
+        customer = Customer.find_by(uid: uid)
+        return customer if customer.present?
+
+        stripe_customer = Stripe::Customer.create({
+          metadata: {
+            payment_app_customer_uid: uid
+          }
+        })
+        Customer.create(
+          uid: uid,
+          stripe_customer_id: stripe_customer.id
+        )
+      end
 
       def adjust_product_stock_and_create_order_item(cart_items:, order:)
         cart_items.each do |cart_item|
