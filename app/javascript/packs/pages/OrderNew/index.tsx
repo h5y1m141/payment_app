@@ -1,8 +1,11 @@
-import React, { useCallback, useEffect, useState, useContext } from 'react'
+import React, { useCallback, useState, useContext } from 'react'
 import { OrderNewTemplate } from '../../templates/OrderNewTemplate'
 import { SignInRequiredTemplate } from '../../templates/OrderNewTemplate/SignInRequiredTemplate'
 
-import { CartStateContext } from '../../components/providers/CartProvider'
+import {
+  CartStateContext,
+  initialCartState,
+} from '../../components/providers/CartProvider'
 import { AuthStateContext } from '../../components/providers/AuthProvider'
 import { createOrder } from '../../domains/cart/services'
 import { calcurateTotalPrice } from '../../domains/cart/models'
@@ -40,7 +43,7 @@ export const OrderNew: React.VFC = () => {
     })
     if (createdOrder) {
       setIsOrderComplated(true)
-      setCartItems([])
+      setCartItems(initialCartState)
     }
   }, [])
 
