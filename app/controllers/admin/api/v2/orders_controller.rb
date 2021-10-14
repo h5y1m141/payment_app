@@ -19,7 +19,7 @@ module Admin
         private
 
         def order_params
-          params.permit(:total_price, payment_method: [:id], cart_items: [:subTotal, :quantity, product: [:id, :name, :price]])
+          params.permit(:uid, :total_price, payment_method: [:id, card: [:brand, :last4, :exp_month, :exp_year]], cart_items: [:subTotal, :quantity, product: [:id, :name, :price]])
         end
       end
     end

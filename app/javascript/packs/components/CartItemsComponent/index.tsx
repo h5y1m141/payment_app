@@ -1,10 +1,7 @@
 import React, { useContext } from 'react'
 import { Box, Grid, Typography } from '@material-ui/core'
 import { CartStateContext } from '../providers/CartProvider'
-import {
-  calcurateTotalPrice,
-  useCartItemsExist,
-} from '../../domains/cart/models'
+import { calcurateTotalPrice } from '../../domains/cart/models'
 
 export const CartItemsComponent: React.VFC = () => {
   const [cartItems] = useContext(CartStateContext)

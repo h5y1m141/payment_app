@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_01_042613) do
+ActiveRecord::Schema.define(version: 2021_10_11_062103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,22 @@ ActiveRecord::Schema.define(version: 2021_10_01_042613) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "customer_payment_methods", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.string "payment_method_id", null: false
+    t.integer "exp_month", null: false
+    t.integer "exp_year", null: false
+    t.string "brand", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_customer_payment_methods_on_customer_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "stripe_customer_id", default: "", null: false
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -49,12 +61,12 @@ ActiveRecord::Schema.define(version: 2021_10_01_042613) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "payment_intent_id", default: "", null: false
     t.integer "total_price", default: 0, null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "payment_customers", force: :cascade do |t|
@@ -98,17 +110,6 @@ ActiveRecord::Schema.define(version: 2021_10_01_042613) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_credit_cards", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "card_id", null: false
-    t.integer "exp_month", null: false
-    t.integer "exp_year", null: false
-    t.string "brand", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_user_credit_cards_on_user_id"
-  end
-
   create_table "user_profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "first_name", null: false
@@ -124,13 +125,12 @@ ActiveRecord::Schema.define(version: 2021_10_01_042613) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "customer_payment_methods", "customers"
   add_foreign_key "destinations", "orders"
   add_foreign_key "order_items", "orders"
-  add_foreign_key "orders", "users"
   add_foreign_key "payment_customers", "users"
   add_foreign_key "payments", "orders"
   add_foreign_key "payments", "payment_methods"
   add_foreign_key "product_stocks", "products"
-  add_foreign_key "user_credit_cards", "users"
   add_foreign_key "user_profiles", "users"
 end

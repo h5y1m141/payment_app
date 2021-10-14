@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         resources :products, only: %i[index show]
         resources :orders, only: %i[index show create]
         resources :customers, only: %i[show create]
+        resources :customer_payment_methods, only: %i[index show]
       end
     end
 

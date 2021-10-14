@@ -4,9 +4,11 @@ import { Elements } from '@stripe/react-stripe-js'
 import { CartItemsComponent } from '../../components/CartItemsComponent'
 import { CheckOutForm } from './CheckOutForm'
 import { loadStripe } from '@stripe/stripe-js/pure'
+import { CustomerPaymentMethod } from '../../domains/customer/models'
 
 type Props = {
   onSubmit: (paymentMethod: any) => void
+  customerPaymentMethods: CustomerPaymentMethod[]
 }
 
 const getStripe = () => {
@@ -15,12 +17,18 @@ const getStripe = () => {
   }
   return null
 }
-export const OrderNewTemplate: React.VFC<Props> = ({ onSubmit }) => {
+export const OrderNewTemplate: React.VFC<Props> = ({
+  onSubmit,
+  customerPaymentMethods,
+}) => {
   return (
     <>
       <CartItemsComponent />
       <Elements stripe={getStripe()}>
-        <CheckOutForm onSubmit={onSubmit} />
+        <CheckOutForm
+          onSubmit={onSubmit}
+          customerPaymentMethods={customerPaymentMethods}
+        />
       </Elements>
     </>
   )
