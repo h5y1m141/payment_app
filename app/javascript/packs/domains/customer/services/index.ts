@@ -46,3 +46,8 @@ export const createResource = async (uid: string) => {
   }
   return await fetch(url, params)
 }
+
+export const fetchPaymentMethods = async (uid: string) => {
+  const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/customer_payment_methods?uid=${uid}`
+  return await fetch(url)
+}
