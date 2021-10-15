@@ -45,13 +45,11 @@ export const CheckOutForm: React.VFC<Props> = ({
   const onStripeFormSubmit = async () => {
     if (selectedPaymentMethodId !== '') {
       onSubmit({
-        payment_method: {
-          payment_method_id: Number(selectedPaymentMethodId),
-          card: {
-            brand: '',
-            exp_month: '',
-            exp_year: '',
-          },
+        id: selectedPaymentMethodId,
+        card: {
+          brand: '',
+          exp_month: '',
+          exp_year: '',
         },
       })
     } else {

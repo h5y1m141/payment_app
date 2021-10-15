@@ -35,7 +35,7 @@ export const ProductItem: React.VFC<Props> = ({
     [quantity]
   )
   const increase = () => {
-    if (quantity < 100) {
+    if (quantity < product.currnt_stock) {
       const newNumberOfItem = quantity + 1
       setQuantity(newNumberOfItem)
     }
@@ -61,6 +61,9 @@ export const ProductItem: React.VFC<Props> = ({
           </Grid>
           <Grid item xs={3} className={classes.price}>
             <Typography variant="subtitle1">{product.name}</Typography>
+            <Typography variant="subtitle1">
+              在庫数：{product.currnt_stock}
+            </Typography>
             <Typography variant="subtitle2">
               {new Intl.NumberFormat('ja-JP', {
                 style: 'currency',
@@ -83,9 +86,12 @@ export const ProductItem: React.VFC<Props> = ({
                     addToCart(product)
                   }}
                 >
-                  カートに入れる
+                  この商品をカートに入れる
                 </Button>
               </div>
+            )}
+            {quantity > product.currnt_stock && (
+              <div>在庫数以上の注文は行なえません</div>
             )}
           </Grid>
           <Grid item xs={3}>
