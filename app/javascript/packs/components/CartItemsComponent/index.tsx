@@ -35,7 +35,7 @@ export const CartItemsComponent: React.VFC = () => {
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h5">
-            合計金額:{' '}
+            合計金額:
             {new Intl.NumberFormat('ja-JP', {
               style: 'currency',
               currency: 'JPY',
