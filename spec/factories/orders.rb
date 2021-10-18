@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :order do
-    product { nil }
-    quantity { 1 }
-    amount { 1 }
+    customer
+    payment_intent_id { 'pi_123456' }
+    total_price { 1 }
   end
 end

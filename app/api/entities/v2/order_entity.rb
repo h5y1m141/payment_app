@@ -2,10 +2,9 @@ module Entities
   module V2
     class OrderEntity < Grape::Entity
       expose :id
-      expose :product, using: Entities::V2::ProductEntity
-      expose :user, using: Entities::V2::UserEntity
-      expose :quantity
-      expose :amount
+      expose :total_price
+      expose :customer, using: Entities::V2::CustomerEntity
+      expose :payment_intent_id
     end
   end
 end
