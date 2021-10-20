@@ -30,6 +30,7 @@ export const OrderNew: React.VFC = () => {
     initialCustomerPaymentMethods
   )
   const [isOrderComplated, setIsOrderComplated] = useState(false)
+  const [isOrderUnprocess, setIsOrderUnprocess] = useState(false)
   const totalPrice = calcurateTotalPrice()
 
   useEffect(() => {
@@ -45,15 +46,20 @@ export const OrderNew: React.VFC = () => {
   }, [])
 
   const onSubmit = useCallback(async (paymentMethod) => {
+    const { uid, idToken } = currentCustomer
     const createdOrder = await createOrder({
-      uid: currentCustomer.uid,
+      uid,
+      idToken,
       totalPrice,
       cartItems,
       paymentMethod,
     })
-    if (createdOrder) {
+    console.log(createdOrder)
+    if (createdOrder.status === 200) {
       setIsOrderComplated(true)
       setCartItems(initialCartState)
+    } else {
+      setIsOrderUnprocess(true)
     }
   }, [])
 
@@ -99,6 +105,7 @@ export const OrderNew: React.VFC = () => {
       <OrderNewTemplate
         onSubmit={onSubmit}
         customerPaymentMethods={customerPaymentMethods}
+        isOrderUnprocess={isOrderUnprocess}
       />
     </>
   )

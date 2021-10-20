@@ -9,7 +9,7 @@ module Admin
         def create
           result = AuthToken.verify(customer_params[:id_token])
 
-          if result['uid'].empty?
+          if result['uid'].blank?
             render status: 401, json: { status: 401, message: 'Unauthorized' }
           else
             @customer = Customer.create(
