@@ -3,10 +3,12 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 type AuthState = {
   uid: string
+  idToken: string
 }
 
 export const initialAuthState: AuthState = {
   uid: '',
+  idToken: '',
 }
 
 export const AuthStateContext = createContext<
@@ -19,10 +21,12 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     const auth = getAuth()
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
+        const idToken = await user.getIdToken()
         setCurrentCustomer({
           uid: user.uid,
+          idToken,
         })
       }
     })

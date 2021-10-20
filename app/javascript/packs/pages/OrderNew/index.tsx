@@ -63,6 +63,7 @@ export const OrderNew: React.VFC = () => {
     if (result.uid) {
       setCurrentCustomer({
         uid: result.uid,
+        idToken: result.idToken,
       })
     }
   }
@@ -73,6 +74,7 @@ export const OrderNew: React.VFC = () => {
     if (result.uid) {
       setCurrentCustomer({
         uid: result.uid,
+        idToken: result.idToken,
       })
       console.log(currentCustomer.uid)
     }
