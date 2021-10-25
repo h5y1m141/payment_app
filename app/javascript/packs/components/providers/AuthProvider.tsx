@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useState, useEffect } from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 type AuthState = {
@@ -14,6 +14,8 @@ export const initialAuthState: AuthState = {
 export const AuthStateContext = createContext<
   [AuthState, (currentCustomer: AuthState) => void]
 >([initialAuthState, () => {}])
+
+export const useCurrentCustomer = () => useContext(AuthStateContext)
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [currentCustomer, setCurrentCustomer] =

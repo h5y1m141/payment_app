@@ -12,9 +12,7 @@ module Admin
           if result['uid'].blank?
             render status: 401, json: { status: 401, message: 'Unauthorized' }
           else
-            @customer = Customer.create(
-              uid: customer_params[:uid]
-            )
+            @customer = Customer.find_or_create_stripe_customer(customer_params[:uid])
 
             render :show
           end

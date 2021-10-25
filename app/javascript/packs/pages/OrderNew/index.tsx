@@ -1,12 +1,12 @@
-import React, { useCallback, useState, useContext, useEffect } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { OrderNewTemplate } from '../../templates/OrderNewTemplate'
 import { SignInRequiredTemplate } from '../../templates/OrderNewTemplate/SignInRequiredTemplate'
 
 import {
-  CartStateContext,
+  useCart,
   initialCartState,
 } from '../../components/providers/CartProvider'
-import { AuthStateContext } from '../../components/providers/AuthProvider'
+import { useCurrentCustomer } from '../../components/providers/AuthProvider'
 import { createOrder } from '../../domains/cart/services'
 import { fetchPaymentMethods } from '../../domains/customer/services'
 import { calcurateTotalPrice } from '../../domains/cart/models'
@@ -22,8 +22,8 @@ import { Redirect } from 'react-router-dom'
 const initialCustomerPaymentMethods: CustomerPaymentMethod[] = []
 
 export const OrderNew: React.VFC = () => {
-  const [cartItems, setCartItems] = useContext(CartStateContext)
-  const [currentCustomer, setCurrentCustomer] = useContext(AuthStateContext)
+  const [cartItems, setCartItems] = useCart()
+  const [currentCustomer, setCurrentCustomer] = useCurrentCustomer()
   const [isCustomerPaymentMethods, setIsCustomerPaymentMethods] =
     useState(false)
   const [customerPaymentMethods, setCustomerPaymentMethods] = useState(
@@ -45,23 +45,26 @@ export const OrderNew: React.VFC = () => {
     fetchData()
   }, [])
 
-  const onSubmit = useCallback(async (paymentMethod) => {
-    const { uid, idToken } = currentCustomer
-    const createdOrder = await createOrder({
-      uid,
-      idToken,
-      totalPrice,
-      cartItems,
-      paymentMethod,
-    })
-    console.log(createdOrder)
-    if (createdOrder.status === 200) {
-      setIsOrderComplated(true)
-      setCartItems(initialCartState)
-    } else {
-      setIsOrderUnprocess(true)
-    }
-  }, [])
+  const onSubmit = useCallback(
+    async (paymentMethod) => {
+      const { uid, idToken } = currentCustomer
+      const createdOrder = await createOrder({
+        uid,
+        idToken,
+        totalPrice,
+        cartItems,
+        paymentMethod,
+      })
+
+      if (createdOrder.status === 200) {
+        setIsOrderComplated(true)
+        setCartItems(initialCartState)
+      } else {
+        setIsOrderUnprocess(true)
+      }
+    },
+    [currentCustomer]
+  )
 
   const onCreateCustomer = async (customer: CustomerSignUp) => {
     const result = await createCustomer(customer)
@@ -82,7 +85,6 @@ export const OrderNew: React.VFC = () => {
         uid: result.uid,
         idToken: result.idToken,
       })
-      console.log(currentCustomer.uid)
     }
   }
 
