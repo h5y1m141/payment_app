@@ -6,6 +6,7 @@ import { OrderNew } from './pages/OrderNew'
 import { Products } from './pages/products'
 import { MyPage } from './pages/MyPage'
 import { CartProvider } from './components/providers/CartProvider'
+import { PageHeader } from './components/PageHeader'
 import { AuthProvider } from './components/providers/AuthProvider'
 import { initializeApp } from 'firebase/app'
 
@@ -42,29 +43,17 @@ export const App: React.VFC = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Box p={1}>
-          <Router>
-            <Grid
-              container
-              direction="row"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-            >
-              <Grid item xs={6}>
-                <Link to="/">Home</Link>
-              </Grid>
-              <Grid item xs={6}>
-                <Link to="/mypage">MyPage</Link>
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-            >
-              <Grid item xs={12}>
-                <AuthProvider>
+        <AuthProvider>
+          <Box p={1}>
+            <Router>
+              <PageHeader />
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+              >
+                <Grid item xs={12}>
                   <Switch>
                     <Route path="/mypage">
                       <MyPage />
@@ -78,11 +67,11 @@ export const App: React.VFC = () => {
                       </Route>
                     </CartProvider>
                   </Switch>
-                </AuthProvider>
+                </Grid>
               </Grid>
-            </Grid>
-          </Router>
-        </Box>
+            </Router>
+          </Box>
+        </AuthProvider>
       </ThemeProvider>
     </>
   )

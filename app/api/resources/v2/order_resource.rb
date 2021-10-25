@@ -22,8 +22,7 @@ module Resources
         desc 'create order'
         params do
           requires :order, type: Hash do
-            requires :user_id, type: Integer, desc: 'order id'
-            requires :product_id, type: Integer, desc: 'order id'
+            requires :customer_id, type: Integer, desc: 'customer id'
             requires :quantity, type: Integer, desc: 'order id'
             requires :amount, type: Integer, desc: 'order id'
           end

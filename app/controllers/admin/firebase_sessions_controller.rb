@@ -4,7 +4,6 @@ module Admin
     before_action :logged_in_user, only: [:destroy]
 
     include Admin::SessionsHelper
-    include Admin::FirebaseHelper
 
     def new
       redirect_to users_path if logged_in?
@@ -32,7 +31,7 @@ module Admin
     def authenticate_firebase_id_token
       authenticate_with_http_token do |token, options|
         begin
-          decoded_token = FirebaseHelper::Auth.verify_id_token(token)
+          decoded_token = AuthToken.verify(token)
         rescue => exception
           logger.error(exception)
           false

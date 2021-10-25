@@ -15,8 +15,9 @@ export const createCustomer = async (customer: CustomerSignUp) => {
   if (!userCredential) return { uid: null, status: 500 }
 
   const user = userCredential.user
-  const response = await createResource(user.uid)
-  return { uid: user.uid, status: response.status }
+  const idToken = await user.getIdToken()
+  const response = await createResource(user.uid, idToken)
+  return { uid: user.uid, idToken, status: response.status }
 }
 
 export const signInCustomer = async (customer: CustomerSignUp) => {
@@ -29,13 +30,16 @@ export const signInCustomer = async (customer: CustomerSignUp) => {
   if (!userCredential) return { uid: null, status: 500 }
 
   const user = userCredential.user
-  return { uid: user.uid, status: 200 }
+  const idToken = await user.getIdToken()
+  console.log(idToken)
+  return { uid: user.uid, idToken, status: 200 }
 }
 
-export const createResource = async (uid: string) => {
+export const createResource = async (uid: string, idToken: string) => {
   const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/customers`
   const data = {
     uid,
+    id_token: idToken,
   }
   const params = {
     method: 'POST',

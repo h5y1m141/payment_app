@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import { useForm, FormProvider, useFormContext } from 'react-hook-form'
+import { useCurrentCustomer } from '../../components/providers/AuthProvider'
 
 export const MyPage: React.VFC = () => {
   const methods = useForm()
+  const [currentCustomer, setCurrentCustomer] = useCurrentCustomer()
+
   const { register, handleSubmit, setError } = methods
   const onSubmit = (data: any) => {
     console.log(data)

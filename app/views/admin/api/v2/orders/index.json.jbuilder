@@ -2,11 +2,11 @@ json.cache! ['admin', 'api', 'v2', @orders], expires_in: 1.minutes do
   json.orders do
     json.array! @orders do |order|
       json.id order[:id]
-      json.quantity order[:quantity]
-      json.amount order[:amount]
-      json.product do
-        json.id order[:product_id]
-        json.name order.product.name
+      json.payment_intent_id order[:payment_intent_id]
+      json.total_price order[:total_price]
+      json.customer do
+        json.id order.customer.id
+        json.uid order.customer.uid
       end
     end
   end

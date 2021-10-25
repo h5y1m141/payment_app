@@ -1,6 +1,7 @@
 export type Customer = {
   id: number
   uid: string
+  idToken?: string
 }
 
 export type ResponseCustomerPaymentMethod = {

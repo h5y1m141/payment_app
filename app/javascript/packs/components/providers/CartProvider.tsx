@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { Product } from '../../domains/product/models/index'
 
 export type CartState = {
@@ -17,6 +17,8 @@ export const initialCartState: CartState[] = [
 export const CartStateContext = createContext<
   [CartState[], (cartItems: CartState[]) => void]
 >([initialCartState, () => {}])
+
+export const useCart = () => useContext(CartStateContext)
 
 export const CartProvider: React.FC = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartState[]>(initialCartState)
