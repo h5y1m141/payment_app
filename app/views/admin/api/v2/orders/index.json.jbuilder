@@ -1,4 +1,4 @@
-json.cache! ['admin', 'api', 'v2', @orders], expires_in: 1.minutes do
+json.cache! ['admin', 'api', 'v2', @orders], expires_in: 1.minute do
   json.orders do
     json.array! @orders do |order|
       json.id order[:id]

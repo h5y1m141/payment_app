@@ -1,4 +1,3 @@
-
 module Admin
   module V1
     class PaymentAppSchema < GraphQL::Schema

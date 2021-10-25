@@ -1,9 +1,7 @@
 module Transaction
   module PaidBy
     class CreditCard < Base
-      def initialize; end
-
-      def start
+      def start # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
         ActiveRecord::Base.transaction do
           payment = Payment.transaction_start!(
             order: order,
@@ -16,7 +14,7 @@ module Transaction
               payment_method_id: payment_method.id,
               amount: payment.amount,
               payment_type: Payment.payment_types[:transaction_success],
-              code: result.id,
+              code: result.id
             )
           rescue Stripe::CardError => e
             Payment.create!(
@@ -24,7 +22,7 @@ module Transaction
               payment_method_id: payment_method.id,
               amount: payment.amount,
               payment_type: Payment.payment_types[:transaction_fail],
-              code: e.error.code,
+              code: e.error.code
             )
           end
         end

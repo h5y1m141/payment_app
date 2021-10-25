@@ -1,9 +1,7 @@
 module Transaction
   module PaidBy
     class BankTransfer < Base
-      def start
-
-      end
+      def start; end
     end
   end
 end

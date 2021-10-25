@@ -1,5 +1,5 @@
 module Admin
-  class FirebaseSessionsController < ActionController::Base
+  class FirebaseSessionsController < ApplicationController
     protect_from_forgery with: :null_session
     before_action :logged_in_user, only: [:destroy]
 
@@ -10,7 +10,9 @@ module Admin
     end
 
     def create
-      if decoded_token = authenticate_firebase_id_token
+      decoded_token = authenticate_firebase_id_token
+
+      if decoded_token
         admin_account = yield(decoded_token)
         log_in(admin_account)
         flash[:success] = 'ログインしました。'
@@ -29,13 +31,12 @@ module Admin
     private
 
     def authenticate_firebase_id_token
-      authenticate_with_http_token do |token, options|
-        begin
-          decoded_token = AuthToken.verify(token)
-        rescue => exception
-          logger.error(exception)
-          false
-        end
+      authenticate_with_http_token do |token, _options|
+        decoded_token = AuthToken.verify(token)
+        decoded_token
+      rescue StandardError => e
+        logger.error(e)
+        false
       end
     end
   end

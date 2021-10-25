@@ -7,11 +7,17 @@ AllCops:
   TargetRubyVersion: 2.7
   NewCops: enable
   Exclude:
-    - 'bin/*'
-    - 'db/schema.rb'
     - 'Gemfile'
+    - 'Rakefile'
+    - 'config.ru'
+    - 'bin/*'
+    - 'config/*'
+    - 'config/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
     - 'vendor/bundle/**/*'
     - 'node_modules/**/*'
+    - 'spec/rails_helper.rb'
 
 Style/AsciiComments:
   Enabled: false
@@ -69,6 +75,9 @@ RSpec/MultipleMemoizedHelpers:
   Max: 10
 
 RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/DescribeClass:
   Enabled: false
 
 RSpec/NestedGroups:

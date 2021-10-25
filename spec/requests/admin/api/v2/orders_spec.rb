@@ -50,10 +50,9 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       create(:product_stock, product: product, stock: 100)
     end
 
-    it 'orderの生成が行える' do
+    it 'orderのtotal_priceの金額が得られる' do
       post '/admin/api/v2/orders', params: order_params, headers: { 'Content-Type': 'application/json' }
       result = JSON.parse(response.body)
-      expect(result['order']['id'].present?).to eq true
       expect(result['order']['total_price']).to eq 10_800
     end
   end

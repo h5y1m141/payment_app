@@ -10,12 +10,12 @@ module Operations
           customer = Customer.find_or_create_stripe_customer(params[:uid])
           payment_intent = CustomerPaymentMethod.create_stripe_payment_intent(customer, params)
           order = Order.create!({
-            customer_id: customer.id,
-            payment_intent_id: payment_intent.id,
-            total_price: params[:total_price]
-          })
+                                  customer_id: customer.id,
+                                  payment_intent_id: payment_intent.id,
+                                  total_price: params[:total_price]
+                                })
           adjust_product_stock_and_create_order_item(
-            cart_items: params[:cart_items], 
+            cart_items: params[:cart_items],
             order: order
           )
           order
@@ -24,7 +24,7 @@ module Operations
 
       private
 
-      def adjust_product_stock_and_create_order_item(cart_items:, order:)
+      def adjust_product_stock_and_create_order_item(cart_items:, order:) # rubocop:disable Metrics/MethodLength
         cart_items.each do |cart_item|
           product = Product.find(cart_item[:product][:id])
           quantity = cart_item[:quantity].to_i
@@ -40,12 +40,12 @@ module Operations
               stock: quantity * -1
             )
             OrderItem.create!({
-              order: order,
-              product_name: product.name,
-              product_unit_price: product.price,
-              quantity: quantity,
-              sub_total: cart_item[:subTotal].to_i
-            })
+                                order: order,
+                                product_name: product.name,
+                                product_unit_price: product.price,
+                                quantity: quantity,
+                                sub_total: cart_item[:subTotal].to_i
+                              })
           end
         end
       end

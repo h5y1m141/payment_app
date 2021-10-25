@@ -6,6 +6,7 @@ module Admin
       attr_accessor :model, :association_name, :scope
 
       def initialize(model, association_name, scope = nil)
+        super
         @model = model
         @association_name = association_name
         @scope = scope
@@ -73,4 +74,3 @@ module Admin
     end
   end
 end
-

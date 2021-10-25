@@ -11,7 +11,7 @@ module Admin
 
         def resolve(**args)
           order = Operations::CreateOrder.execute(args)
-          raise GraphQL::ExecutionError, '注文を受け付けることが出来ません' if !order
+          raise GraphQL::ExecutionError, '注文を受け付けることが出来ません' unless order
 
           { order: order }
         end

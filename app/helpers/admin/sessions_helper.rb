@@ -7,8 +7,8 @@ module Admin
 
     def log_out
       session.delete(:uid)
-      @current_user = nil
-    end 
+      @current_user = nil # rubocop:disable Rails/HelperInstanceVariable
+    end
 
     def logged_in?
       !current_user.nil?
@@ -19,9 +19,11 @@ module Admin
     end
 
     def current_user
+      # rubocop:disable Style/GuardClause
       if (uid = session[:uid])
         @current_user ||= AdminAccount.find_by(uid: uid)
       end
+      # rubocop:enable Style/GuardClause
     end
 
     def redirect_back_or(default)
@@ -32,11 +34,13 @@ module Admin
     private
 
     def logged_in_user
+      # rubocop:disable Style/GuardClause
       unless logged_in?
         store_location
         flash[:danger] = 'ログインして下さい。'
         redirect_to login_url
       end
+      # rubocop:enable Style/GuardClause
     end
   end
 end

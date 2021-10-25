@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class PaymentDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -12,10 +12,15 @@ class PaymentDashboard < Administrate::BaseDashboard
     payment_method: Field::BelongsTo,
     id: Field::Number,
     amount: Field::Number,
-    payment_type: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    payment_type: Field::Select.with_options(
+      searchable: false,
+      collection: lambda { |field|
+                    field.resource.class.send(field.attribute.to_s.pluralize).keys
+                  }
+    ),
     code: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

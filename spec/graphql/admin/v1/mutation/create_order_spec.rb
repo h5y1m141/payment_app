@@ -14,11 +14,7 @@ RSpec.describe 'Admin::V1::PaymentAppSchema mutation: createOrder', type: :graph
     ).to_h.deep_symbolize_keys
   end
 
-
   let!(:user) { create(:user) }
-  let!(:product) { create(:product, price: 10_000) }
-  let!(:product_stock) { create(:product_stock, product: product, stock: 2) }
-
   let(:mutation) do
     <<-GRAPHQL
       mutation createOrder($userId: ID!, $productId: ID!, $quantity: Int!, $amount: Int!) {
@@ -33,6 +29,11 @@ RSpec.describe 'Admin::V1::PaymentAppSchema mutation: createOrder', type: :graph
         }
       }
     GRAPHQL
+  end
+  let!(:product) { create(:product, price: 10_000) }
+
+  before do
+    create(:product_stock, product: product, stock: 2)
   end
 
   it '正常なレスポンスを返す' do

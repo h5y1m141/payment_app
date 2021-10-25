@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :admin_account do
-    uid { "MyString" }
+    uid { 'MyString' }
   end
 end

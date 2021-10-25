@@ -12,7 +12,6 @@ RSpec.describe 'Admin::V1::PaymentAppSchema query: products', type: :graphql do
   let!(:product1) { create(:product, name: '商品1', price: 10_000) }
   let!(:product2) { create(:product, name: '商品2', price: 20_000) }
 
-
   let(:query) do
     <<-GRAPHQL
       query products {
