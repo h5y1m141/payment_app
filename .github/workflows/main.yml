@@ -9,7 +9,15 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    services:
+      redis:
+        image: redis
+        # redisが起動するまで待つヘルスチェックの設定
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
@@ -24,3 +32,7 @@ jobs:
         run: bundle exec rubocop
       - name: Run RSpec
         run: bundle exec rspec
+        env:
+          REDIS_URL: redis://redis:6379/
+          REDIS_HOST: redis
+          REDIS_PORT: 6379
