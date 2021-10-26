@@ -9,7 +9,23 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      REDIS_URL: redis://redis:6379/
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      DB: postgres
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:password@localhost:5432/payment_app_test
     services:
+      postgres:
+        image: postgres:11
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: payment_app_test
+          POSTGRES_HOST_AUTH_METHOD: trust
       redis:
         image: redis
         # redisが起動するまで待つヘルスチェックの設定
@@ -18,21 +34,22 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.7.2
+
       - name: Bundle install
         run: |
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
       - name: Rubocop
         run: bundle exec rubocop
+      - name: db migrate
+        run: |
+          bundle exec rails db:migrate
       - name: Run RSpec
         run: bundle exec rspec
-        env:
-          REDIS_URL: redis://redis:6379/
-          REDIS_HOST: redis
-          REDIS_PORT: 6379
