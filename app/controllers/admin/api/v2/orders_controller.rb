@@ -21,8 +21,21 @@ module Admin
         private
 
         def order_params
-          params.permit(:uid, :total_price, payment_method: [:id, { card: %i[brand last4 exp_month exp_year] }],
-                                            cart_items: [:subTotal, :quantity, { product: %i[id name price] }])
+          params.permit(
+            :uid,
+            :total_price,
+            payment_method: [
+              :id,
+              { card: %i[brand last4 exp_month exp_year] }
+            ],
+            cart_items: [
+              :subTotal,
+              :quantity,
+              {
+                product: %i[id name price]
+              }
+            ]
+          )
         end
 
         def verify_token

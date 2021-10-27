@@ -5,20 +5,22 @@ module Operations
       # ただ実際の案件の場合には想定要件を踏まえてトランザクションの単位をしっかり検討する必要ある
       # 以下の記事が参考になる
       # https://logmi.jp/tech/articles/324990
-      def execute(params)
+      def execute(params) # rubocop:disable Metrics/MethodLength
         ActiveRecord::Base.transaction do
           customer = Customer.find_or_create_stripe_customer(params[:uid])
           payment_intent = CustomerPaymentMethod.create_stripe_payment_intent(customer, params)
-          order = Order.create!({
-                                  customer_id: customer.id,
-                                  payment_intent_id: payment_intent.id,
-                                  total_price: params[:total_price]
-                                })
-          adjust_product_stock_and_create_order_item(
+          order = Order.create!(
+            {
+              customer_id: customer.id,
+              payment_intent_id: payment_intent.id,
+              total_price: params[:total_price]
+            }
+          )
+          result = adjust_product_stock_and_create_order_item(
             cart_items: params[:cart_items],
             order: order
           )
-          order
+          result ? order : result
         end
       end
 
@@ -39,13 +41,15 @@ module Operations
               product: product,
               stock: quantity * -1
             )
-            OrderItem.create!({
-                                order: order,
-                                product_name: product.name,
-                                product_unit_price: product.price,
-                                quantity: quantity,
-                                sub_total: cart_item[:subTotal].to_i
-                              })
+            OrderItem.create!(
+              {
+                order: order,
+                product_name: product.name,
+                product_unit_price: product.price,
+                quantity: quantity,
+                sub_total: cart_item[:subTotal].to_i
+              }
+            )
           end
         end
       end
