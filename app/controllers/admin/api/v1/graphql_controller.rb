@@ -1,7 +1,7 @@
 module Admin
   module Api
     module V1
-      class GraphqlController < ActionController::Base
+      class GraphqlController < ApplicationController
         protect_from_forgery with: :null_session
 
         def execute
@@ -12,17 +12,19 @@ module Admin
             # Query context goes here, for example:
             # current_user: current_user,
           }
-          result = Admin::V1::PaymentAppSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+          result = Admin::V1::PaymentAppSchema.execute(query, variables: variables, context: context,
+                                                              operation_name: operation_name)
           render json: result
         rescue StandardError => e
           raise e unless Rails.env.development?
+
           handle_error_in_development(e)
         end
 
         private
 
         # Handle variables in form data, JSON body, or a blank value
-        def prepare_variables(variables_param)
+        def prepare_variables(variables_param) # rubocop:disable Metrics/MethodLength
           case variables_param
           when String
             if variables_param.present?
@@ -40,15 +42,24 @@ module Admin
             raise ArgumentError, "Unexpected parameter: #{variables_param}"
           end
         end
-      
-        def handle_error_in_development(e)
-          logger.error e.message
-          logger.error e.backtrace.join("\n")
-      
-          render json: { errors: [{ message: e.message, backtrace: e.backtrace }], data: {} }, status: 500
+
+        def handle_error_in_development(error)
+          logger.error error.message
+          logger.error error.backtrace.join("\n")
+
+          render json:
+          {
+            errors: [
+              {
+                message: error.message,
+                backtrace: error.backtrace
+              }
+            ],
+            data: {}
+          },
+                 status: :internal_server_error
         end
       end
     end
   end
 end
-

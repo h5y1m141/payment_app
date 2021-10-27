@@ -3,6 +3,6 @@ FactoryBot.define do
     order { nil }
     payment_method { nil }
     payment_type { 1 }
-    code { "MyString" }
+    code { 'MyString' }
   end
 end

@@ -4,7 +4,7 @@ module Admin
       class CustomerPaymentMethodsController < ApplicationController
         def index
           return [] if params[:uid].blank?
-          
+
           customer = Customer.find_by(uid: params[:uid])
           return [] if customer.blank?
 

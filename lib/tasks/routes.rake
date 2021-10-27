@@ -1,4 +1,4 @@
-desc "API Routes with Grape"
+desc 'API Routes with Grape'
 task swagger_routes: :environment do
   Api.routes.each do |api|
     # rake routesと似たような表示フォーマットにしたいのでljustを利用

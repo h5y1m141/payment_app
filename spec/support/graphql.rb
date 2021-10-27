@@ -5,13 +5,13 @@ module GraphQLHelpers
       obj.set_request! ActionDispatch::Request.new({})
     end
     # Content-Typeを設定しないとMutationのvariablesの処理が期待通りにならないケースあるため必要
-    @headers = { "Content-Type" => "application/json" }
+    @headers = { 'Content-Type' => 'application/json' }
   end
 
   def execute_graphql(query, **kwargs)
     Admin::V1::PaymentAppSchema.execute(
       query,
-      { context: { controller: controller } }.merge(kwargs),
+      { context: { controller: controller } }.merge(kwargs)
     )
   end
 end

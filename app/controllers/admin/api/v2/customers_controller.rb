@@ -10,7 +10,7 @@ module Admin
           result = AuthToken.verify(customer_params[:id_token])
 
           if result['uid'].blank?
-            render status: 401, json: { status: 401, message: 'Unauthorized' }
+            render status: :unauthorized, json: { status: 401, message: 'Unauthorized' }
           else
             @customer = Customer.find_or_create_stripe_customer(customer_params[:uid])
 

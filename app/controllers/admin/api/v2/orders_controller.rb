@@ -21,15 +21,29 @@ module Admin
         private
 
         def order_params
-          params.permit(:uid, :total_price, payment_method: [:id, card: [:brand, :last4, :exp_month, :exp_year]], cart_items: [:subTotal, :quantity, product: [:id, :name, :price]])
+          params.permit(
+            :uid,
+            :total_price,
+            payment_method: [
+              :id,
+              { card: %i[brand last4 exp_month exp_year] }
+            ],
+            cart_items: [
+              :subTotal,
+              :quantity,
+              {
+                product: %i[id name price]
+              }
+            ]
+          )
         end
 
         def verify_token
           if params[:id_token].blank?
-            render status: 400, json: { status: 400, message: 'Bad request' }
+            render status: :bad_request, json: { status: 400, message: 'Bad request' }
           else
             result = AuthToken.verify(params[:id_token])
-            render status: 401, json: { status: 401, message: 'Unauthorized' } if result['uid'].empty?
+            render status: :unauthorized, json: { status: 401, message: 'Unauthorized' } if result['uid'].empty?
           end
         end
       end
