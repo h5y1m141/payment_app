@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Box, ThemeProvider, createTheme } from '@material-ui/core'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import green from '@material-ui/core/colors/green'
 import { OrderNew } from './pages/OrderNew'
 import { Products } from './pages/products'
