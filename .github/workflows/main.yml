@@ -53,3 +53,7 @@ jobs:
           bundle exec rails db:migrate
       - name: Run RSpec
         run: bundle exec rspec
+      - name: install Yarn
+        run: yarn install
+      - name: Run ESLint
+        run: yarn lint

@@ -11,6 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <React.StrictMode>
       <App />
     </React.StrictMode>,
-    document.body.appendChild(document.createElement('div')),
+    document.body.appendChild(document.createElement('div'))
   )
 })
