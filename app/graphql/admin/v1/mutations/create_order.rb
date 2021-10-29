@@ -2,10 +2,11 @@ module Admin
   module V1
     module Mutations
       class CreateOrder < Mutations::BaseMutation
-        argument :user_id, ID, required: true
-        argument :product_id, ID, required: true
-        argument :quantity, Int, required: true
-        argument :amount, Int, required: true
+        argument :id_token, String, required: true
+        argument :uid, String, required: true
+        argument :total_price, Int, required: true
+        argument :cart_items, [Inputs::CartItemInputType], required: true
+        argument :payment_method, Inputs::PaymentMethodInputType, required: true
 
         field :order, Types::OrderType, null: false
 
