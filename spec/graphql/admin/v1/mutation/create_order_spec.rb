@@ -34,13 +34,6 @@ RSpec.describe 'Admin::V1::PaymentAppSchema mutation: createOrder', type: :graph
   end
 
   let(:product) { create(:product, price: 1000) }
-  let(:customer) { create(:customer) }
-  before do
-    create(:product_stock, product: product, stock: 2)
-    striple_intent_spy = spy(Stripe::PaymentIntent)
-    allow(Stripe::PaymentIntent).to receive(:create).and_return(striple_intent_spy)
-  end
-
   let(:mutation) do
     <<-GRAPHQL
       mutation createOrder(
@@ -58,10 +51,15 @@ RSpec.describe 'Admin::V1::PaymentAppSchema mutation: createOrder', type: :graph
       }
     GRAPHQL
   end
-  let!(:product) { create(:product, price: 10_000) }
+  let(:customer) { create(:customer) }
 
   before do
     create(:product_stock, product: product, stock: 2)
+    striple_payment_response = instance_double(
+      'PaymentIntentResponse',
+      { id: 'payment_intent_id' }
+    )
+    allow(Stripe::PaymentIntent).to receive(:create).and_return(striple_payment_response)
   end
 
   it '正常なレスポンスを返す' do
