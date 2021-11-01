@@ -13,13 +13,8 @@ Rails.application.routes.draw do
     end
 
     resources :products
-    resources :payments
-    resources :payment_methods
     resources :orders
-    resources :users
-    resources :user_profiles
-    resources :user_credit_cards
-    resources :payment_customers
+    resources :customers
 
     get    '/',    to: 'firebase_sessions#new'
     post   '/login',    to: 'sessions#create'

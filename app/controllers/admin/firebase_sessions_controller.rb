@@ -10,7 +10,7 @@ module Admin
     end
 
     def create
-      decoded_token = authenticate_firebase_id_token
+      decoded_token = AuthToken.verify(params[:id_token])
 
       if decoded_token
         admin_account = yield(decoded_token)
@@ -26,18 +26,6 @@ module Admin
     def destroy
       log_out if logged_in?
       redirect_to login_url
-    end
-
-    private
-
-    def authenticate_firebase_id_token
-      authenticate_with_http_token do |token, _options|
-        decoded_token = AuthToken.verify(token)
-        decoded_token
-      rescue StandardError => e
-        logger.error(e)
-        false
-      end
     end
   end
 end

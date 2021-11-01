@@ -1,67 +1,55 @@
 import { initializeApp } from 'firebase/app'
-import { EmailAuthProvider, getAuth } from 'firebase/auth'
+import {
+  EmailAuthProvider,
+  getAuth,
+  signInWithEmailAndPassword,
+} from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: config.apiKey,
-  authDomain: config.authDomain,
-  databaseURL: config.databaseURL,
-  projectId: config.projectId,
-  storageBucket: config.storageBucket,
-  messagingSenderId: config.messagingSenderId,
-  appId: config.appId,
-  measurementId: config.measurementId,
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 }
 
 initializeApp(firebaseConfig)
 
-const getCookie = (name) => {
-  const value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)')
-  return value ? value[2] : null
-}
-
-const firebaseLogin = () => {
+const firebaseLogin = async (email, password) => {
   const auth = getAuth()
-  const ui = new firebaseui.auth.AuthUI(auth)
-  // const uiConfig = {
-  //   callbacks: {
-  //     signInSuccessWithAuthResult: (authResult, redirectUrl) => {
-  //       authResult.user
-  //         .getIdToken(true)
-  //         .then((idToken) => {
-  //           const csrfToken = getCookie('csrfToken')
-  //           railsLogin(idToken, csrfToken)
-  //         })
-  //         .catch((error) => {
-  //           console.log(`Firebase getIdToken failed!: ${error.message}`)
-  //         })
-  //       return false
-  //     },
-  //     uiShown: () => {
-  //       document.getElementById('loader').style.display = 'none'
-  //     },
-  //   },
-  //   signInFlow: 'redirect',
-  //   signInOptions: [EmailAuthProvider.PROVIDER_ID],
-  // }
-  // ui.start('#firebaseui-auth-container', uiConfig)
+  const userCredential = await signInWithEmailAndPassword(auth, email, password)
+  const res = await railsLogin(userCredential)
+  console.log(res)
 }
 
-const railsLogin = async (idToken, csrfToken) => {
-  const url = '/admin/login'
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${idToken}`,
-      'X-CSRF-TOKEN': csrfToken,
-    },
-  })
-  if (response) {
-    const result = response.json
-    console.log(result)
+const railsLogin = async (userCredential) => {
+  if (userCredential) {
+    const user = userCredential.user
+    const idToken = await user.getIdToken()
+    const url = '/admin/login'
+    const data = {
+      id_token: idToken,
+    }
+    const params = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }
+    const response = await fetch(url, params)
+    if (response) {
+      document.location.href = '/admin/products'
+    }
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('start firebase')
-  firebaseLogin()
+document.getElementById('loggedInButton').addEventListener('click', () => {
+  const inputs = document.getElementById('loginForm').elements
+  const email = inputs['email'].value
+  const password = inputs['password'].value
+  firebaseLogin(email, password)
 })

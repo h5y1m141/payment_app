@@ -8,12 +8,9 @@ class OrderDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    product: Field::BelongsTo,
-    user: Field::BelongsTo,
-    payments: Field::HasMany,
     id: Field::Number,
-    quantity: Field::Number,
-    amount: Field::Number,
+    customer: Field::BelongsTo,
+    total_price: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -24,21 +21,16 @@ class OrderDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    product
-    user
-    payments
     id
+    total_price
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    product
-    user
-    payments
     id
-    quantity
-    amount
+    total_price
+    customer
     created_at
     updated_at
   ].freeze
@@ -47,11 +39,9 @@ class OrderDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    product
-    user
-    payments
-    quantity
-    amount
+    id
+    total_price
+    customer
   ].freeze
 
   # COLLECTION_FILTERS
