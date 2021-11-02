@@ -16,10 +16,6 @@ module Admin
           argument :id, ID, required: true
         end
 
-        field :user_orders, UserOrderType, null: true do
-          argument :id, ID, required: true
-        end
-
         field :orders, [OrderType], null: false
 
         def products

@@ -1,7 +1,11 @@
 <h3>
   home
 </h3>
-<div id="firebaseui-auth-container"></div>
+  <form id="loginForm" name="login_form">
+    <input type="text" name="email">
+    <input type="password" name="password">
+    <button id="loggedInButton" type="button">ログイン</button>
+  </form>
 
 
 <%= javascript_pack_tag 'admin/firebase_sessions/new' %>
