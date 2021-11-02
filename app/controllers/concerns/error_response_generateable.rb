@@ -41,4 +41,11 @@ module ErrorResponseGenerateable
     }
     render json: error_response, status: :internal_server_error
   end
+
+  def verify_token
+    render_bad_request('ID Tokenが設定されていません') if params[:id_token].blank?
+
+    result = AuthToken.verify(params[:id_token])
+    render_unauthorized if result['uid'].empty?
+  end
 end
