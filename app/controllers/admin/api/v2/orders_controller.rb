@@ -37,15 +37,6 @@ module Admin
             ]
           )
         end
-
-        def verify_token
-          if params[:id_token].blank?
-            render status: :bad_request, json: { status: 400, message: 'Bad request' }
-          else
-            result = AuthToken.verify(params[:id_token])
-            render status: :unauthorized, json: { status: 401, message: 'Unauthorized' } if result['uid'].empty?
-          end
-        end
       end
     end
   end
