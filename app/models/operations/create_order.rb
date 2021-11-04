@@ -30,7 +30,7 @@ module Operations
         cart_items.each do |cart_item|
           product = Product.find(cart_item[:product][:id])
           quantity = cart_item[:quantity].to_i
-          return false if quantity > product.currnt_stock
+          return false if quantity > product.current_stock
 
           # ProductStockへのINSERTが重複して行われるとファントムリードが発生
           # それぞれで参照しないID同士を参照しあう可能性あり、結果デッドロックになる可能性ある

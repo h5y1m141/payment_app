@@ -4,7 +4,7 @@ export type Product = {
   id: number
   name: string
   price: number
-  currnt_stock: number
+  current_stock: number
 }
 
 type ResponseProduct = {

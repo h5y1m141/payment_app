@@ -31,7 +31,6 @@ export const signInCustomer = async (customer: CustomerSignUp) => {
 
   const user = userCredential.user
   const idToken = await user.getIdToken()
-  console.log(idToken)
   return { uid: user.uid, idToken, status: 200 }
 }
 

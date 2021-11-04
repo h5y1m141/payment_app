@@ -3,7 +3,7 @@ module Admin
     module V2
       class ProductsController < ApplicationController
         def index
-          @products = Product.all
+          @products = Product.includes(:product_stock).all
         end
 
         def show

@@ -28,7 +28,7 @@ export const ProductItem: React.VFC<Props> = ({ product, onSelectProduct }) => {
             />
           </Grid>
           <Grid item xs={9}>
-            {product.currnt_stock < 50 && (
+            {product.current_stock < 50 && (
               <Tooltip title="在庫が残りわずかです">
                 <WarningIcon />
               </Tooltip>

@@ -5,7 +5,7 @@ module Admin
         before_action :verify_token, only: %i[index show create]
 
         def index
-          @orders = Order.with_parent.all
+          @orders = @current_customer.orders
         end
 
         def show
