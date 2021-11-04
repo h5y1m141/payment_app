@@ -9,7 +9,7 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
     let(:headers) do
       {
         'Content-Type': 'application/json',
-        'Authorization': "Bearer #{customer.uid}"
+        Authorization: "Bearer #{customer.uid}"
       }
     end
 
@@ -88,7 +88,7 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
   context 'id_tokenに何も設定されていないリクエストの場合' do
     let(:headers) do
       {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       }
     end
 
@@ -156,7 +156,7 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
     let(:headers) do
       {
         'Content-Type': 'application/json',
-        'Authorization': "Bearer #{customer.uid}"
+        Authorization: "Bearer #{customer.uid}"
       }
     end
 
