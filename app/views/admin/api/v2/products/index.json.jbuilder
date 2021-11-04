@@ -3,6 +3,6 @@ json.products do
     json.id product[:id]
     json.name product[:name]
     json.price product.price
-    json.currnt_stock product.currnt_stock
+    json.current_stock product.current_stock
   end
 end
