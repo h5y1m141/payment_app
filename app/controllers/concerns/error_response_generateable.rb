@@ -43,9 +43,15 @@ module ErrorResponseGenerateable
   end
 
   def verify_token
-    render_bad_request('ID Tokenが設定されていません') if params[:id_token].blank?
+    authenticate_or_request_with_http_token do |token, _options|
+      render_bad_request('ID Tokenが設定されていません') if token.blank?
 
-    result = AuthToken.verify(params[:id_token])
-    render_unauthorized if result['uid'].empty?
+      result = AuthToken.verify(token)
+      if result['uid'].empty?
+        render_unauthorized
+      else
+        @current_customer = Customer.find_by(uid: result['uid'])
+      end
+    end
   end
 end

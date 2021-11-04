@@ -3,6 +3,7 @@ import { Grid, Box, ThemeProvider, createTheme } from '@material-ui/core'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import green from '@material-ui/core/colors/green'
 import { OrderNew } from './pages/OrderNew'
+import { OrderList } from './pages/OrderList'
 import { Products } from './pages/products'
 import { MyPage } from './pages/MyPage'
 import { CartProvider } from './components/providers/CartProvider'
@@ -64,6 +65,9 @@ export const App: React.VFC = () => {
                       </Route>
                       <Route path="/orders/new">
                         <OrderNew />
+                      </Route>
+                      <Route path="/orders">
+                        <OrderList />
                       </Route>
                     </CartProvider>
                   </Switch>
