@@ -9,6 +9,7 @@ class OrderDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    order_items: Field::HasMany,
     customer: Field::BelongsTo,
     total_price: Field::Number,
     created_at: Field::DateTime,
@@ -23,6 +24,7 @@ class OrderDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     total_price
+    customer
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -31,6 +33,7 @@ class OrderDashboard < Administrate::BaseDashboard
     id
     total_price
     customer
+    order_items
     created_at
     updated_at
   ].freeze

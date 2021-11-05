@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     end
 
     resources :products
-    resources :orders
-    resources :customers
+    resources :orders, only: %i[index show]
+    resources :order_items, only: %i[index show]
+    resources :customers, only: %i[index show]
 
     get    '/',    to: 'firebase_sessions#new'
     post   '/login',    to: 'sessions#create'

@@ -1,20 +1,20 @@
-const { environment } = require("@rails/webpacker");
+const { environment } = require('@rails/webpacker')
 
-const webpack = require("webpack");
-const dotenv = require("dotenv");
+const webpack = require('webpack')
+const dotenv = require('dotenv')
 
 const dotenvFiles = [
   `.env.${process.env.NODE_ENV}.local`,
-  ".env.local",
+  '.env.local',
   `.env.${process.env.NODE_ENV}`,
-  ".env",
-];
+  '.env',
+]
 dotenvFiles.forEach((dotenvFile) => {
-  dotenv.config({ path: dotenvFile, silent: true });
-});
+  dotenv.config({ path: dotenvFile, silent: true })
+})
 
 environment.plugins.prepend(
-  "Environment",
+  'Environment',
   new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(process.env)))
-);
-module.exports = environment;
+)
+module.exports = environment

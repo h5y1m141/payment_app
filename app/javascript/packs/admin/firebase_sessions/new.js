@@ -16,6 +16,7 @@ const firebaseConfig = {
   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 }
 
+
 initializeApp(firebaseConfig)
 
 const firebaseLogin = async (email, password) => {
