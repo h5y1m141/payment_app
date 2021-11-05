@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_062103) do
+ActiveRecord::Schema.define(version: 2021_11_05_062321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,9 @@ ActiveRecord::Schema.define(version: 2021_10_11_062103) do
     t.string "payment_intent_id", default: "", null: false
     t.integer "total_price", default: 0, null: false
     t.bigint "customer_id"
+    t.bigint "shipping_address_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["shipping_address_id"], name: "index_orders_on_shipping_address_id"
   end
 
   create_table "payment_customers", force: :cascade do |t|
@@ -95,6 +97,12 @@ ActiveRecord::Schema.define(version: 2021_10_11_062103) do
     t.index ["payment_method_id"], name: "index_payments_on_payment_method_id"
   end
 
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "product_stocks", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.integer "stock", default: 0, null: false
@@ -108,6 +116,25 @@ ActiveRecord::Schema.define(version: 2021_10_11_062103) do
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.string "zipcode", null: false
+    t.bigint "prefecture_id", null: false
+    t.string "address", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_shipping_addresses_on_customer_id"
+    t.index ["prefecture_id"], name: "index_shipping_addresses_on_prefecture_id"
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_shippings_on_order_id"
   end
 
   create_table "user_profiles", force: :cascade do |t|
@@ -128,9 +155,13 @@ ActiveRecord::Schema.define(version: 2021_10_11_062103) do
   add_foreign_key "customer_payment_methods", "customers"
   add_foreign_key "destinations", "orders"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "shipping_addresses"
   add_foreign_key "payment_customers", "users"
   add_foreign_key "payments", "orders"
   add_foreign_key "payments", "payment_methods"
   add_foreign_key "product_stocks", "products"
+  add_foreign_key "shipping_addresses", "customers"
+  add_foreign_key "shipping_addresses", "prefectures"
+  add_foreign_key "shippings", "orders"
   add_foreign_key "user_profiles", "users"
 end

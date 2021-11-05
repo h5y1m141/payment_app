@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
   has_many :customer_payment_methods, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_many :shipping_addresses, dependent: :destroy
 
   class << self
     def find_or_create_stripe_customer(uid)
