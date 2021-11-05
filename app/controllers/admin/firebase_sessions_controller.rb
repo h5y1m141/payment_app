@@ -1,5 +1,5 @@
 module Admin
-  class FirebaseSessionsController < ActionController::Base
+  class FirebaseSessionsController < ApplicationController
     protect_from_forgery with: :null_session
     before_action :logged_in_user, only: [:destroy]
 
