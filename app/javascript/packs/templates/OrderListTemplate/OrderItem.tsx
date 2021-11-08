@@ -24,7 +24,7 @@ export const OrderItem: React.VFC<Props> = ({ order }) => {
           {order.orderItems.length > 0 &&
             order.orderItems.map((orderItem) => {
               return (
-                <>
+                <div key={orderItem.productName}>
                   <Grid item xs={12}>
                     <Typography variant="h6">
                       {orderItem.productName}
@@ -38,7 +38,7 @@ export const OrderItem: React.VFC<Props> = ({ order }) => {
                   <Grid item xs={12}>
                     <Typography variant="h6">{orderItem.quantity}</Typography>
                   </Grid>
-                </>
+                </div>
               )
             })}
         </Grid>

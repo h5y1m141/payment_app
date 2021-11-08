@@ -17,7 +17,6 @@ export const createOrder = async ({
   const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/orders`
   const data = {
     uid,
-    id_token: idToken,
     total_price: totalPrice,
     cart_items: cartItems,
     payment_method: paymentMethod,
@@ -26,6 +25,7 @@ export const createOrder = async ({
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${idToken}`,
     },
     body: JSON.stringify(data),
   }
