@@ -5,4 +5,5 @@ class Order < ApplicationRecord
 
   scope :with_parent, -> { includes(:customer) }
   scope :sorted, -> { order('created_at DESC') }
+  scope :action_required, -> { joins(:shippings).where(shippings: { status: Shipping.statuses[:shipping_request] }) }
 end
