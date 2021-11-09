@@ -63,11 +63,11 @@ export const App: React.VFC = () => {
                       <Route path="/products">
                         <Products />
                       </Route>
-                      <Route path="/orders/new">
-                        <OrderNew />
-                      </Route>
-                      <Route path="/orders">
+                      <Route exact path="/orders">
                         <OrderList />
+                      </Route>
+                      <Route exact path="/orders/new">
+                        <OrderNew />
                       </Route>
                     </CartProvider>
                   </Switch>

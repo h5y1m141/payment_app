@@ -1,7 +1,16 @@
 <h3>
   home
 </h3>
-  <form id="loginForm" name="login_form">
+  <form id="loginForm" name="login_form"
+    data-api-key="<%= @config[:api_key] %>"
+    data-auth-domain="<%= @config[:auth_domain] %>"
+    data-database-url="<%= @config[:database_url] %>"
+    data-project-id="<%= @config[:project_id] %>"
+    data-storage-bucket="<%= @config[:storage_bucket] %>"
+    data-messaging-sender-id="<%= @config[:messaging_sender_id] %>"
+    data-app-id="<%= @config[:app_id] %>"
+    data-measurement-id="<%= @config[:measurement_id] %>"
+  >
     <div>
       <input type="text" name="email"  size="60">
     </div>
@@ -10,6 +19,5 @@
     </div>
     <button id="loggedInButton" type="button">ログイン</button>
   </form>
-
 
 <%= javascript_pack_tag 'admin/firebase_sessions/new' %>
