@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resources :orders, only: %i[index show]
     resources :order_items, only: %i[index show]
     resources :customers, only: %i[index show]
-    resources :request_shippings, only: %i[index show new create]
+    resources :request_shippings, only: %i[index create]
+    resources :in_ready_shippings, only: %i[index create]
+    resources :complete_shippings, only: %i[index]
     resources :shipping_addresses, only: %i[index show]
 
     get    '/',    to: 'firebase_sessions#new'
