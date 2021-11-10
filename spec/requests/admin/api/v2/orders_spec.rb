@@ -18,6 +18,7 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       striple_intent_spy = spy(Stripe::PaymentIntent) # rubocop:disable RSpec/VerifiedDoubles
       allow(Stripe::PaymentIntent).to receive(:create).and_return(striple_intent_spy)
       allow(AuthToken).to receive(:verify).and_return({ uid: customer.uid }.deep_stringify_keys)
+      create(:shipping, order: order1)
     end
 
     describe 'GET /admin/api/v2/orders' do
