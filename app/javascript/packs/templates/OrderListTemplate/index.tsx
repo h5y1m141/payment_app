@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Divider } from '@material-ui/core'
 import { Order } from '../../domains/order/models'
 import { OrderItem } from './OrderItem'
 
@@ -12,9 +12,14 @@ export const OrderListTemplate: React.VFC<Props> = ({ orders }) => {
       <Grid container>
         {orders.map((order) => {
           return (
-            <Grid key={order.id} item xs={4}>
-              <OrderItem order={order} />
-            </Grid>
+            <div key={order.id}>
+              <Grid item xs={12}>
+                <OrderItem order={order} />
+              </Grid>
+              <Grid item xs={12}>
+                <Divider />
+              </Grid>
+            </div>
           )
         })}
       </Grid>
