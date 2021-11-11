@@ -4,6 +4,7 @@ export type Order = {
   id: number
   totalPrice: number
   orderItems: OrderItem[]
+  status: 'ShippingRequest' | 'ShippingInReady' | 'ShippingComplete'
 }
 
 type OrderItem = {
