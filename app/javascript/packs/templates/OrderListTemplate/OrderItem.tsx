@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography, Grid } from '@material-ui/core'
+import { Box, Typography, Grid, Divider } from '@material-ui/core'
 import { Order } from '../../domains/order/models'
 
 type Props = {
@@ -53,6 +53,9 @@ export const OrderItem: React.VFC<Props> = ({ order }) => {
                 </Grid>
               )
             })}
+          <Grid item xs={12}>
+            <Divider />
+          </Grid>
         </Grid>
       </Box>
     </>
