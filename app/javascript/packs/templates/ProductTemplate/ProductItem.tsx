@@ -31,6 +31,8 @@ export const ProductItem: React.VFC<Props> = ({
         const newCartItems = cartItems.concat([newCartItem])
         setCartItems(newCartItems)
       }
+
+      resetSelectedProduct()
     },
     [quantity]
   )
