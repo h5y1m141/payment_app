@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       namespace :v2, defaults: { format: :json } do
         resources :products, only: %i[index show]
         resources :orders, only: %i[index show create]
+        resources :cancellation_orders, only: %i[create]
         resources :customers, only: %i[show create]
         resources :customer_payment_methods, only: %i[index show]
       end

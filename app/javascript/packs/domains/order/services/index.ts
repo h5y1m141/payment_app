@@ -1,5 +1,3 @@
-import { Order } from '../models'
-
 export const fetchResources = async (idToken: string) => {
   const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/orders`
   return await fetch(url, {
@@ -11,11 +9,11 @@ export const fetchResources = async (idToken: string) => {
 
 export const createCancellationRequestResources = async (
   idToken: string,
-  order: Order
+  orderId: number
 ) => {
   const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/cancellation_orders`
   const data = {
-    order,
+    order_id: orderId,
   }
   const params = {
     method: 'POST',

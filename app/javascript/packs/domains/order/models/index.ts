@@ -17,6 +17,12 @@ type OrderResponse = {
   orders: Order[]
 }
 
+type CancellationOrderResponse = {
+  shipping: {
+    id: number
+  }
+}
+
 export const fetchOrders = async (idToken: string) => {
   const response = await fetchResources(idToken)
   const result: OrderResponse = await response.json()
@@ -25,9 +31,9 @@ export const fetchOrders = async (idToken: string) => {
 
 export const createCancellationRequest = async (
   idToken: string,
-  order: Order
+  orderId: number
 ) => {
-  const response = await createCancellationRequestResources(idToken, order)
-  const result: OrderResponse = await response.json()
-  return result.orders
+  const response = await createCancellationRequestResources(idToken, orderId)
+  const result: CancellationOrderResponse = await response.json()
+  return result.shipping
 }
