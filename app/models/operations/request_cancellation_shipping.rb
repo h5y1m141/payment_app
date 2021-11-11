@@ -9,7 +9,7 @@ module Operations
         Shipping.create(
           order: order,
           status: Shipping.statuses[:cancellation_request]
-        )        
+        )
       end
     end
   end
