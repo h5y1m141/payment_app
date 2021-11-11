@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { Grid, Box, Button } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Grid, Box, Button, makeStyles } from '@material-ui/core'
+import { Link, useLocation } from 'react-router-dom'
 import { useCurrentCustomer } from '../../components/providers/AuthProvider'
 import { getAuth } from 'firebase/auth'
 
 export const PageHeader: React.VFC = () => {
+  const classes = useStyles({})
   const [currentCustomer, setCurrentCustomer] = useCurrentCustomer()
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+  const location = useLocation()
 
   const onClickSignOut = useCallback(async () => {
     const auth = getAuth()
@@ -43,9 +45,12 @@ export const PageHeader: React.VFC = () => {
             <Box p={1} />
           </Grid>
           <Grid item>
-            <Link to="/orders">
+            <Link
+              className={classes.link}
+              to={location.pathname === '/orders' ? '/products' : '/orders'}
+            >
               <Button variant="contained" color="primary">
-                注文を確認する
+                {location.pathname === '/orders' ? '商品一覧' : '注文一覧'}
               </Button>
             </Link>
           </Grid>
@@ -54,3 +59,8 @@ export const PageHeader: React.VFC = () => {
     </>
   )
 }
+const useStyles = makeStyles(() => ({
+  link: {
+    textDecoration: 'none',
+  },
+}))
