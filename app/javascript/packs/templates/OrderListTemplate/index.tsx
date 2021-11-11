@@ -1,12 +1,16 @@
 import React from 'react'
-import { Grid, Divider } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import { Order } from '../../domains/order/models'
 import { OrderItem } from './OrderItem'
 
 type Props = {
   orders: Order[]
+  onCancellationRequest: (order: Order) => void
 }
-export const OrderListTemplate: React.VFC<Props> = ({ orders }) => {
+export const OrderListTemplate: React.VFC<Props> = ({
+  orders,
+  onCancellationRequest,
+}) => {
   return (
     <>
       <Grid container>
@@ -14,10 +18,11 @@ export const OrderListTemplate: React.VFC<Props> = ({ orders }) => {
           return (
             <div key={order.id}>
               <Grid item xs={12}>
-                <OrderItem order={order} />
-              </Grid>
-              <Grid item xs={12}>
-                <Divider />
+                <OrderItem
+                  key={order.id}
+                  order={order}
+                  onCancellationRequest={onCancellationRequest}
+                />
               </Grid>
             </div>
           )

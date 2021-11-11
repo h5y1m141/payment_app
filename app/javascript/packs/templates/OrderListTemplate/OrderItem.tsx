@@ -1,11 +1,15 @@
 import React from 'react'
-import { Box, Typography, Grid } from '@material-ui/core'
+import { Box, Typography, Grid, Divider, Button } from '@material-ui/core'
 import { Order } from '../../domains/order/models'
 
 type Props = {
   order: Order
+  onCancellationRequest: (order: Order) => void
 }
-export const OrderItem: React.VFC<Props> = ({ order }) => {
+export const OrderItem: React.VFC<Props> = ({
+  order,
+  onCancellationRequest,
+}) => {
   const orderStatus =
     order.status === 'ShippingRequest'
       ? '注文受付'
@@ -32,10 +36,10 @@ export const OrderItem: React.VFC<Props> = ({ order }) => {
             </Typography>
           </Grid>
           {order.orderItems.length > 0 &&
-            order.orderItems.map((orderItem) => {
+            order.orderItems.map((orderItem, index) => {
               return (
                 <Grid
-                  key={orderItem.productName}
+                  key={`${orderItem.productName}-${index}`}
                   container
                   justifyContent="flex-start"
                   alignItems="center"
@@ -53,6 +57,21 @@ export const OrderItem: React.VFC<Props> = ({ order }) => {
                 </Grid>
               )
             })}
+          <Grid item xs={12}>
+            <Button
+              onClick={() => onCancellationRequest(order)}
+              variant="contained"
+              color="secondary"
+              disabled={order.status !== 'ShippingRequest'}
+            >
+              注文をキャンセル
+            </Button>
+          </Grid>
+          <Grid item xs={12}>
+            <Box p={3}>
+              <Divider />
+            </Box>
+          </Grid>
         </Grid>
       </Box>
     </>
