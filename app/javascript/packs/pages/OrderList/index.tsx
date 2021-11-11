@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Order, fetchOrders } from '../../domains/order/models'
+import React, { useEffect, useState, useCallback } from 'react'
+import {
+  Order,
+  fetchOrders,
+  createCancellationRequest,
+} from '../../domains/order/models'
 import { useCurrentCustomer } from '../../components/providers/AuthProvider'
 
 import { OrderListTemplate } from '../../templates/OrderListTemplate'
@@ -17,7 +21,17 @@ export const OrderList: React.VFC = () => {
     fetchData()
   }, [])
 
+  const onCancellationRequest = useCallback(async (order: Order) => {
+    const result = await createCancellationRequest(idToken, order)
+    console.log(result)
+  }, [])
+
   if (orders.length === 0) return <>Loading...</>
 
-  return <OrderListTemplate orders={orders} />
+  return (
+    <OrderListTemplate
+      orders={orders}
+      onCancellationRequest={onCancellationRequest}
+    />
+  )
 }

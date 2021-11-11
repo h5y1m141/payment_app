@@ -5,16 +5,26 @@ import { OrderItem } from './OrderItem'
 
 type Props = {
   orders: Order[]
+  onCancellationRequest: (order: Order) => void
 }
-export const OrderListTemplate: React.VFC<Props> = ({ orders }) => {
+export const OrderListTemplate: React.VFC<Props> = ({
+  orders,
+  onCancellationRequest,
+}) => {
   return (
     <>
       <Grid container>
         {orders.map((order) => {
           return (
-            <Grid item xs={12}>
-              <OrderItem key={order.id} order={order} />
-            </Grid>
+            <div key={order.id}>
+              <Grid item xs={12}>
+                <OrderItem
+                  key={order.id}
+                  order={order}
+                  onCancellationRequest={onCancellationRequest}
+                />
+              </Grid>
+            </div>
           )
         })}
       </Grid>

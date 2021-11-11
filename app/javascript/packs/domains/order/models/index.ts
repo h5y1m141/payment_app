@@ -1,4 +1,4 @@
-import { fetchResources } from '../services'
+import { fetchResources, createCancellationRequestResources } from '../services'
 
 export type Order = {
   id: number
@@ -19,6 +19,15 @@ type OrderResponse = {
 
 export const fetchOrders = async (idToken: string) => {
   const response = await fetchResources(idToken)
+  const result: OrderResponse = await response.json()
+  return result.orders
+}
+
+export const createCancellationRequest = async (
+  idToken: string,
+  order: Order
+) => {
+  const response = await createCancellationRequestResources(idToken, order)
   const result: OrderResponse = await response.json()
   return result.orders
 }
