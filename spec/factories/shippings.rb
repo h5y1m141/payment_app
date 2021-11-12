@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :shipping do
-    order { nil }
+    order
     status { 1 }
 
     trait :shipping_request do
@@ -11,8 +11,16 @@ FactoryBot.define do
       status { 2 }
     end
 
-    trait :shipping_complete do
+    trait :cancellation_request do
       status { 3 }
+    end
+
+    trait :cancellation_complete do
+      status { 4 }
+    end
+
+    trait :shipping_complete do
+      status { 5 }
     end
   end
 end
