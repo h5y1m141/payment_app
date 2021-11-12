@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Operations::CreateOrder, type: :model do
+RSpec.describe CreateOrderAndAdjustProductStock, type: :model do
   describe '.execute' do
     let(:customer) { create(:customer) }
     let(:product) { create(:product, price: 1000) }

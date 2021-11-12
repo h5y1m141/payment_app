@@ -5,7 +5,7 @@ module Admin
         before_action :verify_token, only: %i[create]
 
         def create
-          shipping = Operations::RequestCancellationShipping.execute(params[:order_id])
+          shipping = RequestCancellationShipping.execute(params[:order_id])
 
           if shipping
             render json: { shipping: { id: shipping.id } }, status: :created
