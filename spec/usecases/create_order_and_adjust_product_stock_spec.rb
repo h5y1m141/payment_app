@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Operations::CreateOrder, type: :model do
+RSpec.describe CreateOrderAndAdjustProductStock, type: :model do
   describe '.execute' do
     let(:customer) { create(:customer) }
     let(:product) { create(:product, price: 1000) }
@@ -79,74 +79,6 @@ RSpec.describe Operations::CreateOrder, type: :model do
 
       it 'falseが返る' do
         expect(response).to eq false
-      end
-    end
-
-    context '2人が同時に既存の在庫数の範囲内で注文を実施した場合', use_truncation: true do
-      let(:params1) do
-        {
-          uid: customer.uid,
-          total_price: 2000,
-          payment_method: {
-            id: 'payment_method_id'
-          },
-          cart_items: [
-            {
-              subTotal: 2000,
-              quantity: 1,
-              product: {
-                id: product.id,
-                name: product.name,
-                price: product.price
-              }
-            }
-          ]
-        }
-      end
-      let(:params2) do
-        {
-          uid: another_customer.uid,
-          total_price: 2000,
-          payment_method: {
-            id: 'payment_method_id',
-            card: {
-              brand: 'visa',
-              exp_month: 1,
-              exp_year: 2028,
-              last4: 4242
-            }
-
-          },
-          cart_items: [
-            {
-              subTotal: 2000,
-              quantity: 1,
-              product: {
-                id: product.id,
-                name: product.name,
-                price: product.price
-              }
-            }
-          ]
-        }
-      end
-      let(:another_customer) { create(:customer) }
-
-      it '在庫の履歴に関するデーターが2件登録される' do
-        expect do
-          threads = []
-          threads << Thread.new do
-            ActiveRecord::Base.connection_pool.with_connection do
-              described_class.execute(params1)
-            end
-          end
-          threads << Thread.new do
-            ActiveRecord::Base.connection_pool.with_connection do
-              described_class.execute(params2)
-            end
-          end
-          threads.each(&:join)
-        end.to change(ProductStock, :count).by(2)
       end
     end
 

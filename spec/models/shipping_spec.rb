@@ -15,7 +15,7 @@ RSpec.describe Shipping, type: :model do
       end
     end
 
-    context '注文受け付けが2件、受注対応完了が1件存在する場合' do
+    context '注文受け付けが2件、受注対応完了が1件存在する場合', use_truncation: false do
       before do
         order1 = create(:order, total_price: 10_000)
         order2 = create(:order, total_price: 20_000)
@@ -33,7 +33,7 @@ RSpec.describe Shipping, type: :model do
   describe '.in_ready_list' do
     subject { described_class.in_ready_list.count }
 
-    context '受注対応完了だけが存在する場合' do
+    context '受注対応完了だけが存在する場合', use_truncation: false do
       before do
         order = create(:order, total_price: 1000)
         create(:shipping, :shipping_in_ready, order: order)
@@ -44,7 +44,7 @@ RSpec.describe Shipping, type: :model do
       end
     end
 
-    context '受注対応完了が2件、出荷済が1件存在する場合' do
+    context '受注対応完了が2件、出荷済が1件存在する場合', use_truncation: false do
       before do
         order1 = create(:order, total_price: 10_000)
         order2 = create(:order, total_price: 20_000)

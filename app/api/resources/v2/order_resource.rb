@@ -28,7 +28,7 @@ module Resources
           end
         end
         post do
-          @order = Operations::CreateOrder.execute(permitted_params[:order])
+          @order = CreateOrderAndAdjuctStock.execute(permitted_params[:order])
           present @order, with: Entities::V2::OrderEntity
         end
       end

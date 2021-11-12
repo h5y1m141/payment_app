@@ -4,10 +4,16 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  # 複数スレッドでの同時アクセス時の動作確認のテストケースを書きたいため以下参考に設定
-  # https://qiita.com/takeyuweb/items/e7261e9274b3b31d933c
   config.before(:each, use_truncation: true) do
     DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before do
     DatabaseCleaner.start
   end
 

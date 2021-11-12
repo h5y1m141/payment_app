@@ -13,7 +13,7 @@ module Admin
         end
 
         def create
-          @order = Operations::CreateOrder.execute(order_params)
+          @order = CreateOrderAndAdjustProductStock.execute(order_params)
 
           render :show
         end
