@@ -41,7 +41,7 @@ RSpec.describe CreateOrderAndAdjustProductStock, type: :model do
         }
       end
 
-      it '在庫の履歴に関するデーターが2件登録される' do
+      it '在庫の履歴に関するデーターが1件登録される' do
         expect { response }.to change(ProductStock, :count).by(1)
       end
     end

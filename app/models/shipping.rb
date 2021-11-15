@@ -15,6 +15,7 @@ class Shipping < ApplicationRecord
       .select { |key, value| key if value == status }
       .keys
   }
+
   scope :request_list, lambda {
     status = Shipping.statuses[:shipping_request]
     where(order_id: target_order_ids(status), status: status)
@@ -22,6 +23,11 @@ class Shipping < ApplicationRecord
 
   scope :in_ready_list, lambda {
     status = Shipping.statuses[:shipping_in_ready]
+    where(order_id: target_order_ids(status), status: status)
+  }
+
+  scope :cancellation_request_list, lambda {
+    status = Shipping.statuses[:cancellation_request]
     where(order_id: target_order_ids(status), status: status)
   }
 

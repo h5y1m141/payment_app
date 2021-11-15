@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :customers, only: %i[index show]
     resources :request_shippings, only: %i[index create]
     resources :in_ready_shippings, only: %i[index create]
+    resources :cancellation_shippings, only: %i[index create]
     resources :complete_shippings, only: %i[index]
     resources :shipping_addresses, only: %i[index show]
 

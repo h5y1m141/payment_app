@@ -1,0 +1,25 @@
+<section class="main-content__body main-content__body--flush">
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>注文合計金額</th>
+      <th>注文日</th>
+      <th>操作</th>
+    </thead>
+    <tbody>
+      <% @shippings.each do |shipping| %>
+        <tr>
+          <td><%= shipping.id %></td>
+          <td><%= number_to_currency(shipping.order.total_price, unit: "￥", precision: 0) %></td>
+          <td><%= I18n.l(shipping.created_at, format: :long) %></td>
+          <td>
+          <%= form_with url: admin_cancellation_shippings_path do |f| %>
+              <%= f.hidden_field :order_id, { value:shipping.order_id } %>
+              <%= f.submit '注文のキャンセルを確定する' %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
