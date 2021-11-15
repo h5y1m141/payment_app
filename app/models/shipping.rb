@@ -31,7 +31,6 @@ class Shipping < ApplicationRecord
     where(order_id: target_order_ids(status), status: status)
   }
 
-
   scope :complete_list, lambda {
     status = Shipping.statuses[:shipping_complete]
     where(order_id: target_order_ids(status), status: status)
