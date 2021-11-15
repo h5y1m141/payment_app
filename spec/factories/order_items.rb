@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :order_item do
-    order { nil }
+    order
     product_name { 'MyString' }
     product_unit_price { 1 }
     quantity { 1 }
