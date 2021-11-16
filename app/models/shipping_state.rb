@@ -35,7 +35,6 @@ class ShippingState < ApplicationRecord
       transitions from: :shipping_in_ready, to: :cancellation_complete
     end
 
-
     event :cancel_complete do
       transitions from: :cancellation_request, to: :cancellation_complete
     end
@@ -44,7 +43,6 @@ class ShippingState < ApplicationRecord
   private
 
   def insert_shipping_record
-    puts "changing from #{aasm.from_state} to #{aasm.to_state} (event: #{aasm.current_event})"
     Shipping.create(
       order_id: order_id,
       status: Shipping.statuses[aasm.from_state]
