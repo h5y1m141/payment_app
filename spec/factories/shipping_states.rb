@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :shipping_state do
-    status { 1 }
+    aasm_state { 1 }
   end
 end

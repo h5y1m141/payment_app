@@ -14,6 +14,7 @@ RSpec.describe 'Admin::Api::V2::CancellationOrders', type: :request do
 
     before do
       allow(AuthToken).to receive(:verify).and_return({ uid: customer.uid }.deep_stringify_keys)
+      create(:shipping_state, order: order1)
     end
 
     describe 'POST /admin/api/v2/cancellation_orders' do

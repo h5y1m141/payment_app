@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_063503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "admin_accounts", force: :cascade do |t|
     t.string "uid"
@@ -143,14 +142,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_063503) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_shippings_on_order_id"
-  end
-
-  create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
-    t.string "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string "srtext", limit: 2048
-    t.string "proj4text", limit: 2048
-    t.check_constraint "(srid > 0) AND (srid <= 998999)", name: "spatial_ref_sys_srid_check"
   end
 
   create_table "user_profiles", force: :cascade do |t|
