@@ -1,7 +1,7 @@
 module Admin
   class CompleteShippingsController < Admin::ApplicationController
     def index
-      @shippings = Shipping.complete_list
+      @shippings = ShippingState.shipping_complete
     end
   end
 end
