@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_062321) do
+ActiveRecord::Schema.define(version: 2021_11_15_063503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,12 +129,28 @@ ActiveRecord::Schema.define(version: 2021_11_05_062321) do
     t.index ["prefecture_id"], name: "index_shipping_addresses_on_prefecture_id"
   end
 
+  create_table "shipping_states", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.integer "aasm_state", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_shipping_states_on_order_id"
+  end
+
   create_table "shippings", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.integer "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_shippings_on_order_id"
+  end
+
+  create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
+    t.string "auth_name", limit: 256
+    t.integer "auth_srid"
+    t.string "srtext", limit: 2048
+    t.string "proj4text", limit: 2048
+    t.check_constraint "(srid > 0) AND (srid <= 998999)", name: "spatial_ref_sys_srid_check"
   end
 
   create_table "user_profiles", force: :cascade do |t|
@@ -162,6 +178,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_062321) do
   add_foreign_key "product_stocks", "products"
   add_foreign_key "shipping_addresses", "customers"
   add_foreign_key "shipping_addresses", "prefectures"
+  add_foreign_key "shipping_states", "orders"
   add_foreign_key "shippings", "orders"
   add_foreign_key "user_profiles", "users"
 end
