@@ -1,7 +1,7 @@
 module Admin
   class CancellationShippingsController < Admin::ApplicationController
     def index
-      @shippings = Shipping.cancellation_request_list
+      @shippings = ShippingState.cancellation_request
     end
 
     def create
