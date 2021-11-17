@@ -1,5 +1,6 @@
 class ShippingState < ApplicationRecord
   belongs_to :order
+  has_many :shippings
 
   include AASM
   enum aasm_state: {
@@ -44,7 +45,7 @@ class ShippingState < ApplicationRecord
 
   def insert_shipping_record
     Shipping.create(
-      order_id: order_id,
+      shipping_state: self,
       status: Shipping.statuses[aasm.from_state]
     )
   end

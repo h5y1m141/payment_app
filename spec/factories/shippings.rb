@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :shipping do
-    order
+    shipping_state
     status { 1 }
 
     trait :shipping_request do

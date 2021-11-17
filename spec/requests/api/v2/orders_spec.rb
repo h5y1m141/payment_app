@@ -5,7 +5,7 @@ RSpec.describe 'Api::V2::Orders', type: :request do
   let!(:order1) { create(:order, customer: customer) }
 
   before do
-    create(:shipping, order: order1)
+    create(:shipping_state, order: order1)
   end
 
   describe 'GET /api/v2/orders' do
