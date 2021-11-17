@@ -8,12 +8,14 @@ RSpec.describe FixCancellationShipping, type: :model do
 
     before do
       create(:product_stock, product: product, stock: 2)
-      create(:order_item, order_id: order.id, product_name: product.name, product_unit_price: product.price,
+      create(:order_item, order_id: order.id,
+                          product_name: product.name,
+                          product_unit_price: product.price,
                           quantity: 1)
       shipping_state = create(:shipping_state, order: order)
-      shipping_state.ship_ready!
-      striple_intent_spy = spy(Stripe::PaymentIntent) # rubocop:disable RSpec/VerifiedDoubles
-      allow(Stripe::PaymentIntent).to receive(:create).and_return(striple_intent_spy)
+      shipping_state.cancellation_request!
+      striple_intent_spy = spy(Stripe::Refund) # rubocop:disable RSpec/VerifiedDoubles
+      allow(Stripe::Refund).to receive(:create).and_return(striple_intent_spy)
     end
 
     context '既存の在庫数の範囲内で注文を受け付けた場合' do

@@ -5,10 +5,15 @@ class FixCancellationShipping
       return if order.blank?
 
       ActiveRecord::Base.transaction do
+        Stripe::Refund.create(
+          {
+            payment_intent: order.payment_intent_id
+          }
+        )
         shipping_state = ShippingState.find_by(
           order_id: order_id
         )
-        shipping_state.ship_decline!
+        shipping_state.cancel_complete!
         order.order_items.each do |order_item|
           product = Product.find_by!(name: order_item[:product_name])
 

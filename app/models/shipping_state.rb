@@ -32,6 +32,10 @@ class ShippingState < ApplicationRecord
       transitions from: :shipping_request, to: :cancellation_complete
     end
 
+    event :ship_cancel_request do
+      transitions from: :shipping_request, to: :cancellation_request
+    end
+
     event :ship_decline do
       transitions from: :shipping_in_ready, to: :cancellation_complete
     end

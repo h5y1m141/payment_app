@@ -7,7 +7,7 @@ class RequestCancellationShipping
       shipping_state = ShippingState.find_by(
         order_id: order_id
       )
-      shipping_state.ship_cancel!
+      shipping_state.ship_cancel_request!
     end
   end
 end
