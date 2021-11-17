@@ -1,6 +1,6 @@
 class ShippingState < ApplicationRecord
   belongs_to :order
-  has_many :shippings
+  has_many :shippings, dependent: :destroy
 
   include AASM
   enum aasm_state: {
