@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.2.0)
+      concurrent-ruby (~> 1.0)
     actioncable (6.1.4)
       actionpack (= 6.1.4)
       activesupport (= 6.1.4)
@@ -47,9 +49,6 @@ GEM
     activerecord (6.1.4)
       activemodel (= 6.1.4)
       activesupport (= 6.1.4)
-    activerecord-postgis-adapter (7.1.0)
-      activerecord (~> 6.1)
-      rgeo-activerecord (~> 7.0.0)
     activestorage (6.1.4)
       actionpack (= 6.1.4)
       activejob (= 6.1.4)
@@ -75,6 +74,9 @@ GEM
       momentjs-rails (~> 2.8)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    after_commit_everywhere (1.1.0)
+      activerecord (>= 4.2)
+      activesupport
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.7.5)
@@ -272,10 +274,6 @@ GEM
     redis (4.4.0)
     regexp_parser (2.1.1)
     rexml (3.2.5)
-    rgeo (2.3.0)
-    rgeo-activerecord (7.0.1)
-      activerecord (>= 5.0)
-      rgeo (>= 1.0.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -377,8 +375,9 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  activerecord-postgis-adapter
+  aasm
   administrate
+  after_commit_everywhere (~> 1.0)
   bootsnap (>= 1.4.4)
   brakeman
   byebug

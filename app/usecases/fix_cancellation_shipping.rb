@@ -5,10 +5,10 @@ class FixCancellationShipping
       return if order.blank?
 
       ActiveRecord::Base.transaction do
-        shipping = Shipping.create!(
-          order: order,
-          status: Shipping.statuses[:cancellation_complete]
+        shipping_state = ShippingState.find_by(
+          order_id: order_id
         )
+        shipping_state.ship_decline!
         order.order_items.each do |order_item|
           product = Product.find_by!(name: order_item[:product_name])
 
@@ -21,7 +21,7 @@ class FixCancellationShipping
           end
         end
 
-        shipping
+        shipping_state
       end
     end
   end

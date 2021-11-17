@@ -62,7 +62,13 @@ export const OrderItem: React.VFC<Props> = ({
               onClick={() => onCancellationRequest(order)}
               variant="contained"
               color="secondary"
-              disabled={order.status !== 'ShippingRequest'}
+              disabled={
+                ['ShippingRequest', 'CancellationRequest'].includes(
+                  order.status
+                )
+                  ? false
+                  : true
+              }
             >
               注文をキャンセル
             </Button>

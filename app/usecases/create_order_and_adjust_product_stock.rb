@@ -15,10 +15,7 @@ class CreateOrderAndAdjustProductStock
             total_price: params[:total_price]
           }
         )
-        Shipping.create!(
-          order: order,
-          status: Shipping.statuses[:shipping_request]
-        )
+        ShippingState.create!(order_id: order.id)
         result = adjust_product_stock_and_create_order_item(
           cart_items: params[:cart_items],
           order: order

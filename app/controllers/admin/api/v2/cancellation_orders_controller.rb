@@ -8,7 +8,7 @@ module Admin
           shipping = RequestCancellationShipping.execute(params[:order_id])
 
           if shipping
-            render json: { shipping: { id: shipping.id } }, status: :created
+            render json: { shipping: { id: 'test' } }, status: :created
           else
             render status: :internal_server_error
           end

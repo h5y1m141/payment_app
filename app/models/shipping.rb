@@ -1,5 +1,5 @@
 class Shipping < ApplicationRecord
-  belongs_to :order
+  belongs_to :shipping_state
 
   enum status: {
     shipping_request: 1,
@@ -7,32 +7,5 @@ class Shipping < ApplicationRecord
     cancellation_request: 3,
     cancellation_complete: 4,
     shipping_complete: 5
-  }
-
-  scope :target_order_ids, lambda { |status|
-    group(:order_id)
-      .maximum(:status)
-      .select { |key, value| key if value == status }
-      .keys
-  }
-
-  scope :request_list, lambda {
-    status = Shipping.statuses[:shipping_request]
-    where(order_id: target_order_ids(status), status: status)
-  }
-
-  scope :in_ready_list, lambda {
-    status = Shipping.statuses[:shipping_in_ready]
-    where(order_id: target_order_ids(status), status: status)
-  }
-
-  scope :cancellation_request_list, lambda {
-    status = Shipping.statuses[:cancellation_request]
-    where(order_id: target_order_ids(status), status: status)
-  }
-
-  scope :complete_list, lambda {
-    status = Shipping.statuses[:shipping_complete]
-    where(order_id: target_order_ids(status), status: status)
   }
 end

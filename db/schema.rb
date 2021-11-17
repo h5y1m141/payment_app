@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_062321) do
+ActiveRecord::Schema.define(version: 2021_11_17_051005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "admin_accounts", force: :cascade do |t|
     t.string "uid"
@@ -129,12 +128,20 @@ ActiveRecord::Schema.define(version: 2021_11_05_062321) do
     t.index ["prefecture_id"], name: "index_shipping_addresses_on_prefecture_id"
   end
 
-  create_table "shippings", force: :cascade do |t|
+  create_table "shipping_states", force: :cascade do |t|
     t.bigint "order_id", null: false
+    t.integer "aasm_state", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_shipping_states_on_order_id"
+  end
+
+  create_table "shippings", force: :cascade do |t|
     t.integer "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_shippings_on_order_id"
+    t.bigint "shipping_state_id"
+    t.index ["shipping_state_id"], name: "index_shippings_on_shipping_state_id"
   end
 
   create_table "user_profiles", force: :cascade do |t|
@@ -162,6 +169,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_062321) do
   add_foreign_key "product_stocks", "products"
   add_foreign_key "shipping_addresses", "customers"
   add_foreign_key "shipping_addresses", "prefectures"
-  add_foreign_key "shippings", "orders"
+  add_foreign_key "shipping_states", "orders"
+  add_foreign_key "shippings", "shipping_states"
   add_foreign_key "user_profiles", "users"
 end

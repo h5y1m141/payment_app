@@ -1,15 +1,15 @@
 module Admin
   class InReadyShippingsController < Admin::ApplicationController
     def index
-      @shippings = Shipping.in_ready_list
+      @shippings = ShippingState.shipping_in_ready
     end
 
     def create
-      @shipping = Shipping.create(
-        order_id: in_ready_shipping_params[:order_id],
-        status: Shipping.statuses[:shipping_complete]
+      shipping_state = ShippingState.find_by(
+        order_id: in_ready_shipping_params[:order_id]
       )
-      if @shipping
+
+      if shipping_state.ship_complete!
         flash[:notice] = '出荷処理に成功しました'
       else
         flash[:alert] = '出荷処理に失敗しました'

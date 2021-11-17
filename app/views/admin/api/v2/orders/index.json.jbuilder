@@ -2,7 +2,7 @@ json.orders do
   json.array! @orders do |order|
     json.id order[:id]
     json.paymentIntentId order[:payment_intent_id]
-    json.status order.shippings.last.status.camelize
+    json.status order.shipping_state.aasm.current_state.to_s.camelize
     json.totalPrice order[:total_price]
     json.customer do
       json.id order.customer.id

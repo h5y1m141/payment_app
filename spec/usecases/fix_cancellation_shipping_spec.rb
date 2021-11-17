@@ -10,8 +10,8 @@ RSpec.describe FixCancellationShipping, type: :model do
       create(:product_stock, product: product, stock: 2)
       create(:order_item, order_id: order.id, product_name: product.name, product_unit_price: product.price,
                           quantity: 1)
-      create(:shipping, :shipping_in_ready, order: order)
-      create(:shipping, :cancellation_request, order: order)
+      shipping_state = create(:shipping_state, order: order)
+      shipping_state.ship_ready!
       striple_intent_spy = spy(Stripe::PaymentIntent) # rubocop:disable RSpec/VerifiedDoubles
       allow(Stripe::PaymentIntent).to receive(:create).and_return(striple_intent_spy)
     end
