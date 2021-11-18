@@ -35,7 +35,7 @@ export const signInCustomer = async (customer: CustomerSignUp) => {
 }
 
 export const createResource = async (uid: string, idToken: string) => {
-  const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/customers`
+  const url = `${process.env.REACT_APP_ORIGIN}/customer_api/v1/customers`
   const data = {
     uid,
     id_token: idToken,
@@ -51,6 +51,6 @@ export const createResource = async (uid: string, idToken: string) => {
 }
 
 export const fetchPaymentMethods = async (uid: string) => {
-  const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/customer_payment_methods?uid=${uid}`
+  const url = `${process.env.REACT_APP_ORIGIN}/customer_api/v1/customer_payment_methods?uid=${uid}`
   return await fetch(url)
 }

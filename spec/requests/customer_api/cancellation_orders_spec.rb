@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin::Api::V2::CancellationOrders', type: :request do
+RSpec.describe 'CustomerApi::V1::CancellationOrders', type: :request do
   let(:customer) { create(:customer) }
   let!(:order1) { create(:order, customer: customer) }
 
@@ -17,9 +17,9 @@ RSpec.describe 'Admin::Api::V2::CancellationOrders', type: :request do
       create(:shipping_state, order: order1)
     end
 
-    describe 'POST /admin/api/v2/cancellation_orders' do
+    describe 'POST /customer_api/v1/cancellation_orders' do
       subject do
-        post '/admin/api/v2/cancellation_orders', params: order_params.to_json, headers: headers
+        post '/customer_api/v1/cancellation_orders', params: order_params.to_json, headers: headers
         JSON.parse(response.body)
       end
 
@@ -46,7 +46,7 @@ RSpec.describe 'Admin::Api::V2::CancellationOrders', type: :request do
       allow(AuthToken).to receive(:verify).and_return({ uid: 'valid-uid' }.deep_stringify_keys)
     end
 
-    describe 'POST /admin/api/v2/cancellation_orders' do
+    describe 'POST /customer_api/v1/cancellation_orders' do
       subject do
         JSON.parse(response.body)
       end
@@ -58,7 +58,7 @@ RSpec.describe 'Admin::Api::V2::CancellationOrders', type: :request do
       end
 
       it 'キャンセル受付に関連してshippingレコードが存在する' do
-        post '/admin/api/v2/cancellation_orders', params: order_params.to_json, headers: headers
+        post '/customer_api/v1/cancellation_orders', params: order_params.to_json, headers: headers
         expect(response.status).to eq 401
       end
     end
