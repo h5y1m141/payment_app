@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin::Api::V2::Orders', type: :request do
+RSpec.describe 'CustomerApi::V1::Orders', type: :request do
   let(:customer) { create(:customer) }
   let(:product) { create(:product, price: 1000) }
   let!(:order1) { create(:order, customer: customer) }
@@ -22,9 +22,9 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       create(:shipping, shipping_state: shipping_state)
     end
 
-    describe 'GET /admin/api/v2/orders' do
+    describe 'GET /customer_api/v1/orders' do
       subject do
-        get '/admin/api/v2/orders', params: {}, headers: headers
+        get '/customer_api/v1/orders', params: {}, headers: headers
         JSON.parse(response.body)
       end
 
@@ -33,9 +33,9 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       end
     end
 
-    describe 'GET /admin/api/v2/orders/:id' do
+    describe 'GET /customer_api/v1/orders/:id' do
       subject do
-        get "/admin/api/v2/orders/#{order1.id}", params: {}, headers: headers
+        get "/customer_api/v1/orders/#{order1.id}", params: {}, headers: headers
         JSON.parse(response.body)
       end
 
@@ -44,9 +44,9 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       end
     end
 
-    describe 'POST /admin/api/v2/orders' do
+    describe 'POST /customer_api/v1/orders' do
       subject do
-        post '/admin/api/v2/orders', params: order_params.to_json, headers: headers
+        post '/customer_api/v1/orders', params: order_params.to_json, headers: headers
         JSON.parse(response.body)
       end
 
@@ -102,21 +102,21 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       create(:shipping_state, order: order1)
     end
 
-    describe 'GET /admin/api/v2/orders' do
+    describe 'GET /customer_api/v1/orders' do
       it 'status codeに401が返る' do
-        get '/admin/api/v2/orders', params: {}, headers: headers
+        get '/customer_api/v1/orders', params: {}, headers: headers
         expect(response.status).to eq 401
       end
     end
 
-    describe 'GET /admin/api/v2/orders/:id' do
+    describe 'GET /customer_api/v1/orders/:id' do
       it 'status codeに401が返る' do
-        get "/admin/api/v2/orders/#{order1.id}", params: {}, headers: headers
+        get "/customer_api/v1/orders/#{order1.id}", params: {}, headers: headers
         expect(response.status).to eq 401
       end
     end
 
-    describe 'POST /admin/api/v2/orders' do
+    describe 'POST /customer_api/v1/orders' do
       let(:product) { create(:product, price: 1_000) }
       let(:order_params) do
         {
@@ -149,7 +149,7 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       end
 
       it 'status codeに401が返る' do
-        post '/admin/api/v2/orders', params: order_params.to_json, headers: headers
+        post '/customer_api/v1/orders', params: order_params.to_json, headers: headers
         expect(response.status).to eq 401
       end
     end
@@ -170,20 +170,20 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       allow(AuthToken).to receive(:verify).and_return({ uid: 'another_customer_uid' }.deep_stringify_keys)
     end
 
-    describe 'GET /admin/api/v2/orders' do
+    describe 'GET /customer_api/v1/orders' do
       it 'status codeに401が返る' do
-        get '/admin/api/v2/orders', params: {}, headers: headers
+        get '/customer_api/v1/orders', params: {}, headers: headers
       end
     end
 
-    describe 'GET /admin/api/v2/orders/:id' do
+    describe 'GET /customer_api/v1/orders/:id' do
       it 'status codeに401が返る' do
-        get "/admin/api/v2/orders/#{order1.id}", params: {}, headers: headers
+        get "/customer_api/v1/orders/#{order1.id}", params: {}, headers: headers
         expect(response.status).to eq 401
       end
     end
 
-    describe 'POST /admin/api/v2/orders' do
+    describe 'POST /customer_api/v1/orders' do
       let(:product) { create(:product, price: 1_000) }
       let(:order_params) do
         {
@@ -216,7 +216,7 @@ RSpec.describe 'Admin::Api::V2::Orders', type: :request do
       end
 
       it 'status codeに401が返る' do
-        post '/admin/api/v2/orders', params: order_params.to_json, headers: headers
+        post '/customer_api/v1/orders', params: order_params.to_json, headers: headers
         expect(response.status).to eq 401
       end
     end

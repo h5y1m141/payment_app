@@ -14,7 +14,7 @@ export const createOrder = async ({
   cartItems,
   paymentMethod,
 }: CreateOrderInput) => {
-  const url = `${process.env.REACT_APP_ORIGIN}/admin/api/v2/orders`
+  const url = `${process.env.REACT_APP_ORIGIN}/customer_api/v1/orders`
   const data = {
     uid,
     total_price: totalPrice,
