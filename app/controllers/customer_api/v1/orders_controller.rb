@@ -19,7 +19,7 @@ module CustomerApi
 
       private
 
-      def order_params
+      def order_params # rubocop:disable Metrics/MethodLength
         params.permit(
           :uid,
           :total_price,
