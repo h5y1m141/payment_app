@@ -10,19 +10,25 @@ import {
   MenuItem,
 } from '@material-ui/core'
 import { useForm, Controller } from 'react-hook-form'
-import { CustomerPaymentMethod } from '../../domains/customer/models'
+import {
+  CustomerPaymentMethod,
+  CustomerShippingAddress,
+} from '../../domains/customer/models'
 
 type Props = {
-  onSubmit: (paymentMethod: any) => void
+  onSubmit: (paymentMethod: any, shippingAddress: any) => void
   customerPaymentMethods: CustomerPaymentMethod[]
+  customerShippingAddresses: CustomerShippingAddress[]
 }
 
 export const CheckOutForm: React.VFC<Props> = ({
   onSubmit,
   customerPaymentMethods,
+  customerShippingAddresses,
 }) => {
   const [isReadyStripe, setIsReadyStripe] = useState(false)
   const [selectedPaymentMethodId, setSelectedPaymentMethodId] = useState('')
+  const [selectedShippingAddressId, setSelectedShippingAddressId] = useState('')
   const { control, handleSubmit } = useForm()
   const stripe = useStripe()
   const elements = useElements()
@@ -31,7 +37,10 @@ export const CheckOutForm: React.VFC<Props> = ({
     if (customerPaymentMethods.length > 0) {
       setSelectedPaymentMethodId(customerPaymentMethods[0].payment_method_id)
     }
-  }, [customerPaymentMethods])
+    if (customerShippingAddresses.length > 0) {
+      setSelectedShippingAddressId(customerShippingAddresses[0].id)
+    }
+  }, [customerPaymentMethods, customerShippingAddresses])
 
   const onReady = useCallback(() => {
     setIsReadyStripe(true)
@@ -43,15 +52,19 @@ export const CheckOutForm: React.VFC<Props> = ({
   }, [])
 
   const onStripeFormSubmit = async () => {
+    const shippingAddress = {
+      id: selectedShippingAddressId,
+    }
     if (selectedPaymentMethodId !== '') {
-      onSubmit({
+      const paymentMethod = {
         id: selectedPaymentMethodId,
         card: {
           brand: '',
           exp_month: '',
           exp_year: '',
         },
-      })
+      }
+      onSubmit(paymentMethod, shippingAddress)
     } else {
       if (!stripe || !elements) {
         return
@@ -66,7 +79,7 @@ export const CheckOutForm: React.VFC<Props> = ({
         if (error) {
           console.log('[error]', error)
         } else {
-          onSubmit(paymentMethod)
+          onSubmit(paymentMethod, shippingAddress)
         }
       }
     }
@@ -76,6 +89,47 @@ export const CheckOutForm: React.VFC<Props> = ({
     <>
       <form onSubmit={handleSubmit(onStripeFormSubmit)}>
         <Grid container>
+          <Grid item xs={12}>
+            <Typography variant="h5">配送先情報:</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Box p={2} />
+          </Grid>
+
+          {customerShippingAddresses.length > 0 && (
+            <>
+              <Grid item xs={12}>
+                <FormControl fullWidth>
+                  <Box p={2}>
+                    <Controller
+                      name="paymentMethod"
+                      control={control}
+                      render={({ field }) => (
+                        <Select
+                          {...field}
+                          displayEmpty
+                          value={selectedShippingAddressId}
+                          onChange={handleChange}
+                          label="登録済のクレジットカード"
+                        >
+                          {customerShippingAddresses.map((shippingAddress) => {
+                            return (
+                              <MenuItem
+                                key={shippingAddress.id}
+                                value={shippingAddress.id}
+                              >
+                                {shippingAddress.full_address}
+                              </MenuItem>
+                            )
+                          })}
+                        </Select>
+                      )}
+                    />
+                  </Box>
+                </FormControl>
+              </Grid>
+            </>
+          )}
           <Grid item xs={12}>
             <Box p={2} />
           </Grid>

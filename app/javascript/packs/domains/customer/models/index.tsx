@@ -25,10 +25,9 @@ export type ResponseCustomerShippingAddress = {
 }
 
 export type CustomerShippingAddress = {
-  id: number
+  id: string
   zipcode: string
-  prefecture_name: string
-  address: string
+  full_address: string
 }
 
 export type CustomerSignUp = {

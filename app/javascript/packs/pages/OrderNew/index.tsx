@@ -57,7 +57,7 @@ export const OrderNew: React.VFC = () => {
   }, [])
 
   const onSubmit = useCallback(
-    async (paymentMethod) => {
+    async (paymentMethod, shippingAddress) => {
       const { uid, idToken } = currentCustomer
       const createdOrder = await createOrder({
         uid,
@@ -65,6 +65,7 @@ export const OrderNew: React.VFC = () => {
         totalPrice,
         cartItems,
         paymentMethod,
+        shippingAddress,
       })
 
       if (createdOrder.status === 200) {

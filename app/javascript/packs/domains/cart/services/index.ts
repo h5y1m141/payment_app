@@ -6,6 +6,9 @@ type CreateOrderInput = {
   totalPrice: number
   cartItems: CartState[]
   paymentMethod: any
+  shippingAddress: {
+    id: number
+  }
 }
 export const createOrder = async ({
   uid,
@@ -13,6 +16,7 @@ export const createOrder = async ({
   totalPrice,
   cartItems,
   paymentMethod,
+  shippingAddress,
 }: CreateOrderInput) => {
   const url = `${process.env.REACT_APP_ORIGIN}/customer_api/v1/orders`
   const data = {
@@ -20,6 +24,7 @@ export const createOrder = async ({
     total_price: totalPrice,
     cart_items: cartItems,
     payment_method: paymentMethod,
+    shipping_address_id: shippingAddress.id,
   }
   const params = {
     method: 'POST',

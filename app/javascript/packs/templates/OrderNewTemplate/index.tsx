@@ -11,7 +11,7 @@ import {
 import { Snackbar } from '@material-ui/core'
 
 type Props = {
-  onSubmit: (paymentMethod: any) => void
+  onSubmit: (paymentMethod: any, shippingAddress: any) => void
   customerPaymentMethods: CustomerPaymentMethod[]
   customerShippingAddresses: CustomerShippingAddress[]
   isOrderUnprocess: boolean
@@ -35,20 +35,15 @@ export const OrderNewTemplate: React.VFC<Props> = ({
     setOpen(isOrderUnprocess)
   }, [isOrderUnprocess])
 
-  console.log(customerShippingAddresses)
-
   return (
     <>
       <CartItemsComponent />
-      <>
-        {customerShippingAddresses.map((item) => {
-          return <h4>{item.id}</h4>
-        })}
-      </>
+
       <Elements stripe={getStripe()}>
         <CheckOutForm
           onSubmit={onSubmit}
           customerPaymentMethods={customerPaymentMethods}
+          customerShippingAddresses={customerShippingAddresses}
         />
         <Snackbar
           open={open}
