@@ -27,7 +27,8 @@ Rails.application.routes.draw do
       resources :orders, only: %i[index show create]
       resources :cancellation_orders, only: %i[create]
       resources :customers, only: %i[show create]
-      resources :customer_payment_methods, only: %i[index show]
+      resources :customer_payment_methods, only: %i[index]
+      resources :customer_shipping_addresses, only: %i[index]
     end
   end
 

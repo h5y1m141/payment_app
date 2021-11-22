@@ -4,12 +4,16 @@ import { Elements } from '@stripe/react-stripe-js'
 import { CartItemsComponent } from '../../components/CartItemsComponent'
 import { CheckOutForm } from './CheckOutForm'
 import { loadStripe } from '@stripe/stripe-js/pure'
-import { CustomerPaymentMethod } from '../../domains/customer/models'
+import {
+  CustomerPaymentMethod,
+  CustomerShippingAddress,
+} from '../../domains/customer/models'
 import { Snackbar } from '@material-ui/core'
 
 type Props = {
   onSubmit: (paymentMethod: any) => void
   customerPaymentMethods: CustomerPaymentMethod[]
+  customerShippingAddresses: CustomerShippingAddress[]
   isOrderUnprocess: boolean
 }
 
@@ -22,6 +26,7 @@ const getStripe = () => {
 export const OrderNewTemplate: React.VFC<Props> = ({
   onSubmit,
   customerPaymentMethods,
+  customerShippingAddresses,
   isOrderUnprocess,
 }) => {
   const [open, setOpen] = useState(false)
@@ -30,9 +35,16 @@ export const OrderNewTemplate: React.VFC<Props> = ({
     setOpen(isOrderUnprocess)
   }, [isOrderUnprocess])
 
+  console.log(customerShippingAddresses)
+
   return (
     <>
       <CartItemsComponent />
+      <>
+        {customerShippingAddresses.map((item) => {
+          return <h4>{item.id}</h4>
+        })}
+      </>
       <Elements stripe={getStripe()}>
         <CheckOutForm
           onSubmit={onSubmit}
