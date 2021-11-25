@@ -50,7 +50,20 @@ export const createResource = async (uid: string, idToken: string) => {
   return await fetch(url, params)
 }
 
-export const fetchPaymentMethods = async (uid: string) => {
-  const url = `${process.env.REACT_APP_ORIGIN}/customer_api/v1/customer_payment_methods?uid=${uid}`
-  return await fetch(url)
+export const fetchPaymentMethodResources = async (idToken: string) => {
+  const url = `${process.env.REACT_APP_ORIGIN}/customer_api/v1/customer_payment_methods`
+  return await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${idToken}`,
+    },
+  })
+}
+
+export const fetchShippingAddressResources = async (idToken: string) => {
+  const url = `${process.env.REACT_APP_ORIGIN}/customer_api/v1/customer_shipping_addresses`
+  return await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${idToken}`,
+    },
+  })
 }

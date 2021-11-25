@@ -12,7 +12,8 @@ class CreateOrderAndAdjustProductStock
           {
             customer_id: customer.id,
             payment_intent_id: payment_intent.id,
-            total_price: params[:total_price]
+            total_price: params[:total_price],
+            shipping_address_id: params[:shipping_address_id].to_i
           }
         )
         ShippingState.create!(order_id: order.id)

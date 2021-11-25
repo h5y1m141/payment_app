@@ -1,4 +1,4 @@
-json.cache! ['admin', 'api', 'v2', @customer_payment_methods], expires_in: 10.minutes do
+json.cache! ['customer_api', 'v1', @customer_payment_methods], expires_in: 10.minutes do
   json.customer_payment_methods do
     json.array! @customer_payment_methods do |customer_payment_method|
       json.id customer_payment_method[:id]

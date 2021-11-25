@@ -8,18 +8,21 @@ import {
 } from '../../components/providers/CartProvider'
 import { useCurrentCustomer } from '../../components/providers/AuthProvider'
 import { createOrder } from '../../domains/cart/services'
-import { fetchPaymentMethods } from '../../domains/customer/services'
+
 import { calcurateTotalPrice } from '../../domains/cart/models'
 import { createCustomer, signInCustomer } from '../../domains/customer/services'
 import {
   CustomerPaymentMethod,
-  ResponseCustomerPaymentMethod,
+  CustomerShippingAddress,
   CustomerSignUp,
+  fetchPaymentMethods,
+  fetchShippingAddresses,
 } from '../../domains/customer/models'
 
 import { Redirect } from 'react-router-dom'
 
 const initialCustomerPaymentMethods: CustomerPaymentMethod[] = []
+const initialCustomerShippingAddresses: CustomerShippingAddress[] = []
 
 export const OrderNew: React.VFC = () => {
   const [cartItems, setCartItems] = useCart()
@@ -29,16 +32,24 @@ export const OrderNew: React.VFC = () => {
   const [customerPaymentMethods, setCustomerPaymentMethods] = useState(
     initialCustomerPaymentMethods
   )
+  const [customerShippingAddresses, setCustomerShippingAddresses] = useState(
+    initialCustomerShippingAddresses
+  )
   const [isOrderComplated, setIsOrderComplated] = useState(false)
   const [isOrderUnprocess, setIsOrderUnprocess] = useState(false)
   const totalPrice = calcurateTotalPrice()
+  const { idToken } = currentCustomer
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetchPaymentMethods(currentCustomer.uid)
-      const result: ResponseCustomerPaymentMethod = await response.json()
-      if (result.customer_payment_methods) {
-        setCustomerPaymentMethods(result.customer_payment_methods)
+      const methods = await fetchPaymentMethods(idToken)
+      if (methods) {
+        setCustomerPaymentMethods(methods)
+      }
+      setIsCustomerPaymentMethods(true)
+      const addresses = await fetchShippingAddresses(idToken)
+      if (addresses) {
+        setCustomerShippingAddresses(addresses)
       }
       setIsCustomerPaymentMethods(true)
     }
@@ -46,7 +57,7 @@ export const OrderNew: React.VFC = () => {
   }, [])
 
   const onSubmit = useCallback(
-    async (paymentMethod) => {
+    async (paymentMethod, shippingAddress) => {
       const { uid, idToken } = currentCustomer
       const createdOrder = await createOrder({
         uid,
@@ -54,6 +65,7 @@ export const OrderNew: React.VFC = () => {
         totalPrice,
         cartItems,
         paymentMethod,
+        shippingAddress,
       })
 
       if (createdOrder.status === 200) {
@@ -107,6 +119,7 @@ export const OrderNew: React.VFC = () => {
       <OrderNewTemplate
         onSubmit={onSubmit}
         customerPaymentMethods={customerPaymentMethods}
+        customerShippingAddresses={customerShippingAddresses}
         isOrderUnprocess={isOrderUnprocess}
       />
     </>

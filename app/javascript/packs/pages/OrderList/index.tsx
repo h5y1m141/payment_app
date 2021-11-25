@@ -33,7 +33,6 @@ export const OrderList: React.VFC = () => {
   }, [isRefetch])
 
   const onCancellationRequest = useCallback(async (order: Order) => {
-    console.log('onCancellationRequest')
     const result = await createCancellationRequest(idToken, order.id)
     if (result) {
       setIsRefetch(true)

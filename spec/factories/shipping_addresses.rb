@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :shipping_address do
-    customer { nil }
+    customer
     zipcode { 'MyString' }
-    prefecture { nil }
+    prefecture
     address { 'MyString' }
   end
 end

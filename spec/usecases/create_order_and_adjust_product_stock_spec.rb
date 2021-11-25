@@ -4,6 +4,7 @@ RSpec.describe CreateOrderAndAdjustProductStock, type: :model do
   describe '.execute' do
     let(:customer) { create(:customer) }
     let(:product) { create(:product, price: 1000) }
+    let(:shipping_address) { create(:shipping_address, customer: customer) }
 
     before do
       create(:product_stock, product: product, stock: 2)
@@ -27,6 +28,7 @@ RSpec.describe CreateOrderAndAdjustProductStock, type: :model do
               last4: 4242
             }
           },
+          shipping_address_id: shipping_address.id,
           cart_items: [
             {
               subTotal: 2000,
@@ -63,6 +65,7 @@ RSpec.describe CreateOrderAndAdjustProductStock, type: :model do
             }
 
           },
+          shipping_address_id: shipping_address.id,
           cart_items: [
             {
               subTotal: 2000,
@@ -87,6 +90,7 @@ RSpec.describe CreateOrderAndAdjustProductStock, type: :model do
         {
           uid: customer.uid,
           total_price: 20_000,
+          shipping_address_id: shipping_address.id,
           payment_method: {
             id: 'payment_method_id',
             card: {
@@ -113,6 +117,7 @@ RSpec.describe CreateOrderAndAdjustProductStock, type: :model do
         {
           uid: another_customer.uid,
           total_price: 2000,
+          shipping_address_id: shipping_address.id,
           payment_method: {
             id: 'payment_method_id',
             card: {

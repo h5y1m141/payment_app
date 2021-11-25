@@ -19,10 +19,11 @@ module CustomerApi
 
       private
 
-      def order_params
+      def order_params # rubocop:disable Metrics/MethodLength
         params.permit(
           :uid,
           :total_price,
+          :shipping_address_id,
           payment_method: [
             :id,
             { card: %i[brand last4 exp_month exp_year] }

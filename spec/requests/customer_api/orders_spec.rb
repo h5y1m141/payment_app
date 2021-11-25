@@ -51,6 +51,7 @@ RSpec.describe 'CustomerApi::V1::Orders', type: :request do
       end
 
       let(:product) { create(:product, price: 1_000) }
+      let(:shipping_address) { create(:shipping_address, customer: customer) }
       let(:order_params) do
         {
           total_price: 10_800,
@@ -63,6 +64,7 @@ RSpec.describe 'CustomerApi::V1::Orders', type: :request do
               exp_year: 2029
             }
           },
+          shipping_address_id: shipping_address.id,
           cart_items: [
             {
               subTotal: 10_000,
