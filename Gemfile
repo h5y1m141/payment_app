@@ -28,14 +28,14 @@ gem 'pagy'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'administrate'
 gem 'nokogiri', '1.13.8'
+gem 'rbs', require: false
+gem 'rbs_rails', require: false
 
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'katakata_irb'
   gem 'graphiql-rails'
-  gem 'pry-byebug'
-  gem 'pry-doc'
-  gem 'pry-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
