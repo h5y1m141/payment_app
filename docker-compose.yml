@@ -5,12 +5,11 @@ x-app: &app
   build:
     context: .
     args:
-      RUBY_VERSION: 2.7.2
-      BUNDLER_VERSION: 2.2.6
+      RUBY_VERSION: 3.1.2
+      BUNDLER_VERSION: 2.3.22
       POSTGRES_MAJOR: 11
-      NODE_MAJOR: 12
+      NODE_MAJOR: 16
       YARN_VERSION: 1.21.1
-
 services:
   app:
     <<: *app
@@ -64,7 +63,7 @@ services:
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
 
   postgres:
-    image: mdillon/postgis:11-alpine
+    image: postgres:11
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
