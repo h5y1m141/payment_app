@@ -1,0 +1,318 @@
+class CustomerPaymentMethod < ::ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[CustomerPaymentMethod, ActiveRecord_Relation, Integer]
+
+  module GeneratedAttributeMethods
+    def id: () -> Integer
+
+    def id=: (Integer) -> Integer
+
+    def id?: () -> bool
+
+    def id_changed?: () -> bool
+
+    def id_change: () -> [ Integer?, Integer? ]
+
+    def id_will_change!: () -> void
+
+    def id_was: () -> Integer?
+
+    def id_previously_changed?: () -> bool
+
+    def id_previous_change: () -> Array[Integer?]?
+
+    def id_previously_was: () -> Integer?
+
+    def id_before_last_save: () -> Integer?
+
+    def id_change_to_be_saved: () -> Array[Integer?]?
+
+    def id_in_database: () -> Integer?
+
+    def saved_change_to_id: () -> Array[Integer?]?
+
+    def saved_change_to_id?: () -> bool
+
+    def will_save_change_to_id?: () -> bool
+
+    def restore_id!: () -> void
+
+    def clear_id_change: () -> void
+
+    def customer_id: () -> Integer
+
+    def customer_id=: (Integer) -> Integer
+
+    def customer_id?: () -> bool
+
+    def customer_id_changed?: () -> bool
+
+    def customer_id_change: () -> [ Integer?, Integer? ]
+
+    def customer_id_will_change!: () -> void
+
+    def customer_id_was: () -> Integer?
+
+    def customer_id_previously_changed?: () -> bool
+
+    def customer_id_previous_change: () -> Array[Integer?]?
+
+    def customer_id_previously_was: () -> Integer?
+
+    def customer_id_before_last_save: () -> Integer?
+
+    def customer_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def customer_id_in_database: () -> Integer?
+
+    def saved_change_to_customer_id: () -> Array[Integer?]?
+
+    def saved_change_to_customer_id?: () -> bool
+
+    def will_save_change_to_customer_id?: () -> bool
+
+    def restore_customer_id!: () -> void
+
+    def clear_customer_id_change: () -> void
+
+    def payment_method_id: () -> String
+
+    def payment_method_id=: (String) -> String
+
+    def payment_method_id?: () -> bool
+
+    def payment_method_id_changed?: () -> bool
+
+    def payment_method_id_change: () -> [ String?, String? ]
+
+    def payment_method_id_will_change!: () -> void
+
+    def payment_method_id_was: () -> String?
+
+    def payment_method_id_previously_changed?: () -> bool
+
+    def payment_method_id_previous_change: () -> Array[String?]?
+
+    def payment_method_id_previously_was: () -> String?
+
+    def payment_method_id_before_last_save: () -> String?
+
+    def payment_method_id_change_to_be_saved: () -> Array[String?]?
+
+    def payment_method_id_in_database: () -> String?
+
+    def saved_change_to_payment_method_id: () -> Array[String?]?
+
+    def saved_change_to_payment_method_id?: () -> bool
+
+    def will_save_change_to_payment_method_id?: () -> bool
+
+    def restore_payment_method_id!: () -> void
+
+    def clear_payment_method_id_change: () -> void
+
+    def exp_month: () -> Integer
+
+    def exp_month=: (Integer) -> Integer
+
+    def exp_month?: () -> bool
+
+    def exp_month_changed?: () -> bool
+
+    def exp_month_change: () -> [ Integer?, Integer? ]
+
+    def exp_month_will_change!: () -> void
+
+    def exp_month_was: () -> Integer?
+
+    def exp_month_previously_changed?: () -> bool
+
+    def exp_month_previous_change: () -> Array[Integer?]?
+
+    def exp_month_previously_was: () -> Integer?
+
+    def exp_month_before_last_save: () -> Integer?
+
+    def exp_month_change_to_be_saved: () -> Array[Integer?]?
+
+    def exp_month_in_database: () -> Integer?
+
+    def saved_change_to_exp_month: () -> Array[Integer?]?
+
+    def saved_change_to_exp_month?: () -> bool
+
+    def will_save_change_to_exp_month?: () -> bool
+
+    def restore_exp_month!: () -> void
+
+    def clear_exp_month_change: () -> void
+
+    def exp_year: () -> Integer
+
+    def exp_year=: (Integer) -> Integer
+
+    def exp_year?: () -> bool
+
+    def exp_year_changed?: () -> bool
+
+    def exp_year_change: () -> [ Integer?, Integer? ]
+
+    def exp_year_will_change!: () -> void
+
+    def exp_year_was: () -> Integer?
+
+    def exp_year_previously_changed?: () -> bool
+
+    def exp_year_previous_change: () -> Array[Integer?]?
+
+    def exp_year_previously_was: () -> Integer?
+
+    def exp_year_before_last_save: () -> Integer?
+
+    def exp_year_change_to_be_saved: () -> Array[Integer?]?
+
+    def exp_year_in_database: () -> Integer?
+
+    def saved_change_to_exp_year: () -> Array[Integer?]?
+
+    def saved_change_to_exp_year?: () -> bool
+
+    def will_save_change_to_exp_year?: () -> bool
+
+    def restore_exp_year!: () -> void
+
+    def clear_exp_year_change: () -> void
+
+    def brand: () -> String
+
+    def brand=: (String) -> String
+
+    def brand?: () -> bool
+
+    def brand_changed?: () -> bool
+
+    def brand_change: () -> [ String?, String? ]
+
+    def brand_will_change!: () -> void
+
+    def brand_was: () -> String?
+
+    def brand_previously_changed?: () -> bool
+
+    def brand_previous_change: () -> Array[String?]?
+
+    def brand_previously_was: () -> String?
+
+    def brand_before_last_save: () -> String?
+
+    def brand_change_to_be_saved: () -> Array[String?]?
+
+    def brand_in_database: () -> String?
+
+    def saved_change_to_brand: () -> Array[String?]?
+
+    def saved_change_to_brand?: () -> bool
+
+    def will_save_change_to_brand?: () -> bool
+
+    def restore_brand!: () -> void
+
+    def clear_brand_change: () -> void
+
+    def created_at: () -> ActiveSupport::TimeWithZone
+
+    def created_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def created_at?: () -> bool
+
+    def created_at_changed?: () -> bool
+
+    def created_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def created_at_will_change!: () -> void
+
+    def created_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_previously_changed?: () -> bool
+
+    def created_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_created_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_created_at?: () -> bool
+
+    def will_save_change_to_created_at?: () -> bool
+
+    def restore_created_at!: () -> void
+
+    def clear_created_at_change: () -> void
+
+    def updated_at: () -> ActiveSupport::TimeWithZone
+
+    def updated_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def updated_at?: () -> bool
+
+    def updated_at_changed?: () -> bool
+
+    def updated_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def updated_at_will_change!: () -> void
+
+    def updated_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_previously_changed?: () -> bool
+
+    def updated_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_updated_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_updated_at?: () -> bool
+
+    def will_save_change_to_updated_at?: () -> bool
+
+    def restore_updated_at!: () -> void
+
+    def clear_updated_at_change: () -> void
+  end
+  include GeneratedAttributeMethods
+
+  def customer: () -> Customer
+  def customer=: (Customer?) -> Customer?
+  def reload_customer: () -> Customer?
+  def build_customer: (untyped) -> Customer
+  def create_customer: (untyped) -> Customer
+  def create_customer!: (untyped) -> Customer
+  module GeneratedAssociationMethods
+  end
+  include GeneratedAssociationMethods
+
+  module GeneratedRelationMethods
+  end
+
+  class ActiveRecord_Relation < ::ActiveRecord::Relation
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[CustomerPaymentMethod, Integer]
+    include Enumerable[CustomerPaymentMethod]
+  end
+
+  class ActiveRecord_Associations_CollectionProxy < ::ActiveRecord::Associations::CollectionProxy
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[CustomerPaymentMethod, Integer]
+  end
+end

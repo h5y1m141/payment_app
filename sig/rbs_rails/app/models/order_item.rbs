@@ -1,0 +1,318 @@
+class OrderItem < ::ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[OrderItem, ActiveRecord_Relation, Integer]
+
+  module GeneratedAttributeMethods
+    def id: () -> Integer
+
+    def id=: (Integer) -> Integer
+
+    def id?: () -> bool
+
+    def id_changed?: () -> bool
+
+    def id_change: () -> [ Integer?, Integer? ]
+
+    def id_will_change!: () -> void
+
+    def id_was: () -> Integer?
+
+    def id_previously_changed?: () -> bool
+
+    def id_previous_change: () -> Array[Integer?]?
+
+    def id_previously_was: () -> Integer?
+
+    def id_before_last_save: () -> Integer?
+
+    def id_change_to_be_saved: () -> Array[Integer?]?
+
+    def id_in_database: () -> Integer?
+
+    def saved_change_to_id: () -> Array[Integer?]?
+
+    def saved_change_to_id?: () -> bool
+
+    def will_save_change_to_id?: () -> bool
+
+    def restore_id!: () -> void
+
+    def clear_id_change: () -> void
+
+    def order_id: () -> Integer
+
+    def order_id=: (Integer) -> Integer
+
+    def order_id?: () -> bool
+
+    def order_id_changed?: () -> bool
+
+    def order_id_change: () -> [ Integer?, Integer? ]
+
+    def order_id_will_change!: () -> void
+
+    def order_id_was: () -> Integer?
+
+    def order_id_previously_changed?: () -> bool
+
+    def order_id_previous_change: () -> Array[Integer?]?
+
+    def order_id_previously_was: () -> Integer?
+
+    def order_id_before_last_save: () -> Integer?
+
+    def order_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def order_id_in_database: () -> Integer?
+
+    def saved_change_to_order_id: () -> Array[Integer?]?
+
+    def saved_change_to_order_id?: () -> bool
+
+    def will_save_change_to_order_id?: () -> bool
+
+    def restore_order_id!: () -> void
+
+    def clear_order_id_change: () -> void
+
+    def product_name: () -> String
+
+    def product_name=: (String) -> String
+
+    def product_name?: () -> bool
+
+    def product_name_changed?: () -> bool
+
+    def product_name_change: () -> [ String?, String? ]
+
+    def product_name_will_change!: () -> void
+
+    def product_name_was: () -> String?
+
+    def product_name_previously_changed?: () -> bool
+
+    def product_name_previous_change: () -> Array[String?]?
+
+    def product_name_previously_was: () -> String?
+
+    def product_name_before_last_save: () -> String?
+
+    def product_name_change_to_be_saved: () -> Array[String?]?
+
+    def product_name_in_database: () -> String?
+
+    def saved_change_to_product_name: () -> Array[String?]?
+
+    def saved_change_to_product_name?: () -> bool
+
+    def will_save_change_to_product_name?: () -> bool
+
+    def restore_product_name!: () -> void
+
+    def clear_product_name_change: () -> void
+
+    def product_unit_price: () -> Integer
+
+    def product_unit_price=: (Integer) -> Integer
+
+    def product_unit_price?: () -> bool
+
+    def product_unit_price_changed?: () -> bool
+
+    def product_unit_price_change: () -> [ Integer?, Integer? ]
+
+    def product_unit_price_will_change!: () -> void
+
+    def product_unit_price_was: () -> Integer?
+
+    def product_unit_price_previously_changed?: () -> bool
+
+    def product_unit_price_previous_change: () -> Array[Integer?]?
+
+    def product_unit_price_previously_was: () -> Integer?
+
+    def product_unit_price_before_last_save: () -> Integer?
+
+    def product_unit_price_change_to_be_saved: () -> Array[Integer?]?
+
+    def product_unit_price_in_database: () -> Integer?
+
+    def saved_change_to_product_unit_price: () -> Array[Integer?]?
+
+    def saved_change_to_product_unit_price?: () -> bool
+
+    def will_save_change_to_product_unit_price?: () -> bool
+
+    def restore_product_unit_price!: () -> void
+
+    def clear_product_unit_price_change: () -> void
+
+    def quantity: () -> Integer
+
+    def quantity=: (Integer) -> Integer
+
+    def quantity?: () -> bool
+
+    def quantity_changed?: () -> bool
+
+    def quantity_change: () -> [ Integer?, Integer? ]
+
+    def quantity_will_change!: () -> void
+
+    def quantity_was: () -> Integer?
+
+    def quantity_previously_changed?: () -> bool
+
+    def quantity_previous_change: () -> Array[Integer?]?
+
+    def quantity_previously_was: () -> Integer?
+
+    def quantity_before_last_save: () -> Integer?
+
+    def quantity_change_to_be_saved: () -> Array[Integer?]?
+
+    def quantity_in_database: () -> Integer?
+
+    def saved_change_to_quantity: () -> Array[Integer?]?
+
+    def saved_change_to_quantity?: () -> bool
+
+    def will_save_change_to_quantity?: () -> bool
+
+    def restore_quantity!: () -> void
+
+    def clear_quantity_change: () -> void
+
+    def sub_total: () -> Integer
+
+    def sub_total=: (Integer) -> Integer
+
+    def sub_total?: () -> bool
+
+    def sub_total_changed?: () -> bool
+
+    def sub_total_change: () -> [ Integer?, Integer? ]
+
+    def sub_total_will_change!: () -> void
+
+    def sub_total_was: () -> Integer?
+
+    def sub_total_previously_changed?: () -> bool
+
+    def sub_total_previous_change: () -> Array[Integer?]?
+
+    def sub_total_previously_was: () -> Integer?
+
+    def sub_total_before_last_save: () -> Integer?
+
+    def sub_total_change_to_be_saved: () -> Array[Integer?]?
+
+    def sub_total_in_database: () -> Integer?
+
+    def saved_change_to_sub_total: () -> Array[Integer?]?
+
+    def saved_change_to_sub_total?: () -> bool
+
+    def will_save_change_to_sub_total?: () -> bool
+
+    def restore_sub_total!: () -> void
+
+    def clear_sub_total_change: () -> void
+
+    def created_at: () -> ActiveSupport::TimeWithZone
+
+    def created_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def created_at?: () -> bool
+
+    def created_at_changed?: () -> bool
+
+    def created_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def created_at_will_change!: () -> void
+
+    def created_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_previously_changed?: () -> bool
+
+    def created_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_created_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_created_at?: () -> bool
+
+    def will_save_change_to_created_at?: () -> bool
+
+    def restore_created_at!: () -> void
+
+    def clear_created_at_change: () -> void
+
+    def updated_at: () -> ActiveSupport::TimeWithZone
+
+    def updated_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def updated_at?: () -> bool
+
+    def updated_at_changed?: () -> bool
+
+    def updated_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def updated_at_will_change!: () -> void
+
+    def updated_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_previously_changed?: () -> bool
+
+    def updated_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_updated_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_updated_at?: () -> bool
+
+    def will_save_change_to_updated_at?: () -> bool
+
+    def restore_updated_at!: () -> void
+
+    def clear_updated_at_change: () -> void
+  end
+  include GeneratedAttributeMethods
+
+  def order: () -> Order
+  def order=: (Order?) -> Order?
+  def reload_order: () -> Order?
+  def build_order: (untyped) -> Order
+  def create_order: (untyped) -> Order
+  def create_order!: (untyped) -> Order
+  module GeneratedAssociationMethods
+  end
+  include GeneratedAssociationMethods
+
+  module GeneratedRelationMethods
+  end
+
+  class ActiveRecord_Relation < ::ActiveRecord::Relation
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[OrderItem, Integer]
+    include Enumerable[OrderItem]
+  end
+
+  class ActiveRecord_Associations_CollectionProxy < ::ActiveRecord::Associations::CollectionProxy
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[OrderItem, Integer]
+  end
+end

@@ -1,0 +1,339 @@
+class Payment < ::ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[Payment, ActiveRecord_Relation, Integer]
+
+  module GeneratedAttributeMethods
+    def id: () -> Integer
+
+    def id=: (Integer) -> Integer
+
+    def id?: () -> bool
+
+    def id_changed?: () -> bool
+
+    def id_change: () -> [ Integer?, Integer? ]
+
+    def id_will_change!: () -> void
+
+    def id_was: () -> Integer?
+
+    def id_previously_changed?: () -> bool
+
+    def id_previous_change: () -> Array[Integer?]?
+
+    def id_previously_was: () -> Integer?
+
+    def id_before_last_save: () -> Integer?
+
+    def id_change_to_be_saved: () -> Array[Integer?]?
+
+    def id_in_database: () -> Integer?
+
+    def saved_change_to_id: () -> Array[Integer?]?
+
+    def saved_change_to_id?: () -> bool
+
+    def will_save_change_to_id?: () -> bool
+
+    def restore_id!: () -> void
+
+    def clear_id_change: () -> void
+
+    def order_id: () -> Integer
+
+    def order_id=: (Integer) -> Integer
+
+    def order_id?: () -> bool
+
+    def order_id_changed?: () -> bool
+
+    def order_id_change: () -> [ Integer?, Integer? ]
+
+    def order_id_will_change!: () -> void
+
+    def order_id_was: () -> Integer?
+
+    def order_id_previously_changed?: () -> bool
+
+    def order_id_previous_change: () -> Array[Integer?]?
+
+    def order_id_previously_was: () -> Integer?
+
+    def order_id_before_last_save: () -> Integer?
+
+    def order_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def order_id_in_database: () -> Integer?
+
+    def saved_change_to_order_id: () -> Array[Integer?]?
+
+    def saved_change_to_order_id?: () -> bool
+
+    def will_save_change_to_order_id?: () -> bool
+
+    def restore_order_id!: () -> void
+
+    def clear_order_id_change: () -> void
+
+    def payment_method_id: () -> Integer
+
+    def payment_method_id=: (Integer) -> Integer
+
+    def payment_method_id?: () -> bool
+
+    def payment_method_id_changed?: () -> bool
+
+    def payment_method_id_change: () -> [ Integer?, Integer? ]
+
+    def payment_method_id_will_change!: () -> void
+
+    def payment_method_id_was: () -> Integer?
+
+    def payment_method_id_previously_changed?: () -> bool
+
+    def payment_method_id_previous_change: () -> Array[Integer?]?
+
+    def payment_method_id_previously_was: () -> Integer?
+
+    def payment_method_id_before_last_save: () -> Integer?
+
+    def payment_method_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def payment_method_id_in_database: () -> Integer?
+
+    def saved_change_to_payment_method_id: () -> Array[Integer?]?
+
+    def saved_change_to_payment_method_id?: () -> bool
+
+    def will_save_change_to_payment_method_id?: () -> bool
+
+    def restore_payment_method_id!: () -> void
+
+    def clear_payment_method_id_change: () -> void
+
+    def amount: () -> Integer
+
+    def amount=: (Integer) -> Integer
+
+    def amount?: () -> bool
+
+    def amount_changed?: () -> bool
+
+    def amount_change: () -> [ Integer?, Integer? ]
+
+    def amount_will_change!: () -> void
+
+    def amount_was: () -> Integer?
+
+    def amount_previously_changed?: () -> bool
+
+    def amount_previous_change: () -> Array[Integer?]?
+
+    def amount_previously_was: () -> Integer?
+
+    def amount_before_last_save: () -> Integer?
+
+    def amount_change_to_be_saved: () -> Array[Integer?]?
+
+    def amount_in_database: () -> Integer?
+
+    def saved_change_to_amount: () -> Array[Integer?]?
+
+    def saved_change_to_amount?: () -> bool
+
+    def will_save_change_to_amount?: () -> bool
+
+    def restore_amount!: () -> void
+
+    def clear_amount_change: () -> void
+
+    def payment_type: () -> String
+
+    def payment_type=: (String) -> String
+
+    def payment_type?: () -> bool
+
+    def payment_type_changed?: () -> bool
+
+    def payment_type_change: () -> [ String?, String? ]
+
+    def payment_type_will_change!: () -> void
+
+    def payment_type_was: () -> String?
+
+    def payment_type_previously_changed?: () -> bool
+
+    def payment_type_previous_change: () -> Array[String?]?
+
+    def payment_type_previously_was: () -> String?
+
+    def payment_type_before_last_save: () -> String?
+
+    def payment_type_change_to_be_saved: () -> Array[String?]?
+
+    def payment_type_in_database: () -> String?
+
+    def saved_change_to_payment_type: () -> Array[String?]?
+
+    def saved_change_to_payment_type?: () -> bool
+
+    def will_save_change_to_payment_type?: () -> bool
+
+    def restore_payment_type!: () -> void
+
+    def clear_payment_type_change: () -> void
+
+    def code: () -> String
+
+    def code=: (String) -> String
+
+    def code?: () -> bool
+
+    def code_changed?: () -> bool
+
+    def code_change: () -> [ String?, String? ]
+
+    def code_will_change!: () -> void
+
+    def code_was: () -> String?
+
+    def code_previously_changed?: () -> bool
+
+    def code_previous_change: () -> Array[String?]?
+
+    def code_previously_was: () -> String?
+
+    def code_before_last_save: () -> String?
+
+    def code_change_to_be_saved: () -> Array[String?]?
+
+    def code_in_database: () -> String?
+
+    def saved_change_to_code: () -> Array[String?]?
+
+    def saved_change_to_code?: () -> bool
+
+    def will_save_change_to_code?: () -> bool
+
+    def restore_code!: () -> void
+
+    def clear_code_change: () -> void
+
+    def created_at: () -> ActiveSupport::TimeWithZone
+
+    def created_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def created_at?: () -> bool
+
+    def created_at_changed?: () -> bool
+
+    def created_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def created_at_will_change!: () -> void
+
+    def created_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_previously_changed?: () -> bool
+
+    def created_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_created_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_created_at?: () -> bool
+
+    def will_save_change_to_created_at?: () -> bool
+
+    def restore_created_at!: () -> void
+
+    def clear_created_at_change: () -> void
+
+    def updated_at: () -> ActiveSupport::TimeWithZone
+
+    def updated_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def updated_at?: () -> bool
+
+    def updated_at_changed?: () -> bool
+
+    def updated_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def updated_at_will_change!: () -> void
+
+    def updated_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_previously_changed?: () -> bool
+
+    def updated_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_updated_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_updated_at?: () -> bool
+
+    def will_save_change_to_updated_at?: () -> bool
+
+    def restore_updated_at!: () -> void
+
+    def clear_updated_at_change: () -> void
+  end
+  include GeneratedAttributeMethods
+
+  def order: () -> Order
+  def order=: (Order?) -> Order?
+  def reload_order: () -> Order?
+  def build_order: (untyped) -> Order
+  def create_order: (untyped) -> Order
+  def create_order!: (untyped) -> Order
+  def payment_method: () -> PaymentMethod
+  def payment_method=: (PaymentMethod?) -> PaymentMethod?
+  def reload_payment_method: () -> PaymentMethod?
+  def build_payment_method: (untyped) -> PaymentMethod
+  def create_payment_method: (untyped) -> PaymentMethod
+  def create_payment_method!: (untyped) -> PaymentMethod
+  module GeneratedAssociationMethods
+  end
+  include GeneratedAssociationMethods
+
+  def transaction_start!: () -> bool
+  def transaction_start?: () -> bool
+  def transaction_success!: () -> bool
+  def transaction_success?: () -> bool
+  def transaction_fail!: () -> bool
+  def transaction_fail?: () -> bool
+  def self.transaction_start: () -> ActiveRecord_Relation
+  def self.transaction_success: () -> ActiveRecord_Relation
+  def self.transaction_fail: () -> ActiveRecord_Relation
+
+  module GeneratedRelationMethods
+    def transaction_start: () -> ActiveRecord_Relation
+
+    def transaction_success: () -> ActiveRecord_Relation
+
+    def transaction_fail: () -> ActiveRecord_Relation
+  end
+
+  class ActiveRecord_Relation < ::ActiveRecord::Relation
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[Payment, Integer]
+    include Enumerable[Payment]
+  end
+
+  class ActiveRecord_Associations_CollectionProxy < ::ActiveRecord::Associations::CollectionProxy
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[Payment, Integer]
+  end
+end

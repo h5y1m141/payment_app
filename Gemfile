@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.0.1'
 
 gem 'rails', '7.0.6'
 
@@ -35,6 +35,7 @@ gem 'rbs_rails', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'katakata_irb'
+  gem 'steep'
   gem 'graphiql-rails'
   gem 'factory_bot_rails'
   gem 'faker'
