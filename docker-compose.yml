@@ -5,7 +5,7 @@ x-app: &app
   build:
     context: .
     args:
-      RUBY_VERSION: 3.1.2
+      RUBY_VERSION: 3.0.1
       BUNDLER_VERSION: 2.3.22
       POSTGRES_MAJOR: 11
       NODE_MAJOR: 16

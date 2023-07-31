@@ -1,0 +1,20 @@
+class ApplicationRecord < ActiveRecord::Base
+end
+class CustomerPaymentMethod::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end
+class Order::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end
+class ShippingAddress::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end
+class OrderItem::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end
+class Shipping::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end
+class UserCreditCard::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end
+class ActiveRecord::Associations::CollectionProxy < ActiveRecord::Relation
+end
+class ActiveRecord::Relation < Object
+end
+module ActiveRecord::Associations
+end

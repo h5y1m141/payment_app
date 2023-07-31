@@ -38,3 +38,8 @@ yarn-debug.log*
 /bin/plant_erd-oracle_darwin_amd64
 docker-compose.override.ymloas_docs/oas_doc.yml
 .env
+
+# RBS
+/.gem_rbs_collection/
+rbs_collection.lock.yaml
+.irb_history

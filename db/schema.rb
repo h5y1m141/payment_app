@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_051005) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_07_25_062934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admin_accounts", force: :cascade do |t|
     t.string "uid"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customer_payment_methods", force: :cascade do |t|
@@ -27,15 +26,15 @@ ActiveRecord::Schema.define(version: 2021_11_17_051005) do
     t.integer "exp_month", null: false
     t.integer "exp_year", null: false
     t.string "brand", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_customer_payment_methods_on_customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
     t.string "uid"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "stripe_customer_id", default: "", null: false
   end
 
@@ -43,8 +42,8 @@ ActiveRecord::Schema.define(version: 2021_11_17_051005) do
     t.string "zipcode", null: false
     t.string "address", null: false
     t.bigint "order_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_destinations_on_order_id"
   end
 
@@ -54,14 +53,14 @@ ActiveRecord::Schema.define(version: 2021_11_17_051005) do
     t.integer "product_unit_price", null: false
     t.integer "quantity", null: false
     t.integer "sub_total", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "payment_intent_id", default: "", null: false
     t.integer "total_price", default: 0, null: false
     t.bigint "customer_id"
@@ -73,15 +72,15 @@ ActiveRecord::Schema.define(version: 2021_11_17_051005) do
   create_table "payment_customers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "customer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_payment_customers_on_user_id"
   end
 
   create_table "payment_methods", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "payments", force: :cascade do |t|
@@ -90,31 +89,31 @@ ActiveRecord::Schema.define(version: 2021_11_17_051005) do
     t.integer "amount", null: false, comment: "決済時の金額を保持しておく必要あるためにこのカラムを利用"
     t.integer "payment_type", null: false, comment: "取引毎のステータス（注文開始、注文失敗、再決済、注文キャンセル・・等）をENUM型で処理する想定。"
     t.string "code", default: "該当なし", null: false, comment: "決済プロバイダーからのレスポンス情報を格納する想定"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_payments_on_order_id"
     t.index ["payment_method_id"], name: "index_payments_on_payment_method_id"
   end
 
   create_table "prefectures", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_stocks", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.integer "stock", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_product_stocks_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
@@ -122,8 +121,8 @@ ActiveRecord::Schema.define(version: 2021_11_17_051005) do
     t.string "zipcode", null: false
     t.bigint "prefecture_id", null: false
     t.string "address", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_shipping_addresses_on_customer_id"
     t.index ["prefecture_id"], name: "index_shipping_addresses_on_prefecture_id"
   end
@@ -131,32 +130,39 @@ ActiveRecord::Schema.define(version: 2021_11_17_051005) do
   create_table "shipping_states", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.integer "aasm_state", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_shipping_states_on_order_id"
   end
 
   create_table "shippings", force: :cascade do |t|
     t.integer "status", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "shipping_state_id"
     t.index ["shipping_state_id"], name: "index_shippings_on_shipping_state_id"
+  end
+
+  create_table "user_credit_cards", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_credit_cards_on_user_id"
   end
 
   create_table "user_profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "uid", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "customer_payment_methods", "customers"
@@ -171,5 +177,6 @@ ActiveRecord::Schema.define(version: 2021_11_17_051005) do
   add_foreign_key "shipping_addresses", "prefectures"
   add_foreign_key "shipping_states", "orders"
   add_foreign_key "shippings", "shipping_states"
+  add_foreign_key "user_credit_cards", "users"
   add_foreign_key "user_profiles", "users"
 end
