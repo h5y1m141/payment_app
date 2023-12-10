@@ -30,6 +30,8 @@ gem 'administrate'
 gem 'nokogiri', '1.13.8'
 gem 'rbs', require: false
 gem 'rbs_rails', require: false
+gem 'sorbet-rails'
+gem 'sorbet-runtime'
 
 
 group :development, :test do
@@ -47,6 +49,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'sorbet', '0.5.10940', git: 'https://github.com/sorbet/sorbet.git'
+  gem 'tapioca', require: false
   gem 'web-console', '>= 4.1.0'
   gem 'rack-mini-profiler', '~> 2.0', require: false
   gem 'listen', '~> 3.3'
